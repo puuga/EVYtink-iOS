@@ -684,7 +684,8 @@
                                                             <exclude reference="chU-E7-ear"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="widthClass=compact">
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="76" y="5" width="156" height="18"/>
                                                         <mask key="constraints">
                                                             <include reference="chU-E7-ear"/>
                                                         </mask>
@@ -695,6 +696,9 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="76" y="25" width="156" height="40"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
