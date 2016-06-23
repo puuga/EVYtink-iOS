@@ -1,0 +1,133 @@
+//
+//  TestMapViewController.m
+//  EVYtink
+//
+//  Created by roomlinksaas_dev on 6/17/2559 BE.
+//  Copyright © 2559 roomlinksaas_dev. All rights reserved.
+//
+
+#import "TestMapViewController.h"
+#define METERS_PER_MILE 1609.344
+@interface TestMapViewController (){
+    BOOL _didStartMonitoringRegion;
+}
+
+@end
+
+@implementation TestMapViewController
+
+@synthesize mapV,locationManager,geofences;
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    mapV = [[MKMapView alloc]init];
+    mapV.showsUserLocation = YES;
+    
+    locationManager = [[CLLocationManager alloc] init];
+    [locationManager setDelegate:self];
+    [locationManager setDesiredAccuracy:kCLLocationAccuracyHundredMeters];
+    geofences = [NSMutableArray arrayWithArray:[[locationManager monitoredRegions] allObjects]];
+}
+
+-(void)addGeo{
+    //Create Coordinate and region.
+    CLLocationCoordinate2D coordinate;
+    coordinate.latitude = 13.841302;
+    coordinate.longitude = 100.557236;
+    CLCircularRegion *region = [[CLCircularRegion alloc] initWithCenter:coordinate radius:200 identifier:@"Bank"];
+    
+    //Add and working Region.
+    [locationManager startMonitoringForRegion:region];
+    [geofences addObject:region];
+    
+    //use method Update location.
+    [locationManager startUpdatingLocation];
+}
+
+/*
+-(void)setUpGeofence{
+    CLLocationCoordinate2D center = CLLocationCoordinate2DMake(13.841302, 100.557236);
+    CLRegion *bridge = [[CLCircularRegion alloc]initWithCenter:center radius:100.0 identifier:@"Bank"];
+    [self.locationManager startMonitoringForRegion:bridge];
+}
+ */
+/*
+- (void)addGeo:(id)sender {
+    // Update Helper
+    _didStartMonitoringRegion = NO;
+    
+    // Start Updating Location
+    [self.locationManager startUpdatingLocation];
+}
+*/
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    NSLog(@"Did Update locations.");
+    if (locations && [locations count] && !_didStartMonitoringRegion) {
+        // Update Helper
+        _didStartMonitoringRegion = YES;
+        
+        // Fetch Current Location
+        CLLocation *location = [locations objectAtIndex:0];
+        
+        // Initialize Region to Monitor
+        //CLRegion *region = [[CLRegion alloc] initCircularRegionWithCenter:[location coordinate] radius:250.0 identifier:[[NSUUID UUID] UUIDString]];
+        /*
+        CLLocationCoordinate2D coordinate;
+        coordinate.latitude = 13.841302;
+        coordinate.longitude = 100.557236;
+        CLCircularRegion *region = [[CLCircularRegion alloc] initWithCenter:coordinate radius:200 identifier:@"Bank"];
+        
+        
+        // Start Monitoring Region
+        //[locationManager startMonitoringForRegion:region];
+        //[locationManager stopMonitoringForRegion:region];
+        [locationManager stopUpdatingLocation];
+        */
+        // Update Table View
+        //[geofences addObject:region];
+
+        NSLog(@"update location");
+        
+    }
+}
+
+
+
+- (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
+    NSLog(@"Entered Regoin : %@ - %@",region.identifier,geofences);
+    //NSLog(@"%s", __PRETTY_FUNCTION__);
+    
+}
+
+- (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region {
+    NSLog(@"Exit Regoin : %@ - %@",region.identifier,geofences);
+    //NSLog(@"%s", __PRETTY_FUNCTION__);
+    
+    //remove region, geofence.
+    [geofences removeObject:region];
+    [locationManager stopMonitoringForRegion:region];
+    
+    //disable method Update location.
+    [locationManager stopUpdatingLocation];
+}
+
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+- (IBAction)addGeo:(id)sender {
+    [self addGeo];
+}
+@end
