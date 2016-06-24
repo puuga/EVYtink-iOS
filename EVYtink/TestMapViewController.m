@@ -20,10 +20,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    NSUserDefaults * defs = [NSUserDefaults standardUserDefaults];
+    NSDictionary * dict = [defs dictionaryRepresentation];
+    for (id key in dict) {
+        [defs removeObjectForKey:key];
+    }
+    
+    
     mapV = [[MKMapView alloc]init];
     mapV.showsUserLocation = YES;
     
     locationManager = [[CLLocationManager alloc] init];
+    //[locationManager requestWhenInUseAuthorization];
+    //[locationManager requestAlwaysAuthorization];
     [locationManager setDelegate:self];
     [locationManager setDesiredAccuracy:kCLLocationAccuracyHundredMeters];
     geofences = [NSMutableArray arrayWithArray:[[locationManager monitoredRegions] allObjects]];
@@ -96,6 +106,17 @@
 - (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
     NSLog(@"Entered Regoin : %@ - %@",region.identifier,geofences);
     //NSLog(@"%s", __PRETTY_FUNCTION__);
+    /*defaults = [NSUserDefaults standardUserDefaults];*/
+    UIUserNotificationType types = UIUserNotificationTypeBadge| UIUserNotificationTypeSound| UIUserNotificationTypeAlert;
+    UIUserNotificationSettings *mySettings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
+    [[UIApplication sharedApplication] registerUserNotificationSettings:mySettings];
+
+    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+    localNotification.alertBody = [NSString stringWithFormat:@"Entered : %@",region.identifier,geofences];
+    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    localNotification.repeatInterval= NSCalendarUnitDay;//NSCalendarUnitMinute; //Repeating instructions here.
+    localNotification.soundName= UILocalNotificationDefaultSoundName;
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
     
 }
 

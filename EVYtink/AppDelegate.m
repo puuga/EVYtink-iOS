@@ -49,25 +49,6 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     NSLog(@"Background.");
-    
-    UILocalNotification* n1 = [[UILocalNotification alloc] init];
-    n1.fireDate = [NSDate dateWithTimeIntervalSinceNow: 2];
-    n1.alertBody = @"notification one.";
-    [[UIApplication sharedApplication] scheduleLocalNotification: n1];
-    
-    
-    NSDate *notificationDate = [[NSDate date] dateByAddingTimeInterval:1];
-    UIApplication *app = [UIApplication sharedApplication];
-    UILocalNotification *notification = [[UILocalNotification alloc] init];
-    if (notification) {
-        notification.fireDate = notificationDate;
-        notification.timeZone = [NSTimeZone defaultTimeZone];
-        notification.repeatInterval = 0;
-        notification.alertBody = @"Take Drugs";
-        notification.soundName = UILocalNotificationDefaultSoundName;
-        notification.applicationIconBadgeNumber = notification.applicationIconBadgeNumber+1;
-        [app scheduleLocalNotification:notification];
-    }
     /*
     if([[UIDevice currentDevice] respondsToSelector:@selector(isMultitaskingSupported)])
     {

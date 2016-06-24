@@ -49,6 +49,9 @@
 		18EC799D1CF6AB43005C2649 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EC799C1CF6AB43005C2649 /* WebKit.framework */; };
 		18EC79A01CF6C6B4005C2649 /* testTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EC799F1CF6C6B4005C2649 /* testTableView.m */; };
 		18EC79A31CF6E006005C2649 /* TestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EC79A21CF6E006005C2649 /* TestCell.m */; };
+		69E67EFCCEE55A1FC67E5667 /* libPods-EVYtink.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EABA2A424A4C5C3093B3B81 /* libPods-EVYtink.a */; };
+		D8DA7C0348DF84A25086CF0B /* libPods-EVYtinkUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95FBEAF8E26F642B16407016 /* libPods-EVYtinkUITests.a */; };
+		F6889DA12FA20D9138A3D0F7 /* libPods-EVYtinkTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD9BF9732946DFAA50EA7327 /* libPods-EVYtinkTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +136,15 @@
 		18EC799F1CF6C6B4005C2649 /* testTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testTableView.m; sourceTree = "<group>"; };
 		18EC79A11CF6E006005C2649 /* TestCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCell.h; sourceTree = "<group>"; };
 		18EC79A21CF6E006005C2649 /* TestCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCell.m; sourceTree = "<group>"; };
+		50216C9AF5F9E2BA23BBCB9A /* Pods-EVYtinkUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EVYtinkUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EVYtinkUITests/Pods-EVYtinkUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		5050ACC76E1A55C57E021B72 /* Pods-EVYtink.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EVYtink.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EVYtink/Pods-EVYtink.debug.xcconfig"; sourceTree = "<group>"; };
+		508A5B9B92AFD1E69FBB57A6 /* Pods-EVYtinkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EVYtinkTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EVYtinkTests/Pods-EVYtinkTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5EABA2A424A4C5C3093B3B81 /* libPods-EVYtink.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EVYtink.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7DB55EE61F4BCA0F54CECE50 /* Pods-EVYtink.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EVYtink.release.xcconfig"; path = "Pods/Target Support Files/Pods-EVYtink/Pods-EVYtink.release.xcconfig"; sourceTree = "<group>"; };
+		95FBEAF8E26F642B16407016 /* libPods-EVYtinkUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EVYtinkUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		978192420466770A76427342 /* Pods-EVYtinkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EVYtinkTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EVYtinkTests/Pods-EVYtinkTests.release.xcconfig"; sourceTree = "<group>"; };
+		AD9BF9732946DFAA50EA7327 /* libPods-EVYtinkTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EVYtinkTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D58C8D5DD7C3732B6B040BC6 /* Pods-EVYtinkUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EVYtinkUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EVYtinkUITests/Pods-EVYtinkUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +159,7 @@
 				1836486C1CEEB90400C0DA03 /* Foundation.framework in Frameworks */,
 				181FDE581CED7CAD00C47C37 /* FBSDKLoginKit.framework in Frameworks */,
 				181FDE551CED776600C47C37 /* FBSDKCoreKit.framework in Frameworks */,
+				69E67EFCCEE55A1FC67E5667 /* libPods-EVYtink.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,6 +167,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6889DA12FA20D9138A3D0F7 /* libPods-EVYtinkTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,6 +175,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8DA7C0348DF84A25086CF0B /* libPods-EVYtinkUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,6 +194,8 @@
 				181FDE3A1CED768600C47C37 /* EVYtinkTests */,
 				181FDE451CED768600C47C37 /* EVYtinkUITests */,
 				181FDE1F1CED768600C47C37 /* Products */,
+				AAB9BE1B83BB6D8727C7B490 /* Pods */,
+				691EF97EF18388EBDA362509 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -293,6 +310,29 @@
 			name = Graphic;
 			sourceTree = "<group>";
 		};
+		691EF97EF18388EBDA362509 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5EABA2A424A4C5C3093B3B81 /* libPods-EVYtink.a */,
+				AD9BF9732946DFAA50EA7327 /* libPods-EVYtinkTests.a */,
+				95FBEAF8E26F642B16407016 /* libPods-EVYtinkUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AAB9BE1B83BB6D8727C7B490 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5050ACC76E1A55C57E021B72 /* Pods-EVYtink.debug.xcconfig */,
+				7DB55EE61F4BCA0F54CECE50 /* Pods-EVYtink.release.xcconfig */,
+				508A5B9B92AFD1E69FBB57A6 /* Pods-EVYtinkTests.debug.xcconfig */,
+				978192420466770A76427342 /* Pods-EVYtinkTests.release.xcconfig */,
+				50216C9AF5F9E2BA23BBCB9A /* Pods-EVYtinkUITests.debug.xcconfig */,
+				D58C8D5DD7C3732B6B040BC6 /* Pods-EVYtinkUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -300,9 +340,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 181FDE4B1CED768600C47C37 /* Build configuration list for PBXNativeTarget "EVYtink" */;
 			buildPhases = (
+				2C77496462403582E1672789 /* [CP] Check Pods Manifest.lock */,
 				181FDE1A1CED768600C47C37 /* Sources */,
 				181FDE1B1CED768600C47C37 /* Frameworks */,
 				181FDE1C1CED768600C47C37 /* Resources */,
+				4A2D077EC1763A62BD404A0F /* [CP] Embed Pods Frameworks */,
+				1D5783F64F582D8EBEAE99A4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -317,9 +360,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 181FDE4E1CED768600C47C37 /* Build configuration list for PBXNativeTarget "EVYtinkTests" */;
 			buildPhases = (
+				26A078016D3CF11ABF556150 /* [CP] Check Pods Manifest.lock */,
 				181FDE331CED768600C47C37 /* Sources */,
 				181FDE341CED768600C47C37 /* Frameworks */,
 				181FDE351CED768600C47C37 /* Resources */,
+				6DCB281A18973FA173622629 /* [CP] Embed Pods Frameworks */,
+				7F8B744B79DAFBE838DFB767 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -335,9 +381,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 181FDE511CED768600C47C37 /* Build configuration list for PBXNativeTarget "EVYtinkUITests" */;
 			buildPhases = (
+				60FFBD4014BDCCA1B998669E /* [CP] Check Pods Manifest.lock */,
 				181FDE3E1CED768600C47C37 /* Sources */,
 				181FDE3F1CED768600C47C37 /* Frameworks */,
 				181FDE401CED768600C47C37 /* Resources */,
+				2C1314475ED0FB006A422AFF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -436,6 +484,129 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1D5783F64F582D8EBEAE99A4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EVYtink/Pods-EVYtink-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		26A078016D3CF11ABF556150 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		2C1314475ED0FB006A422AFF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EVYtinkUITests/Pods-EVYtinkUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2C77496462403582E1672789 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4A2D077EC1763A62BD404A0F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EVYtink/Pods-EVYtink-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		60FFBD4014BDCCA1B998669E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6DCB281A18973FA173622629 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EVYtinkTests/Pods-EVYtinkTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7F8B744B79DAFBE838DFB767 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EVYtinkTests/Pods-EVYtinkTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		181FDE1A1CED768600C47C37 /* Sources */ = {
@@ -598,6 +769,7 @@
 		};
 		181FDE4C1CED768600C47C37 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5050ACC76E1A55C57E021B72 /* Pods-EVYtink.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -618,6 +790,7 @@
 		};
 		181FDE4D1CED768600C47C37 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7DB55EE61F4BCA0F54CECE50 /* Pods-EVYtink.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -638,6 +811,7 @@
 		};
 		181FDE4F1CED768600C47C37 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 508A5B9B92AFD1E69FBB57A6 /* Pods-EVYtinkTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = EVYtinkTests/Info.plist;
@@ -650,6 +824,7 @@
 		};
 		181FDE501CED768600C47C37 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 978192420466770A76427342 /* Pods-EVYtinkTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = EVYtinkTests/Info.plist;
@@ -662,6 +837,7 @@
 		};
 		181FDE521CED768600C47C37 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 50216C9AF5F9E2BA23BBCB9A /* Pods-EVYtinkUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = EVYtinkUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -673,6 +849,7 @@
 		};
 		181FDE531CED768600C47C37 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D58C8D5DD7C3732B6B040BC6 /* Pods-EVYtinkUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = EVYtinkUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

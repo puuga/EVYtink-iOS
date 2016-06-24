@@ -26,24 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    defaults = [NSUserDefaults standardUserDefaults];
-    UIUserNotificationType types = UIUserNotificationTypeBadge| UIUserNotificationTypeSound| UIUserNotificationTypeAlert;
-    UIUserNotificationSettings *mySettings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
-    [[UIApplication sharedApplication] registerUserNotificationSettings:mySettings];
     
-    
-    [defaults setBool:YES forKey:@"notificationIsActive"];
-    [defaults synchronize];
-    //self.message.text=@"Notifications Started";
-    NSTimeInterval interval;
-    interval = 60;//12 hours from now
-    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
-    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:interval]; //Enter the time here in seconds.
-    localNotification.alertBody = @"This is message Users will see";
-    localNotification.timeZone = [NSTimeZone defaultTimeZone];
-    localNotification.repeatInterval= NSCalendarUnitDay;//NSCalendarUnitMinute; //Repeating instructions here.
-    localNotification.soundName= UILocalNotificationDefaultSoundName;
-    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
     
     
     
