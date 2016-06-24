@@ -13,6 +13,7 @@
 #import "FBSDKShareKit.framework/Headers/FBSDKShareKit.h"
 #import "LoginFacebook.h"
 #import "CommentViewController.h"
+#import <UIImageView+AFNetworking.h>
 
 
 @interface P1News (){
@@ -123,7 +124,7 @@
     NSLog(@"COUNTTTTT - %lu",[arrShowNews count]);
     return [arrShowNews count];
 }
-
+/*
 -(UIImage *)changeImage:(UIImage *)imageSorce{
     UIImage *imgChange = imageSorce;
     float oldWidth = imgChange.size.width;
@@ -134,6 +135,74 @@
     [imgChange drawInRect:CGRectMake(0, 0, newWidth, newHeight)];
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
+    return newImage;
+}
+*/
+-(UIImage *)resizeToOnePic:(NSURL *)urlforImage{
+    
+    NSURLRequest *urlrequest = [NSURLRequest requestWithURL:urlforImage];
+    UIImageView *imgView = [[UIImageView alloc] init];
+    //[imgView setImageWithURL:urlforImage];
+    NSLog(@"Data imageView : %@ ,Image : %@",imgView,imgView.image);
+    
+    //UIImage *imageRequest = [[UIImage alloc] init];
+    [imgView setImageWithURLRequest:urlrequest placeholderImage:NULL success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull imageShowHere) {
+        NSLog(@"Sizeeee : %f",imageShowHere.size.width);
+    } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
+        NSLog(@"Errorrrrrrrr");
+    }];
+    /*
+    UIImage *imageFromImageView = imgView.image;
+    NSLog(@"Data Image : %@",imageFromImageView);
+    if (imageFromImageView.size.width>imageFromImageView.size.height) {
+        UIImageView *returnIMGV = [[UIImageView alloc]init];
+        returnIMGV.image = [self onePicWidth:imageFromImageView];
+        return returnIMGV;
+    }else{
+        UIImageView *returnIMGV = [[UIImageView alloc]init];
+        returnIMGV.image = [self onePicHeight:imageFromImageView];;
+        return returnIMGV;
+    }
+     */
+    
+    
+    NSData *dat = [[NSData alloc] initWithContentsOfURL:urlforImage];
+    UIImage *imageFromImageView = [[UIImage alloc] initWithData:dat];
+    
+    NSLog(@"Data Image : %@",imageFromImageView);
+    if (imageFromImageView.size.width>imageFromImageView.size.height) {
+        return [self onePicWidth:imageFromImageView];
+    }else{
+
+        return [self onePicHeight:imageFromImageView];
+    }
+
+     
+}
+
+-(UIImage *)onePicWidth:(UIImage *)image{
+    float oldHeight = image.size.height;
+    float scaleFactor = 254 / oldHeight;
+    float newHeight = oldHeight * scaleFactor;
+    float newWidth = image.size.width * scaleFactor;
+    UIGraphicsBeginImageContext(CGSizeMake(newWidth, newHeight));
+    [image drawInRect:CGRectMake(0, 0, newWidth, newHeight)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    NSLog(@"Width : %@",newImage);
+    return newImage;
+}
+
+-(UIImage *)onePicHeight:(UIImage *)image{
+    float oldWidth = image.size.width;
+    float scaleFactor = self.view.frame.size.width / oldWidth;
+    float newHeight = image.size.height * scaleFactor;
+    float newWidth = oldWidth * scaleFactor;
+    UIGraphicsBeginImageContext(CGSizeMake(newWidth, newHeight));
+    [image drawInRect:CGRectMake(0, 0, newWidth, newHeight)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    NSLog(@"Height : %@",newImage);
     return newImage;
 }
 
@@ -182,30 +251,20 @@
             NSData *datUrlUser = [[NSData alloc] initWithContentsOfURL:urlUser];
             cell.img.image = [UIImage imageWithData:datUrlUser];
             
+            
             NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@",[[arrNews objectAtIndex:indexPath.row] objectForKey:@"imageurl"]]];
-            NSData *dat = [[NSData alloc] initWithContentsOfURL:url];
-            UIImage *imgChange = [[UIImage alloc] initWithData:dat];
-            if (imgChange.size.width>imgChange.size.height) {
-                float oldHeight = imgChange.size.height;
-                float scaleFactor = 254 / oldHeight;
-                float newHeight = oldHeight * scaleFactor;
-                float newWidth = imgChange.size.width * scaleFactor;
-                UIGraphicsBeginImageContext(CGSizeMake(newWidth, newHeight));
-                [imgChange drawInRect:CGRectMake(0, 0, newWidth, newHeight)];
-                UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-                UIGraphicsEndImageContext();
-                cell.imgPic1.image = newImage;
-            }else{
-                float oldWidth = imgChange.size.width;
-                float scaleFactor = self.view.frame.size.width / oldWidth;
-                float newHeight = imgChange.size.height * scaleFactor;
-                float newWidth = oldWidth * scaleFactor;
-                UIGraphicsBeginImageContext(CGSizeMake(newWidth, newHeight));
-                [imgChange drawInRect:CGRectMake(0, 0, newWidth, newHeight)];
-                UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-                UIGraphicsEndImageContext();
-                cell.imgPic1.image = newImage;
-            }
+            
+            //cell.imgPic1.image = [self resizeToOnePic:url];
+            NSURLRequest *urlrequest = [NSURLRequest requestWithURL:url];
+            [cell.imgPic1 setImageWithURLRequest:urlrequest placeholderImage:NULL success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull imageShowHere) {
+                NSLog(@"Sizeeee : %f",imageShowHere.size.width);
+                cell.imgPic1.image = imageShowHere;
+                
+                
+            } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
+                NSLog(@"Errorrrrrrrr");
+            }];
+            
             cell.indexAction = indexPath;
             cell.strObjId = [[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"newsevyid"];
             cell.txtName.text = [[[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"user"] objectForKey:@"publishtitle"];

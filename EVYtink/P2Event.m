@@ -11,6 +11,7 @@
 #import "P1CellCustom2.h"
 #import "P1CellCustom3.h"
 #import "ViewWeb.h"
+#import <UIImageView+AFNetworking.h>
 
 @interface P2Event ()
 
