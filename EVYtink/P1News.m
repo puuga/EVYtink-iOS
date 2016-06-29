@@ -27,20 +27,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
-    
+    UIImage* logoImage = [UIImage imageNamed:@"TopCenterlogoevytink.png"];
+    UIImageView *uiimagelogoImage = [[UIImageView alloc] initWithImage:logoImage];
+    uiimagelogoImage.frame = CGRectMake(75, 0, 100, 44);
+    [uiimagelogoImage setContentMode:UIViewContentModeScaleAspectFit];
+    self.navigationItem.titleView = uiimagelogoImage;
     
     //self.tabBarController.tabBarItem.image = [UIImage imageNamed:@"icon_facebook.png"];
-    [[self.tabBarController.tabBar.items objectAtIndex:0] setImage:[[UIImage imageNamed:@"newsicon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
-    [[self.tabBarController.tabBar.items objectAtIndex:1] setImage:[[UIImage imageNamed:@"eventicon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
-    [[self.tabBarController.tabBar.items objectAtIndex:2] setImage:[[UIImage imageNamed:@"promoicon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
-    [[self.tabBarController.tabBar.items objectAtIndex:3] setImage:[[UIImage imageNamed:@"eventicon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
-    
+    [[self.tabBarController.tabBar.items objectAtIndex:0] setImage:[[UIImage imageNamed:@"TabNewsicon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    [[self.tabBarController.tabBar.items objectAtIndex:1] setImage:[[UIImage imageNamed:@"TabEventicon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    [[self.tabBarController.tabBar.items objectAtIndex:2] setImage:[[UIImage imageNamed:@"TabPromoicon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    [[self.tabBarController.tabBar.items objectAtIndex:3] setImage:[[UIImage imageNamed:@"TabFavicon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    [[self.tabBarController.tabBar.items objectAtIndex:4] setImage:[[UIImage imageNamed:@"TabMoreManu.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+
     [self.tabBarController.tabBar.items objectAtIndex:0].imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
     [self.tabBarController.tabBar.items objectAtIndex:1].imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
     [self.tabBarController.tabBar.items objectAtIndex:2].imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
     [self.tabBarController.tabBar.items objectAtIndex:3].imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
+    [self.tabBarController.tabBar.items objectAtIndex:4].imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
     
     static NSString *CellIdentifier1 = @"idenCell1";
     static NSString *CellIdentifier2 = @"idenCell2";
@@ -104,8 +108,11 @@
 -(void)setArrNews:(NSMutableArray *)arrNews{
     NSData *jsonData = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"https://evbt.azurewebsites.net/docs/page/theme/betajsonnews.aspx"]];
     id jsonObjects = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
+    NSLog(@"JSON DATA - %@,\nJSON OBJECT - %@",jsonData,jsonObjects);
+    NSLog(@"COunt json - %@",jsonObjects);
      for (int i=0; i<[jsonObjects count]; i++) {
-         [arrNews addObject:[jsonObjects objectAtIndex:i]];
+        [arrNews addObject:[jsonObjects objectAtIndex:i]];
+         NSLog(@"รอบที่ - %d",i);
      }
 }
 
@@ -124,87 +131,7 @@
     NSLog(@"COUNTTTTT - %lu",[arrShowNews count]);
     return [arrShowNews count];
 }
-/*
--(UIImage *)changeImage:(UIImage *)imageSorce{
-    UIImage *imgChange = imageSorce;
-    float oldWidth = imgChange.size.width;
-    float scaleFactor = self.view.frame.size.width / oldWidth;
-    float newHeight = imgChange.size.height * scaleFactor;
-    float newWidth = oldWidth * scaleFactor;
-    UIGraphicsBeginImageContext(CGSizeMake(newWidth, newHeight));
-    [imgChange drawInRect:CGRectMake(0, 0, newWidth, newHeight)];
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return newImage;
-}
-*/
--(UIImage *)resizeToOnePic:(NSURL *)urlforImage{
-    
-    NSURLRequest *urlrequest = [NSURLRequest requestWithURL:urlforImage];
-    UIImageView *imgView = [[UIImageView alloc] init];
-    //[imgView setImageWithURL:urlforImage];
-    NSLog(@"Data imageView : %@ ,Image : %@",imgView,imgView.image);
-    
-    //UIImage *imageRequest = [[UIImage alloc] init];
-    [imgView setImageWithURLRequest:urlrequest placeholderImage:NULL success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull imageShowHere) {
-        NSLog(@"Sizeeee : %f",imageShowHere.size.width);
-    } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
-        NSLog(@"Errorrrrrrrr");
-    }];
-    /*
-    UIImage *imageFromImageView = imgView.image;
-    NSLog(@"Data Image : %@",imageFromImageView);
-    if (imageFromImageView.size.width>imageFromImageView.size.height) {
-        UIImageView *returnIMGV = [[UIImageView alloc]init];
-        returnIMGV.image = [self onePicWidth:imageFromImageView];
-        return returnIMGV;
-    }else{
-        UIImageView *returnIMGV = [[UIImageView alloc]init];
-        returnIMGV.image = [self onePicHeight:imageFromImageView];;
-        return returnIMGV;
-    }
-     */
-    
-    
-    NSData *dat = [[NSData alloc] initWithContentsOfURL:urlforImage];
-    UIImage *imageFromImageView = [[UIImage alloc] initWithData:dat];
-    
-    NSLog(@"Data Image : %@",imageFromImageView);
-    if (imageFromImageView.size.width>imageFromImageView.size.height) {
-        return [self onePicWidth:imageFromImageView];
-    }else{
 
-        return [self onePicHeight:imageFromImageView];
-    }
-
-     
-}
-
--(UIImage *)onePicWidth:(UIImage *)image{
-    float oldHeight = image.size.height;
-    float scaleFactor = 254 / oldHeight;
-    float newHeight = oldHeight * scaleFactor;
-    float newWidth = image.size.width * scaleFactor;
-    UIGraphicsBeginImageContext(CGSizeMake(newWidth, newHeight));
-    [image drawInRect:CGRectMake(0, 0, newWidth, newHeight)];
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    NSLog(@"Width : %@",newImage);
-    return newImage;
-}
-
--(UIImage *)onePicHeight:(UIImage *)image{
-    float oldWidth = image.size.width;
-    float scaleFactor = self.view.frame.size.width / oldWidth;
-    float newHeight = image.size.height * scaleFactor;
-    float newWidth = oldWidth * scaleFactor;
-    UIGraphicsBeginImageContext(CGSizeMake(newWidth, newHeight));
-    [image drawInRect:CGRectMake(0, 0, newWidth, newHeight)];
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    NSLog(@"Height : %@",newImage);
-    return newImage;
-}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier1 = @"idenCell1";
@@ -230,7 +157,15 @@
             NSString *urlimg = subString[0];
             NSURL *urlUser = [NSURL URLWithString:[NSString stringWithFormat:@"%@?",urlimg]];
             NSData *datUrlUser = [[NSData alloc] initWithContentsOfURL:urlUser];
-            cell.img.image = [UIImage imageWithData:datUrlUser];
+            
+            NSURLRequest *requestImageUser = [NSURLRequest requestWithURL:[NSURL URLWithString:string]];
+            [cell.img setImageWithURLRequest:requestImageUser placeholderImage:NULL success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull imageShowHere) {
+                cell.img.image = imageShowHere;
+                
+            } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
+                NSLog(@"Errorrrrrrrr");
+            }];
+            
             
             cell.indexAction = indexPath;
             cell.strObjId = [[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"newsevyid"];
@@ -249,17 +184,20 @@
             NSString *urlimg = subString[0];
             NSURL *urlUser = [NSURL URLWithString:[NSString stringWithFormat:@"%@?",urlimg]];
             NSData *datUrlUser = [[NSData alloc] initWithContentsOfURL:urlUser];
-            cell.img.image = [UIImage imageWithData:datUrlUser];
+            
+            NSURLRequest *requestImageUser = [NSURLRequest requestWithURL:[NSURL URLWithString:string]];
+            [cell.img setImageWithURLRequest:requestImageUser placeholderImage:NULL success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull imageShowHere) {
+                cell.img.image = imageShowHere;
+                
+            } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
+                NSLog(@"Errorrrrrrrr");
+            }];
             
             
             NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@",[[arrNews objectAtIndex:indexPath.row] objectForKey:@"imageurl"]]];
-            
-            //cell.imgPic1.image = [self resizeToOnePic:url];
             NSURLRequest *urlrequest = [NSURLRequest requestWithURL:url];
             [cell.imgPic1 setImageWithURLRequest:urlrequest placeholderImage:NULL success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull imageShowHere) {
-                NSLog(@"Sizeeee : %f",imageShowHere.size.width);
                 cell.imgPic1.image = imageShowHere;
-                
                 
             } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
                 NSLog(@"Errorrrrrrrr");
@@ -282,31 +220,38 @@
             NSString *urlimg = subString[0];
             NSURL *urlUser = [NSURL URLWithString:[NSString stringWithFormat:@"%@?",urlimg]];
             NSData *datUrlUser = [[NSData alloc] initWithContentsOfURL:urlUser];
-            cell.img.image = [UIImage imageWithData:datUrlUser];
+            
+            NSURLRequest *requestImageUser = [NSURLRequest requestWithURL:[NSURL URLWithString:string]];
+            [cell.img setImageWithURLRequest:requestImageUser placeholderImage:NULL success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull imageShowHere) {
+                cell.img.image = imageShowHere;
+                
+            } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
+                NSLog(@"Errorrrrrrrr");
+            }];
             
             NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@",[[arrNews objectAtIndex:indexPath.row] objectForKey:@"imageurl"]]];
-            NSData *dat = [[NSData alloc] initWithContentsOfURL:url];
-            UIImage *imgChange = [[UIImage alloc] initWithData:dat];
-            float oldWidth = imgChange.size.width;
-            float scaleFactor = (self.view.frame.size.width/2) / oldWidth;
-            float newHeight = imgChange.size.height * scaleFactor;
-            float newWidth = oldWidth * scaleFactor;
-            UIGraphicsBeginImageContext(CGSizeMake(newWidth, newHeight));
-            [imgChange drawInRect:CGRectMake(0, 0, newWidth, newHeight)];
-            UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-            UIGraphicsEndImageContext();
+            NSURLRequest *urlrequest = [NSURLRequest requestWithURL:url];
+            
+            [cell.imgPic1 setImageWithURLRequest:urlrequest placeholderImage:NULL success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull imageShowHere) {
+                cell.imgPic1.image = imageShowHere;
+                
+            } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
+                NSLog(@"Errorrrrrrrr");
+            }];
+            
             NSURL *url2 = [NSURL URLWithString:[NSString stringWithFormat:@"%@",[[arrNews objectAtIndex:indexPath.row] objectForKey:@"imageurl2"]]];
-            NSData *dat2 = [[NSData alloc] initWithContentsOfURL:url2];
-            UIImage *imgChange2 = [[UIImage alloc] initWithData:dat2];
-            UIGraphicsBeginImageContext(CGSizeMake(newWidth, newHeight));
-            [imgChange2 drawInRect:CGRectMake(0, 0, newWidth, newHeight)];
-            UIImage *newImage2 = UIGraphicsGetImageFromCurrentImageContext();
-            UIGraphicsEndImageContext();
+            NSURLRequest *urlrequest2 = [NSURLRequest requestWithURL:url2];
+            
+            [cell.imgPic2 setImageWithURLRequest:urlrequest2 placeholderImage:NULL success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull imageShowHere) {
+                cell.imgPic2.image = imageShowHere;
+            } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
+                NSLog(@"Errorrrrrrrr");
+            }];
+            
+            
             
             cell.indexAction = indexPath;
             cell.strObjId = [[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"newsevyid"];
-            cell.imgPic1.image = newImage;
-            cell.imgPic2.image = newImage2;
             cell.txtName.text = [[[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"user"] objectForKey:@"publishtitle"];
             cell.txtDate.text = [[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"evydatetime"];
             cell.txtDetail.text = [[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"title"];

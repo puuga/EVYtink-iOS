@@ -292,6 +292,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="4GR-6z-esA">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="ldn-Gl-39e"/>
                         <barButtonItem key="rightBarButtonItem" title="Item" id="gXC-kx-lRd">
                             <connections>
                                 <action selector="BtLogout:" destination="qXz-HC-eh1" id="KBu-xo-9nd"/>
@@ -551,11 +552,11 @@
             </objects>
             <point key="canvasLocation" x="2779.5" y="1239"/>
         </scene>
-        <!--Favorite-->
+        <!--Navigation Controller-->
         <scene sceneID="KOL-Tc-B5P">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q7F-Md-fsz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Favorite" id="vv3-AQ-Qc0"/>
+                    <tabBarItem key="tabBarItem" title="" id="vv3-AQ-Qc0"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="eMZ-hH-btp">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -587,7 +588,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XoJ-8Q-O4G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4615.5" y="1916"/>
+            <point key="canvasLocation" x="2779.5" y="1928"/>
         </scene>
         <!--Comment View Controller-->
         <scene sceneID="iEY-3n-SiA">
@@ -830,11 +831,11 @@
             </objects>
             <point key="canvasLocation" x="868.5" y="2263"/>
         </scene>
-        <!--setting-->
+        <!--Navigation Controller-->
         <scene sceneID="8Vl-tu-T9O">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bml-x1-Coo" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="setting" id="9Yu-h7-tQH"/>
+                    <tabBarItem key="tabBarItem" title="" id="9Yu-h7-tQH"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="WLi-w1-yg5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -847,7 +848,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mmM-9o-Dca" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3697.5" y="1916"/>
+            <point key="canvasLocation" x="1861.5" y="1928"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gLl-i3-pda">
