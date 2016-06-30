@@ -37,6 +37,9 @@
 		18CB21791D21259600019C3F /* TabFavicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 18CB21781D21259600019C3F /* TabFavicon.png */; };
 		18CB217B1D21273500019C3F /* TabMoreManu.png in Resources */ = {isa = PBXBuildFile; fileRef = 18CB217A1D21273500019C3F /* TabMoreManu.png */; };
 		18CB217D1D23BFE200019C3F /* TopCenterlogoevytink.png in Resources */ = {isa = PBXBuildFile; fileRef = 18CB217C1D23BFE200019C3F /* TopCenterlogoevytink.png */; };
+		18CB21821D24EE6E00019C3F /* frontNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CB21811D24EE6E00019C3F /* frontNavigationViewController.m */; };
+		18CB218A1D24F32A00019C3F /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CB21891D24F32A00019C3F /* SWRevealViewController.m */; };
+		18CB218D1D24F44200019C3F /* frontNavigationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CB218C1D24F44200019C3F /* frontNavigationTableViewController.m */; };
 		18EC76991CF2B425005C2649 /* CustomCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EC76981CF2B425005C2649 /* CustomCell1.xib */; };
 		18EC769C1CF2B506005C2649 /* P1CellCustom1.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EC769B1CF2B506005C2649 /* P1CellCustom1.m */; };
 		18EC769E1CF2BE1A005C2649 /* CustomCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EC769D1CF2BE1A005C2649 /* CustomCell2.xib */; };
@@ -116,6 +119,12 @@
 		18CB21781D21259600019C3F /* TabFavicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabFavicon.png; sourceTree = "<group>"; };
 		18CB217A1D21273500019C3F /* TabMoreManu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabMoreManu.png; sourceTree = "<group>"; };
 		18CB217C1D23BFE200019C3F /* TopCenterlogoevytink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TopCenterlogoevytink.png; sourceTree = "<group>"; };
+		18CB21801D24EE6E00019C3F /* frontNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = frontNavigationViewController.h; sourceTree = "<group>"; };
+		18CB21811D24EE6E00019C3F /* frontNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = frontNavigationViewController.m; sourceTree = "<group>"; };
+		18CB21881D24F32A00019C3F /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		18CB21891D24F32A00019C3F /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		18CB218B1D24F44200019C3F /* frontNavigationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = frontNavigationTableViewController.h; sourceTree = "<group>"; };
+		18CB218C1D24F44200019C3F /* frontNavigationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = frontNavigationTableViewController.m; sourceTree = "<group>"; };
 		18EC76981CF2B425005C2649 /* CustomCell1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCell1.xib; sourceTree = "<group>"; };
 		18EC769A1CF2B506005C2649 /* P1CellCustom1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = P1CellCustom1.h; sourceTree = "<group>"; };
 		18EC769B1CF2B506005C2649 /* P1CellCustom1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = P1CellCustom1.m; sourceTree = "<group>"; };
@@ -215,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				181FDE7A1CEDB23F00C47C37 /* Graphic */,
+				18CB21871D24F32A00019C3F /* SlideOutMenuFiles */,
 				181FDE241CED768600C47C37 /* AppDelegate.h */,
 				181FDE251CED768600C47C37 /* AppDelegate.m */,
 				18EC76981CF2B425005C2649 /* CustomCell1.xib */,
@@ -229,6 +239,10 @@
 				18CB20EF1D1A994300019C3F /* CommentTableViewCell.h */,
 				18CB20F01D1A994300019C3F /* CommentTableViewCell.m */,
 				181FDE2A1CED768600C47C37 /* Main.storyboard */,
+				18CB218B1D24F44200019C3F /* frontNavigationTableViewController.h */,
+				18CB218C1D24F44200019C3F /* frontNavigationTableViewController.m */,
+				18CB21801D24EE6E00019C3F /* frontNavigationViewController.h */,
+				18CB21811D24EE6E00019C3F /* frontNavigationViewController.m */,
 				181FDE6F1CED812500C47C37 /* LoginFacebook.h */,
 				181FDE701CED812500C47C37 /* LoginFacebook.m */,
 				18CB20EC1D1A76A300019C3F /* CommentViewController.h */,
@@ -311,6 +325,15 @@
 				18CB20851D190AAE00019C3F /* iconFav.png */,
 			);
 			name = Graphic;
+			sourceTree = "<group>";
+		};
+		18CB21871D24F32A00019C3F /* SlideOutMenuFiles */ = {
+			isa = PBXGroup;
+			children = (
+				18CB21881D24F32A00019C3F /* SWRevealViewController.h */,
+				18CB21891D24F32A00019C3F /* SWRevealViewController.m */,
+			);
+			path = SlideOutMenuFiles;
 			sourceTree = "<group>";
 		};
 		691EF97EF18388EBDA362509 /* Frameworks */ = {
@@ -622,13 +645,16 @@
 				18EC769C1CF2B506005C2649 /* P1CellCustom1.m in Sources */,
 				18EC77651CF3F7AD005C2649 /* P1CellCustom3.m in Sources */,
 				18EC799B1CF6A7B2005C2649 /* ViewWeb.m in Sources */,
+				18CB218A1D24F32A00019C3F /* SWRevealViewController.m in Sources */,
 				18EC79A31CF6E006005C2649 /* TestCell.m in Sources */,
 				181FDE261CED768600C47C37 /* AppDelegate.m in Sources */,
 				18CB20F11D1A994300019C3F /* CommentTableViewCell.m in Sources */,
 				1836487E1CEEE36400C0DA03 /* GEOFencing.m in Sources */,
+				18CB218D1D24F44200019C3F /* frontNavigationTableViewController.m in Sources */,
 				183648891CEEFCB200C0DA03 /* P1News.m in Sources */,
 				18CB20EE1D1A76A300019C3F /* CommentViewController.m in Sources */,
 				181FDE231CED768600C47C37 /* main.m in Sources */,
+				18CB21821D24EE6E00019C3F /* frontNavigationViewController.m in Sources */,
 				18EC79A01CF6C6B4005C2649 /* testTableView.m in Sources */,
 				18CB207F1D13A8E400019C3F /* TestMapViewController.m in Sources */,
 				18EC77711CF40D2B005C2649 /* P3Promotion.m in Sources */,

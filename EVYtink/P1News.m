@@ -14,6 +14,7 @@
 #import "LoginFacebook.h"
 #import "CommentViewController.h"
 #import <UIImageView+AFNetworking.h>
+#import "SlideOutMenuFiles/SWRevealViewController.h"
 
 
 @interface P1News (){
@@ -23,10 +24,14 @@
 @end
 
 @implementation P1News
-@synthesize arrNews,arrShowNews;
+@synthesize arrNews,arrShowNews,leftButton;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    leftButton.target = self.revealViewController;
+    leftButton.action = @selector(revealToggle:);
+    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    
     UIImage* logoImage = [UIImage imageNamed:@"TopCenterlogoevytink.png"];
     UIImageView *uiimagelogoImage = [[UIImageView alloc] initWithImage:logoImage];
     uiimagelogoImage.frame = CGRectMake(75, 0, 100, 44);

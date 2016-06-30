@@ -16,5 +16,6 @@
 @property (nonatomic,strong) NSMutableArray *arrShowNews;
 
 - (IBAction)BtLogout:(id)sender;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *leftButton;
 
 @end
