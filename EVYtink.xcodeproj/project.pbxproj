@@ -40,6 +40,7 @@
 		18CB21821D24EE6E00019C3F /* frontNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CB21811D24EE6E00019C3F /* frontNavigationViewController.m */; };
 		18CB218A1D24F32A00019C3F /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CB21891D24F32A00019C3F /* SWRevealViewController.m */; };
 		18CB218D1D24F44200019C3F /* frontNavigationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CB218C1D24F44200019C3F /* frontNavigationTableViewController.m */; };
+		18CB218F1D2E403D00019C3F /* evylogoLeftMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 18CB218E1D2E403D00019C3F /* evylogoLeftMenu.png */; };
 		18EC76991CF2B425005C2649 /* CustomCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EC76981CF2B425005C2649 /* CustomCell1.xib */; };
 		18EC769C1CF2B506005C2649 /* P1CellCustom1.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EC769B1CF2B506005C2649 /* P1CellCustom1.m */; };
 		18EC769E1CF2BE1A005C2649 /* CustomCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EC769D1CF2BE1A005C2649 /* CustomCell2.xib */; };
@@ -125,6 +126,7 @@
 		18CB21891D24F32A00019C3F /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		18CB218B1D24F44200019C3F /* frontNavigationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = frontNavigationTableViewController.h; sourceTree = "<group>"; };
 		18CB218C1D24F44200019C3F /* frontNavigationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = frontNavigationTableViewController.m; sourceTree = "<group>"; };
+		18CB218E1D2E403D00019C3F /* evylogoLeftMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = evylogoLeftMenu.png; sourceTree = "<group>"; };
 		18EC76981CF2B425005C2649 /* CustomCell1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCell1.xib; sourceTree = "<group>"; };
 		18EC769A1CF2B506005C2649 /* P1CellCustom1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = P1CellCustom1.h; sourceTree = "<group>"; };
 		18EC769B1CF2B506005C2649 /* P1CellCustom1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = P1CellCustom1.m; sourceTree = "<group>"; };
@@ -311,6 +313,7 @@
 		181FDE7A1CEDB23F00C47C37 /* Graphic */ = {
 			isa = PBXGroup;
 			children = (
+				18CB218E1D2E403D00019C3F /* evylogoLeftMenu.png */,
 				18CB217C1D23BFE200019C3F /* TopCenterlogoevytink.png */,
 				18CB21731D21250900019C3F /* TabNewsicon.png */,
 				18CB21721D21250900019C3F /* TabEventicon.png */,
@@ -481,6 +484,7 @@
 				181FDE2E1CED768600C47C37 /* Assets.xcassets in Resources */,
 				18CB21751D21250900019C3F /* TabEventicon.png in Resources */,
 				181FDE2C1CED768600C47C37 /* Main.storyboard in Resources */,
+				18CB218F1D2E403D00019C3F /* evylogoLeftMenu.png in Resources */,
 				18EC769E1CF2BE1A005C2649 /* CustomCell2.xib in Resources */,
 				18EC79921CF561B0005C2649 /* icon_facebook.png in Resources */,
 				18EC76991CF2B425005C2649 /* CustomCell1.xib in Resources */,

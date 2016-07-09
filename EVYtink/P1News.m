@@ -26,6 +26,7 @@
 @implementation P1News
 @synthesize arrNews,arrShowNews,leftButton;
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     leftButton.target = self.revealViewController;

@@ -17,9 +17,13 @@
 @synthesize barButton;
 - (void)viewDidLoad {
     [super viewDidLoad];
+    barButton.image = [[UIImage imageNamed:@"evylogoLeftMenu.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     barButton.target = self.revealViewController;
     barButton.action = @selector(revealToggle:);
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    
+    //[[self.tabBarController.tabBar.items objectAtIndex:0] setImage:[[UIImage imageNamed:@"TabNewsicon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    
 }
 
 - (void)didReceiveMemoryWarning {
