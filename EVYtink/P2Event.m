@@ -14,6 +14,7 @@
 #import <AFNetworking.h>
 #import "LoginFacebook.h"
 #import "PostToEventViewController.h"
+#import <AFHTTPRequestOperationManager.h>
 
 
 @interface P2Event (){

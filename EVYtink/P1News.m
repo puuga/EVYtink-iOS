@@ -18,6 +18,7 @@
 #import <UIImageView+AFNetworking.h>
 #import <AFNetworking.h>
 #import "P5ProfilePostViewController.h"
+#import <AFHTTPRequestOperationManager.h>
 
 
 @interface P1News (){
@@ -28,7 +29,7 @@
 @end
 
 @implementation P1News
-@synthesize arrNews,arrShowNews,leftButton;
+@synthesize arrNews,arrShowNews;
 
 
 -(void)setNavigationTitle{

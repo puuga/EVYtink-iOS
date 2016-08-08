@@ -17,6 +17,8 @@
 #import "FBSDKShareKit.framework/Headers/FBSDKShareKit.h"
 #import "CommentViewController.h"
 #import "ViewWeb.h"
+#import <AFNetworking.h>
+#import <AFHTTPRequestOperationManager.h>
 
 @interface P5ProfileViewController (){
     BOOL _didStartMonitoringRegion;

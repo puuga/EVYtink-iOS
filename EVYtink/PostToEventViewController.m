@@ -12,6 +12,7 @@
 #import "FBSDKShareKit.framework/Headers/FBSDKShareKit.h"
 #import <UIImageView+AFNetworking.h>
 #import <AFNetworking.h>
+#import <AFHTTPRequestOperationManager.h>
 
 @interface PostToEventViewController (){
     NSString *startDate;

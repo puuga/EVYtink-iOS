@@ -11,6 +11,7 @@
 #import "FBSDKCoreKit.framework/Headers/FBSDKCoreKit.h"
 #import "SWRevealViewController.h"
 #import <AFNetworking.h>
+#import <AFHTTPRequestOperation.h>
 #import <UIImageView+AFNetworking.h>
 #import "LMP2NotiTableViewCell.h"
 #import "ViewWeb.h"

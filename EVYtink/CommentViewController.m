@@ -18,6 +18,8 @@
 #import <AFNetworking.h>
 #import "P5ProfilePostViewController.h"
 #import "ViewWeb.h"
+#import <AFHTTPRequestOperation.h>
+#import <AFHTTPRequestOperationManager.h>
 
 @interface CommentViewController ()
 

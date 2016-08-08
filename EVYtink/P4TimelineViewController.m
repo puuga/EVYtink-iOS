@@ -17,6 +17,7 @@
 #import "LoginFacebook.h"
 #import "CommentViewController.h"
 #import "P5ProfilePostViewController.h"
+#import <AFHTTPRequestOperationManager.h>
 
 @interface P4TimelineViewController (){
     BOOL chkLogin;

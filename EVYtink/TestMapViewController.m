@@ -27,24 +27,17 @@
     for (id key in dict) {
         [defs removeObjectForKey:key];
     }
-<<<<<<< HEAD
+
     countInside = 0;
     NSLog(@"Count - inside = %d",countInside);
-=======
-    
->>>>>>> origin/master
     
     mapV = [[MKMapView alloc]init];
     mapV.showsUserLocation = YES;
     
     locationManager = [[CLLocationManager alloc] init];
-<<<<<<< HEAD
+
     [locationManager requestWhenInUseAuthorization];
     [locationManager requestAlwaysAuthorization];
-=======
-    //[locationManager requestWhenInUseAuthorization];
-    //[locationManager requestAlwaysAuthorization];
->>>>>>> origin/master
     [locationManager setDelegate:self];
     [locationManager setDesiredAccuracy:kCLLocationAccuracyHundredMeters];
     geofences = [NSMutableArray arrayWithArray:[[locationManager monitoredRegions] allObjects]];

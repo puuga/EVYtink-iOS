@@ -150,10 +150,6 @@ static CGFloat scaledValue( CGFloat v1, CGFloat min2, CGFloat max2, CGFloat min1
     return result;
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/master
 - (id)initWithFrame:(CGRect)frame controller:(SWRevealViewController*)controller
 {
     self = [super initWithFrame:frame];
@@ -171,10 +167,7 @@ static CGFloat scaledValue( CGFloat v1, CGFloat min2, CGFloat max2, CGFloat min1
     return self;
 }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/master
 - (void)reloadShadow
 {
     CALayer *frontViewLayer = _frontView.layer;
@@ -669,14 +662,6 @@ const int FrontViewPositionNone = 0xff;
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-<<<<<<< HEAD
-    
-    
-    
-    
-=======
-
->>>>>>> origin/master
     // Uncomment the following code if you want the child controllers
     // to be loaded at this point.
     //
@@ -694,10 +679,7 @@ const int FrontViewPositionNone = 0xff;
     // we store at this point the view's user interaction state as we may temporarily disable it
     // and resume it back to the previous state, it is possible to override this behaviour by
     // intercepting it on the panGestureBegan and panGestureEnded delegates
-<<<<<<< HEAD
-    
-=======
->>>>>>> origin/master
+
     _userInteractionStore = _contentView.userInteractionEnabled;
 }
 

@@ -13,6 +13,7 @@
 #import <AFNetworking.h>
 #import "LoginFacebook.h"
 #import "PostToEventViewController.h"
+#import <AFHTTPRequestOperationManager.h>
 
 @interface P3Promotion (){
     BOOL chkLogin;
