@@ -214,14 +214,13 @@
     postBtProperties.enabled = NO;
     [postBtProperties setTintColor:[UIColor clearColor]];
     NSMutableDictionary* parameters = [NSMutableDictionary dictionary];
-    [parameters setValue:@"id,name,lastname,email,picture.width(200).height(200)" forKey:@"fields"];
+    [parameters setValue:@"id,name,email,picture.width(200).height(200)" forKey:@"fields"];
     
     [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:parameters] startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
          if (!error) {
-             NSLog(@"ns 1");
+             lbUserName.text = [result objectForKey:@"name"];
              [imgUser setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[[[result objectForKey:@"picture"] objectForKey:@"data"] objectForKey:@"url"]]]];
              [imgBGUser setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[[[result objectForKey:@"picture"] objectForKey:@"data"] objectForKey:@"url"]]]];
-             NSLog(@"ns 2");
          }
      }];
     
