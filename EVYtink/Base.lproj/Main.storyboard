@@ -172,6 +172,31 @@
                                     <segue destination="45Y-KQ-2QQ" kind="custom" customClass="SWRevealViewControllerSegue" id="bXo-gb-cmQ"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="P6GiftCard" textLabel="UiT-dA-UZv" imageView="Pea-HN-9IE" style="IBUITableViewCellStyleDefault" id="nAb-R5-YWi">
+                                <rect key="frame" x="0.0" y="328" width="600" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nAb-R5-YWi" id="oLZ-DO-vjK">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="บัตรส่วนลด" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UiT-dA-UZv">
+                                            <rect key="frame" x="60" y="0.0" width="525" height="59"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="widthClass=compact">
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            </variation>
+                                        </label>
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="icGiftCard.png" id="Pea-HN-9IE">
+                                            <rect key="frame" x="15" y="14" width="30" height="30"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </imageView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="P2Notification" textLabel="QgO-Im-S7K" imageView="V8O-X2-3Si" style="IBUITableViewCellStyleDefault" id="H8Y-7R-MXp">
                                 <rect key="frame" x="0.0" y="88" width="600" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
@@ -3227,14 +3252,15 @@
         <image name="LP5.png" width="30" height="30"/>
         <image name="TopCenterlogoevytink.png" width="632" height="248"/>
         <image name="camera.png" width="512" height="512"/>
-        <image name="icCalendar.png" width="48" height="48"/>
+        <image name="icCalendar.png" width="144" height="144"/>
         <image name="icCamera.png" width="48" height="48"/>
+        <image name="icGiftCard.png" width="30" height="30"/>
         <image name="icInformation.png" width="48" height="48"/>
         <image name="icLabel.png" width="48" height="48"/>
         <image name="icPin.png" width="48" height="48"/>
         <image name="logo.png" width="1083" height="1092"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="BRB-Nj-PdU"/>
+        <segue reference="bXo-gb-cmQ"/>
     </inferredMetricsTieBreakers>
 </document>

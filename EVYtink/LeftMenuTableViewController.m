@@ -43,6 +43,7 @@
     }
     menu = [[NSMutableArray alloc] init];
     [menu addObject:@"P1Main"];
+    [menu addObject:@"P6GiftCard"];
     [menu addObject:@"P2Notification"];
     for (int i =0; i<[tags count]; i++) {
         [menu addObject:@"Cell"];
@@ -103,7 +104,7 @@
         cell.userInteractionEnabled = YES;
     }
     if ([cellIdentifier isEqualToString:@"Cell"]) {
-        int showtags = (int)indexPath.row - (int)2;
+        int showtags = (int)indexPath.row - (int)3;
         cell.textLabel.text = [NSString stringWithFormat:@"#%@",[tags objectAtIndex:showtags]];
     }
     return cell;
@@ -125,8 +126,12 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (((indexPath.row>1)&&(indexPath.row<([menu count]-3))&&([menu count]>5))) {
-        int showtags = (int)indexPath.row - (int)2;
+    if (indexPath.row == 1) {
+        ViewWeb *sendWebView = [self.storyboard instantiateViewControllerWithIdentifier:@"openWebView"];
+        sendWebView.url = [NSURL URLWithString:[NSString stringWithFormat:@"http://evbt.azurewebsites.net/docs/page/theme/evytinkallcard.aspx?evarid=%@",[self getEvyId]]];
+        [self presentViewController:sendWebView animated:YES completion:NULL];
+    }else if (((indexPath.row>2)&&(indexPath.row<([menu count]-3)))) {
+        int showtags = (int)indexPath.row - (int)3;
         ViewWeb *sendWebView = [self.storyboard instantiateViewControllerWithIdentifier:@"openWebView"];
         sendWebView.url = [NSURL URLWithString:[NSString stringWithFormat:@"http://evbt.azurewebsites.net/docs/page/theme/evynewtag.aspx?evar=%@",[tags objectAtIndex:showtags]]];
         [self presentViewController:sendWebView animated:YES completion:NULL];
