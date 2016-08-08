@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FBSDKCoreKit.framework/Headers/FBSDKCoreKit.h"
 #import "FBSDKLoginKit.framework/Headers/FBSDKLoginKit.h"
 
 @interface LoginFacebook : UIViewController<FBSDKLoginButtonDelegate>

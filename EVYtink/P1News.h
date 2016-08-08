@@ -15,6 +15,4 @@
 @property (nonatomic,strong) NSMutableArray *arrNews;
 @property (nonatomic,strong) NSMutableArray *arrShowNews;
 
-- (IBAction)BtLogout:(id)sender;
-
 @end

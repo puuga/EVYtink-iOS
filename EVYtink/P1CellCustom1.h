@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "FBSDKLoginKit.framework/Headers/FBSDKLoginKit.h"
+#import <AFHTTPSessionManager.h>
 
 @protocol P1CellCustom1ControllerDelegate <NSObject>
 -(BOOL)ChkFacebookLoginStatus;
 -(void)shareToFacebook:(NSString *)urlToShare;
+-(void)commentTo:(NSIndexPath *)indexPath;
+-(void)userPost:(NSString *)idUserPost;
+-(void)editPost:(NSString *)idUserPost indexpath:(NSIndexPath *)indexPath;
 @required
 
 @end
@@ -21,10 +25,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *txtName;
 @property (weak, nonatomic) IBOutlet UILabel *txtDate;
 @property (weak, nonatomic) IBOutlet UILabel *txtDetail;
-
 @property (nonatomic,strong) NSString *urlToShow;
 @property (nonatomic,strong) NSIndexPath *indexAction;
 @property (nonatomic,strong) NSString *strObjId;
+@property (nonatomic,strong) NSString *EvyUserId;
+@property (weak, nonatomic) IBOutlet UILabel *lbComment;
+@property (weak, nonatomic) IBOutlet UILabel *lbLike;
 
 @property (assign, nonatomic) id<P1CellCustom1ControllerDelegate> delegate;
 
@@ -32,5 +38,10 @@
 - (IBAction)btShare:(id)sender;
 - (IBAction)btComment:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *btLikeOutlet;
+
+@property (nonatomic,strong) NSString *userPostId;
+- (IBAction)btEditAction:(id)sender;
+
+
 
 @end

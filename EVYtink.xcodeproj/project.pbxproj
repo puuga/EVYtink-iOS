@@ -7,6 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		174FAFD4D564BCBB30A866B0 /* libPods-EVYtinkTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98912E96A7BE0E3FC814DA0E /* libPods-EVYtinkTests.a */; };
+		180359DD1D38DE9B0072B7FF /* P5ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 180359DC1D38DE9B0072B7FF /* P5ProfileViewController.m */; };
+		180359E41D3FCFBC0072B7FF /* DefaultTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 180359E21D3FCFBC0072B7FF /* DefaultTableViewCell.m */; };
+		180359E51D3FCFBC0072B7FF /* DefaultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 180359E31D3FCFBC0072B7FF /* DefaultTableViewCell.xib */; };
+		180359E81D3FF9C10072B7FF /* P5ProfilePostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 180359E71D3FF9C10072B7FF /* P5ProfilePostViewController.m */; };
+		180359EB1D4090F20072B7FF /* CommentPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 180359EA1D4090F20072B7FF /* CommentPostViewController.m */; };
+		18035A811D476ADC0072B7FF /* P1D1TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18035A7F1D476ADC0072B7FF /* P1D1TableViewCell.m */; };
+		18035A821D476ADC0072B7FF /* P1D1TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18035A801D476ADC0072B7FF /* P1D1TableViewCell.xib */; };
+		18035A891D476CDD0072B7FF /* P1D3TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18035A871D476CDD0072B7FF /* P1D3TableViewCell.m */; };
+		18035A8A1D476CDD0072B7FF /* P1D3TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18035A881D476CDD0072B7FF /* P1D3TableViewCell.xib */; };
+		18035A8E1D476D090072B7FF /* P1D2TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18035A8C1D476D090072B7FF /* P1D2TableViewCell.m */; };
+		18035A8F1D476D090072B7FF /* P1D2TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18035A8D1D476D090072B7FF /* P1D2TableViewCell.xib */; };
+		18035A981D49B88B0072B7FF /* P4TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18035A971D49B88B0072B7FF /* P4TimelineViewController.m */; };
+		18035A9B1D49FBC30072B7FF /* PostToEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18035A9A1D49FBC30072B7FF /* PostToEventViewController.m */; };
+		18035AA01D4B436F0072B7FF /* PostToEventSelectDateTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18035A9F1D4B436F0072B7FF /* PostToEventSelectDateTimeViewController.m */; };
 		181FDE231CED768600C47C37 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 181FDE221CED768600C47C37 /* main.m */; };
 		181FDE261CED768600C47C37 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 181FDE251CED768600C47C37 /* AppDelegate.m */; };
 		181FDE2C1CED768600C47C37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 181FDE2A1CED768600C47C37 /* Main.storyboard */; };
@@ -14,28 +29,24 @@
 		181FDE311CED768600C47C37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 181FDE2F1CED768600C47C37 /* LaunchScreen.storyboard */; };
 		181FDE3C1CED768600C47C37 /* EVYtinkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 181FDE3B1CED768600C47C37 /* EVYtinkTests.m */; };
 		181FDE471CED768600C47C37 /* EVYtinkUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 181FDE461CED768600C47C37 /* EVYtinkUITests.m */; };
-		181FDE551CED776600C47C37 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 181FDE541CED776600C47C37 /* FBSDKCoreKit.framework */; };
-		181FDE581CED7CAD00C47C37 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 181FDE571CED7CAD00C47C37 /* FBSDKLoginKit.framework */; };
 		181FDE711CED812500C47C37 /* LoginFacebook.m in Sources */ = {isa = PBXBuildFile; fileRef = 181FDE701CED812500C47C37 /* LoginFacebook.m */; };
 		181FDE791CEDB23500C47C37 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 181FDE781CEDB23500C47C37 /* logo.png */; };
-		181FDE841CEDBAFB00C47C37 /* eventicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 181FDE7E1CEDBAFB00C47C37 /* eventicon.png */; };
-		181FDE851CEDBAFB00C47C37 /* favicon_click.png in Resources */ = {isa = PBXBuildFile; fileRef = 181FDE7F1CEDBAFB00C47C37 /* favicon_click.png */; };
-		181FDE861CEDBAFB00C47C37 /* favicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 181FDE801CEDBAFB00C47C37 /* favicon.png */; };
-		181FDE871CEDBAFB00C47C37 /* helpicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 181FDE811CEDBAFB00C47C37 /* helpicon.png */; };
-		181FDE881CEDBAFB00C47C37 /* newsicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 181FDE821CEDBAFB00C47C37 /* newsicon.png */; };
-		181FDE891CEDBAFB00C47C37 /* promoicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 181FDE831CEDBAFB00C47C37 /* promoicon.png */; };
 		1836486C1CEEB90400C0DA03 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1836486B1CEEB90400C0DA03 /* Foundation.framework */; };
-		1836487E1CEEE36400C0DA03 /* GEOFencing.m in Sources */ = {isa = PBXBuildFile; fileRef = 1836487D1CEEE36400C0DA03 /* GEOFencing.m */; };
 		183648801CEEE3A900C0DA03 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1836487F1CEEE3A900C0DA03 /* CoreLocation.framework */; };
 		183648891CEEFCB200C0DA03 /* P1News.m in Sources */ = {isa = PBXBuildFile; fileRef = 183648881CEEFCB200C0DA03 /* P1News.m */; };
 		18CB207F1D13A8E400019C3F /* TestMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CB207E1D13A8E400019C3F /* TestMapViewController.m */; };
 		18CB20811D13A9B000019C3F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CB20801D13A9B000019C3F /* MapKit.framework */; };
-		18CB20831D1908DF00019C3F /* iconLike.png in Resources */ = {isa = PBXBuildFile; fileRef = 18CB20821D1908DF00019C3F /* iconLike.png */; };
 		18CB20861D190AAE00019C3F /* iconFavClick.png in Resources */ = {isa = PBXBuildFile; fileRef = 18CB20841D190AAE00019C3F /* iconFavClick.png */; };
 		18CB20871D190AAE00019C3F /* iconFav.png in Resources */ = {isa = PBXBuildFile; fileRef = 18CB20851D190AAE00019C3F /* iconFav.png */; };
-		18CB20CB1D1935F200019C3F /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CB20CA1D1935F200019C3F /* FBSDKShareKit.framework */; };
 		18CB20EE1D1A76A300019C3F /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CB20ED1D1A76A300019C3F /* CommentViewController.m */; };
 		18CB20F11D1A994300019C3F /* CommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CB20F01D1A994300019C3F /* CommentTableViewCell.m */; };
+		18CB219E1D30C16900019C3F /* TabEventicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 18CB21991D30C16900019C3F /* TabEventicon.png */; };
+		18CB219F1D30C16900019C3F /* TabFavicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 18CB219A1D30C16900019C3F /* TabFavicon.png */; };
+		18CB21A11D30C16900019C3F /* TabNewsicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 18CB219C1D30C16900019C3F /* TabNewsicon.png */; };
+		18CB21A21D30C16900019C3F /* TabPromoicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 18CB219D1D30C16900019C3F /* TabPromoicon.png */; };
+		18CB21A71D30C38200019C3F /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CB21A61D30C38200019C3F /* SWRevealViewController.m */; };
+		18CB21A91D30CA6400019C3F /* TopCenterlogoevytink.png in Resources */ = {isa = PBXBuildFile; fileRef = 18CB21A81D30CA6400019C3F /* TopCenterlogoevytink.png */; };
+		18CB21AB1D30CB8A00019C3F /* LeftMenuevylogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 18CB21AA1D30CB8A00019C3F /* LeftMenuevylogo.png */; };
 		18EC76991CF2B425005C2649 /* CustomCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EC76981CF2B425005C2649 /* CustomCell1.xib */; };
 		18EC769C1CF2B506005C2649 /* P1CellCustom1.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EC769B1CF2B506005C2649 /* P1CellCustom1.m */; };
 		18EC769E1CF2BE1A005C2649 /* CustomCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EC769D1CF2BE1A005C2649 /* CustomCell2.xib */; };
@@ -44,11 +55,45 @@
 		18EC77651CF3F7AD005C2649 /* P1CellCustom3.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EC77641CF3F7AD005C2649 /* P1CellCustom3.m */; };
 		18EC776E1CF40755005C2649 /* P2Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EC776D1CF40755005C2649 /* P2Event.m */; };
 		18EC77711CF40D2B005C2649 /* P3Promotion.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EC77701CF40D2B005C2649 /* P3Promotion.m */; };
-		18EC79921CF561B0005C2649 /* icon_facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EC79911CF561AF005C2649 /* icon_facebook.png */; };
 		18EC799B1CF6A7B2005C2649 /* ViewWeb.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EC799A1CF6A7B2005C2649 /* ViewWeb.m */; };
 		18EC799D1CF6AB43005C2649 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EC799C1CF6AB43005C2649 /* WebKit.framework */; };
 		18EC79A01CF6C6B4005C2649 /* testTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EC799F1CF6C6B4005C2649 /* testTableView.m */; };
 		18EC79A31CF6E006005C2649 /* TestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EC79A21CF6E006005C2649 /* TestCell.m */; };
+		18EDA95C1D4BADDF008262F3 /* LP2.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EDA9581D4BADDF008262F3 /* LP2.png */; };
+		18EDA95D1D4BADDF008262F3 /* LP3.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EDA9591D4BADDF008262F3 /* LP3.png */; };
+		18EDA95E1D4BADDF008262F3 /* LP4.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EDA95A1D4BADDF008262F3 /* LP4.png */; };
+		18EDA95F1D4BADDF008262F3 /* LP5.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EDA95B1D4BADDF008262F3 /* LP5.png */; };
+		18EDA9611D4BB10E008262F3 /* TabTimeline.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EDA9601D4BB10E008262F3 /* TabTimeline.png */; };
+		18EDA9651D4BB1B6008262F3 /* TabProfile.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EDA9641D4BB1B6008262F3 /* TabProfile.png */; };
+		18EDA9681D4BB2D7008262F3 /* iconcomment.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EDA9661D4BB2D7008262F3 /* iconcomment.png */; };
+		18EDA9691D4BB2D7008262F3 /* iconshare.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EDA9671D4BB2D7008262F3 /* iconshare.png */; };
+		18EDA9711D507860008262F3 /* LMP2NotiTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EDA9701D507860008262F3 /* LMP2NotiTableViewCell.m */; };
+		18EDA9731D5081C6008262F3 /* threebuttonIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EDA9721D5081C6008262F3 /* threebuttonIcon.png */; };
+		18EDA9751D508A6D008262F3 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EDA9741D508A6D008262F3 /* camera.png */; };
+		18EDA9BA1D58287D008262F3 /* icCamera.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EDA9B51D58287D008262F3 /* icCamera.png */; };
+		18EDA9BB1D58287D008262F3 /* icLabel.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EDA9B61D58287D008262F3 /* icLabel.png */; };
+		18EDA9BC1D58287D008262F3 /* icCalendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EDA9B71D58287D008262F3 /* icCalendar.png */; };
+		18EDA9BD1D58287D008262F3 /* icInformation.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EDA9B81D58287D008262F3 /* icInformation.png */; };
+		18EDA9BE1D58287D008262F3 /* icPin.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EDA9B91D58287D008262F3 /* icPin.png */; };
+		18EDA9C01D5837AB008262F3 /* icGiftCard.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EDA9BF1D5837AB008262F3 /* icGiftCard.png */; };
+		18FB1CF11D30DA0100EE3D0C /* LeftMenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FB1CF01D30DA0100EE3D0C /* LeftMenuTableViewController.m */; };
+		18FB1CF51D30DCB700EE3D0C /* LMP2NotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FB1CF41D30DCB700EE3D0C /* LMP2NotificationViewController.m */; };
+		18FB1CFB1D30ECC900EE3D0C /* LMP3SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FB1CFA1D30ECC900EE3D0C /* LMP3SettingViewController.m */; };
+		18FB1CFE1D30ECDF00EE3D0C /* LMP4FAQViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FB1CFD1D30ECDF00EE3D0C /* LMP4FAQViewController.m */; };
+		18FB1D011D30ECEC00EE3D0C /* LMP5AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FB1D001D30ECEC00EE3D0C /* LMP5AboutUsViewController.m */; };
+		18FB1D051D3353BF00EE3D0C /* TabWall.png in Resources */ = {isa = PBXBuildFile; fileRef = 18FB1D031D3353BF00EE3D0C /* TabWall.png */; };
+		18FB1D0A1D3357D300EE3D0C /* LeftSetting.png in Resources */ = {isa = PBXBuildFile; fileRef = 18FB1D091D3357D300EE3D0C /* LeftSetting.png */; };
+		18FB1D161D336B5C00EE3D0C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18FB1D151D336B5C00EE3D0C /* CoreData.framework */; };
+		18FB1D511D338CFE00EE3D0C /* Coredata.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 18FB1D4F1D338CFE00EE3D0C /* Coredata.xcdatamodeld */; };
+		18FB1D611D3396FD00EE3D0C /* Coredata.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 18FB1D4F1D338CFE00EE3D0C /* Coredata.xcdatamodeld */; };
+		18FB1DC61D365F7100EE3D0C /* Geofence+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FB1DC31D365F7100EE3D0C /* Geofence+CoreDataProperties.m */; };
+		18FB1DC71D365F7100EE3D0C /* Geofence.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FB1DC51D365F7100EE3D0C /* Geofence.m */; };
+		18FB1DCB1D377ECF00EE3D0C /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18FB1DC81D377ECF00EE3D0C /* FBSDKCoreKit.framework */; };
+		18FB1DCC1D377ECF00EE3D0C /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18FB1DC91D377ECF00EE3D0C /* FBSDKLoginKit.framework */; };
+		18FB1DCD1D377ECF00EE3D0C /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18FB1DCA1D377ECF00EE3D0C /* FBSDKShareKit.framework */; };
+		18FB1DD11D37855400EE3D0C /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18FB1DD01D37855400EE3D0C /* Bolts.framework */; };
+		4191F63C4A23CC0FF9F0A1EB /* libPods-EVYtinkUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FDDEE30BC5A60A11BA1E63 /* libPods-EVYtinkUITests.a */; };
+		431380C6CDC619A676CF8BA7 /* libPods-EVYtink.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A602000DBB5D87B5A1CD5702 /* libPods-EVYtink.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +114,31 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0678F4E73546297C5B6708B1 /* Pods-EVYtink.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EVYtink.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EVYtink/Pods-EVYtink.debug.xcconfig"; sourceTree = "<group>"; };
+		180359DB1D38DE9B0072B7FF /* P5ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = P5ProfileViewController.h; sourceTree = "<group>"; };
+		180359DC1D38DE9B0072B7FF /* P5ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = P5ProfileViewController.m; sourceTree = "<group>"; };
+		180359E11D3FCFBC0072B7FF /* DefaultTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultTableViewCell.h; sourceTree = "<group>"; };
+		180359E21D3FCFBC0072B7FF /* DefaultTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultTableViewCell.m; sourceTree = "<group>"; };
+		180359E31D3FCFBC0072B7FF /* DefaultTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DefaultTableViewCell.xib; sourceTree = "<group>"; };
+		180359E61D3FF9C10072B7FF /* P5ProfilePostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = P5ProfilePostViewController.h; sourceTree = "<group>"; };
+		180359E71D3FF9C10072B7FF /* P5ProfilePostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = P5ProfilePostViewController.m; sourceTree = "<group>"; };
+		180359E91D4090F20072B7FF /* CommentPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentPostViewController.h; sourceTree = "<group>"; };
+		180359EA1D4090F20072B7FF /* CommentPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentPostViewController.m; sourceTree = "<group>"; };
+		18035A7E1D476ADC0072B7FF /* P1D1TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = P1D1TableViewCell.h; sourceTree = "<group>"; };
+		18035A7F1D476ADC0072B7FF /* P1D1TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = P1D1TableViewCell.m; sourceTree = "<group>"; };
+		18035A801D476ADC0072B7FF /* P1D1TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = P1D1TableViewCell.xib; sourceTree = "<group>"; };
+		18035A861D476CDD0072B7FF /* P1D3TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = P1D3TableViewCell.h; sourceTree = "<group>"; };
+		18035A871D476CDD0072B7FF /* P1D3TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = P1D3TableViewCell.m; sourceTree = "<group>"; };
+		18035A881D476CDD0072B7FF /* P1D3TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = P1D3TableViewCell.xib; sourceTree = "<group>"; };
+		18035A8B1D476D090072B7FF /* P1D2TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = P1D2TableViewCell.h; sourceTree = "<group>"; };
+		18035A8C1D476D090072B7FF /* P1D2TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = P1D2TableViewCell.m; sourceTree = "<group>"; };
+		18035A8D1D476D090072B7FF /* P1D2TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = P1D2TableViewCell.xib; sourceTree = "<group>"; };
+		18035A961D49B88B0072B7FF /* P4TimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = P4TimelineViewController.h; sourceTree = "<group>"; };
+		18035A971D49B88B0072B7FF /* P4TimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = P4TimelineViewController.m; sourceTree = "<group>"; };
+		18035A991D49FBC30072B7FF /* PostToEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostToEventViewController.h; sourceTree = "<group>"; };
+		18035A9A1D49FBC30072B7FF /* PostToEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostToEventViewController.m; sourceTree = "<group>"; };
+		18035A9E1D4B436F0072B7FF /* PostToEventSelectDateTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostToEventSelectDateTimeViewController.h; sourceTree = "<group>"; };
+		18035A9F1D4B436F0072B7FF /* PostToEventSelectDateTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostToEventSelectDateTimeViewController.m; sourceTree = "<group>"; };
 		181FDE1E1CED768600C47C37 /* EVYtink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EVYtink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		181FDE221CED768600C47C37 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		181FDE241CED768600C47C37 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -83,34 +153,30 @@
 		181FDE421CED768600C47C37 /* EVYtinkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EVYtinkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		181FDE461CED768600C47C37 /* EVYtinkUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EVYtinkUITests.m; sourceTree = "<group>"; };
 		181FDE481CED768600C47C37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		181FDE541CED776600C47C37 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
-		181FDE571CED7CAD00C47C37 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		181FDE6F1CED812500C47C37 /* LoginFacebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginFacebook.h; sourceTree = "<group>"; };
 		181FDE701CED812500C47C37 /* LoginFacebook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginFacebook.m; sourceTree = "<group>"; };
 		181FDE781CEDB23500C47C37 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
-		181FDE7E1CEDBAFB00C47C37 /* eventicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eventicon.png; sourceTree = "<group>"; };
-		181FDE7F1CEDBAFB00C47C37 /* favicon_click.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favicon_click.png; sourceTree = "<group>"; };
-		181FDE801CEDBAFB00C47C37 /* favicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favicon.png; sourceTree = "<group>"; };
-		181FDE811CEDBAFB00C47C37 /* helpicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = helpicon.png; sourceTree = "<group>"; };
-		181FDE821CEDBAFB00C47C37 /* newsicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newsicon.png; sourceTree = "<group>"; };
-		181FDE831CEDBAFB00C47C37 /* promoicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = promoicon.png; sourceTree = "<group>"; };
 		1836486B1CEEB90400C0DA03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		1836487C1CEEE36400C0DA03 /* GEOFencing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GEOFencing.h; sourceTree = "<group>"; };
-		1836487D1CEEE36400C0DA03 /* GEOFencing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GEOFencing.m; sourceTree = "<group>"; };
 		1836487F1CEEE3A900C0DA03 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		183648871CEEFCB200C0DA03 /* P1News.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = P1News.h; sourceTree = "<group>"; };
 		183648881CEEFCB200C0DA03 /* P1News.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = P1News.m; sourceTree = "<group>"; };
 		18CB207D1D13A8E400019C3F /* TestMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestMapViewController.h; sourceTree = "<group>"; };
 		18CB207E1D13A8E400019C3F /* TestMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestMapViewController.m; sourceTree = "<group>"; };
 		18CB20801D13A9B000019C3F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		18CB20821D1908DF00019C3F /* iconLike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconLike.png; sourceTree = "<group>"; };
 		18CB20841D190AAE00019C3F /* iconFavClick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconFavClick.png; sourceTree = "<group>"; };
 		18CB20851D190AAE00019C3F /* iconFav.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconFav.png; sourceTree = "<group>"; };
-		18CB20CA1D1935F200019C3F /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		18CB20EC1D1A76A300019C3F /* CommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentViewController.h; sourceTree = "<group>"; };
 		18CB20ED1D1A76A300019C3F /* CommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentViewController.m; sourceTree = "<group>"; };
 		18CB20EF1D1A994300019C3F /* CommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentTableViewCell.h; sourceTree = "<group>"; };
 		18CB20F01D1A994300019C3F /* CommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentTableViewCell.m; sourceTree = "<group>"; };
+		18CB21991D30C16900019C3F /* TabEventicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabEventicon.png; sourceTree = "<group>"; };
+		18CB219A1D30C16900019C3F /* TabFavicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabFavicon.png; sourceTree = "<group>"; };
+		18CB219C1D30C16900019C3F /* TabNewsicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabNewsicon.png; sourceTree = "<group>"; };
+		18CB219D1D30C16900019C3F /* TabPromoicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabPromoicon.png; sourceTree = "<group>"; };
+		18CB21A51D30C38200019C3F /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		18CB21A61D30C38200019C3F /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		18CB21A81D30CA6400019C3F /* TopCenterlogoevytink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TopCenterlogoevytink.png; sourceTree = "<group>"; };
+		18CB21AA1D30CB8A00019C3F /* LeftMenuevylogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LeftMenuevylogo.png; sourceTree = "<group>"; };
 		18EC76981CF2B425005C2649 /* CustomCell1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCell1.xib; sourceTree = "<group>"; };
 		18EC769A1CF2B506005C2649 /* P1CellCustom1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = P1CellCustom1.h; sourceTree = "<group>"; };
 		18EC769B1CF2B506005C2649 /* P1CellCustom1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = P1CellCustom1.m; sourceTree = "<group>"; };
@@ -125,7 +191,6 @@
 		18EC776D1CF40755005C2649 /* P2Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = P2Event.m; sourceTree = "<group>"; };
 		18EC776F1CF40D2B005C2649 /* P3Promotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = P3Promotion.h; sourceTree = "<group>"; };
 		18EC77701CF40D2B005C2649 /* P3Promotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = P3Promotion.m; sourceTree = "<group>"; };
-		18EC79911CF561AF005C2649 /* icon_facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_facebook.png; sourceTree = "<group>"; };
 		18EC79991CF6A7B2005C2649 /* ViewWeb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewWeb.h; sourceTree = "<group>"; };
 		18EC799A1CF6A7B2005C2649 /* ViewWeb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewWeb.m; sourceTree = "<group>"; };
 		18EC799C1CF6AB43005C2649 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -133,6 +198,54 @@
 		18EC799F1CF6C6B4005C2649 /* testTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testTableView.m; sourceTree = "<group>"; };
 		18EC79A11CF6E006005C2649 /* TestCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCell.h; sourceTree = "<group>"; };
 		18EC79A21CF6E006005C2649 /* TestCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCell.m; sourceTree = "<group>"; };
+		18EDA9581D4BADDF008262F3 /* LP2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LP2.png; sourceTree = "<group>"; };
+		18EDA9591D4BADDF008262F3 /* LP3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LP3.png; sourceTree = "<group>"; };
+		18EDA95A1D4BADDF008262F3 /* LP4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LP4.png; sourceTree = "<group>"; };
+		18EDA95B1D4BADDF008262F3 /* LP5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LP5.png; sourceTree = "<group>"; };
+		18EDA9601D4BB10E008262F3 /* TabTimeline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabTimeline.png; sourceTree = "<group>"; };
+		18EDA9641D4BB1B6008262F3 /* TabProfile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabProfile.png; sourceTree = "<group>"; };
+		18EDA9661D4BB2D7008262F3 /* iconcomment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconcomment.png; sourceTree = "<group>"; };
+		18EDA9671D4BB2D7008262F3 /* iconshare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconshare.png; sourceTree = "<group>"; };
+		18EDA96F1D507860008262F3 /* LMP2NotiTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMP2NotiTableViewCell.h; sourceTree = "<group>"; };
+		18EDA9701D507860008262F3 /* LMP2NotiTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMP2NotiTableViewCell.m; sourceTree = "<group>"; };
+		18EDA9721D5081C6008262F3 /* threebuttonIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = threebuttonIcon.png; sourceTree = "<group>"; };
+		18EDA9741D508A6D008262F3 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
+		18EDA9B51D58287D008262F3 /* icCamera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icCamera.png; sourceTree = "<group>"; };
+		18EDA9B61D58287D008262F3 /* icLabel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icLabel.png; sourceTree = "<group>"; };
+		18EDA9B71D58287D008262F3 /* icCalendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icCalendar.png; sourceTree = "<group>"; };
+		18EDA9B81D58287D008262F3 /* icInformation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icInformation.png; sourceTree = "<group>"; };
+		18EDA9B91D58287D008262F3 /* icPin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icPin.png; sourceTree = "<group>"; };
+		18EDA9BF1D5837AB008262F3 /* icGiftCard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icGiftCard.png; sourceTree = "<group>"; };
+		18FB1CEF1D30DA0100EE3D0C /* LeftMenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftMenuTableViewController.h; sourceTree = "<group>"; };
+		18FB1CF01D30DA0100EE3D0C /* LeftMenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftMenuTableViewController.m; sourceTree = "<group>"; };
+		18FB1CF31D30DCB700EE3D0C /* LMP2NotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMP2NotificationViewController.h; sourceTree = "<group>"; };
+		18FB1CF41D30DCB700EE3D0C /* LMP2NotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMP2NotificationViewController.m; sourceTree = "<group>"; };
+		18FB1CF91D30ECC900EE3D0C /* LMP3SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMP3SettingViewController.h; sourceTree = "<group>"; };
+		18FB1CFA1D30ECC900EE3D0C /* LMP3SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMP3SettingViewController.m; sourceTree = "<group>"; };
+		18FB1CFC1D30ECDF00EE3D0C /* LMP4FAQViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMP4FAQViewController.h; sourceTree = "<group>"; };
+		18FB1CFD1D30ECDF00EE3D0C /* LMP4FAQViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMP4FAQViewController.m; sourceTree = "<group>"; };
+		18FB1CFF1D30ECEC00EE3D0C /* LMP5AboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMP5AboutUsViewController.h; sourceTree = "<group>"; };
+		18FB1D001D30ECEC00EE3D0C /* LMP5AboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMP5AboutUsViewController.m; sourceTree = "<group>"; };
+		18FB1D031D3353BF00EE3D0C /* TabWall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabWall.png; sourceTree = "<group>"; };
+		18FB1D091D3357D300EE3D0C /* LeftSetting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LeftSetting.png; sourceTree = "<group>"; };
+		18FB1D151D336B5C00EE3D0C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		18FB1D501D338CFE00EE3D0C /* Coredata.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Coredata.xcdatamodel; sourceTree = "<group>"; };
+		18FB1DC21D365F7100EE3D0C /* Geofence+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Geofence+CoreDataProperties.h"; path = "../Geofence+CoreDataProperties.h"; sourceTree = "<group>"; };
+		18FB1DC31D365F7100EE3D0C /* Geofence+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Geofence+CoreDataProperties.m"; path = "../Geofence+CoreDataProperties.m"; sourceTree = "<group>"; };
+		18FB1DC41D365F7100EE3D0C /* Geofence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Geofence.h; path = ../Geofence.h; sourceTree = "<group>"; };
+		18FB1DC51D365F7100EE3D0C /* Geofence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Geofence.m; path = ../Geofence.m; sourceTree = "<group>"; };
+		18FB1DC81D377ECF00EE3D0C /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		18FB1DC91D377ECF00EE3D0C /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		18FB1DCA1D377ECF00EE3D0C /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		18FB1DD01D37855400EE3D0C /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		28FDDEE30BC5A60A11BA1E63 /* libPods-EVYtinkUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EVYtinkUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		35049D59BE525AAD6E6854C9 /* Pods-EVYtinkUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EVYtinkUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EVYtinkUITests/Pods-EVYtinkUITests.release.xcconfig"; sourceTree = "<group>"; };
+		388DF70F09E778E21BC88E3E /* Pods-EVYtink.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EVYtink.release.xcconfig"; path = "Pods/Target Support Files/Pods-EVYtink/Pods-EVYtink.release.xcconfig"; sourceTree = "<group>"; };
+		5269C0EAFF455E1DDD777724 /* Pods-EVYtinkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EVYtinkTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EVYtinkTests/Pods-EVYtinkTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8B763D4929EC7105A216DC53 /* Pods-EVYtinkUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EVYtinkUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EVYtinkUITests/Pods-EVYtinkUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		98912E96A7BE0E3FC814DA0E /* libPods-EVYtinkTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EVYtinkTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A602000DBB5D87B5A1CD5702 /* libPods-EVYtink.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EVYtink.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFCA681528FB03D1F2CC2D69 /* Pods-EVYtinkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EVYtinkTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EVYtinkTests/Pods-EVYtinkTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,13 +253,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18FB1DCD1D377ECF00EE3D0C /* FBSDKShareKit.framework in Frameworks */,
+				18FB1D161D336B5C00EE3D0C /* CoreData.framework in Frameworks */,
+				18FB1DCB1D377ECF00EE3D0C /* FBSDKCoreKit.framework in Frameworks */,
 				18CB20811D13A9B000019C3F /* MapKit.framework in Frameworks */,
 				18EC799D1CF6AB43005C2649 /* WebKit.framework in Frameworks */,
+				18FB1DCC1D377ECF00EE3D0C /* FBSDKLoginKit.framework in Frameworks */,
+				18FB1DD11D37855400EE3D0C /* Bolts.framework in Frameworks */,
 				183648801CEEE3A900C0DA03 /* CoreLocation.framework in Frameworks */,
-				18CB20CB1D1935F200019C3F /* FBSDKShareKit.framework in Frameworks */,
 				1836486C1CEEB90400C0DA03 /* Foundation.framework in Frameworks */,
-				181FDE581CED7CAD00C47C37 /* FBSDKLoginKit.framework in Frameworks */,
-				181FDE551CED776600C47C37 /* FBSDKCoreKit.framework in Frameworks */,
+				431380C6CDC619A676CF8BA7 /* libPods-EVYtink.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,6 +270,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				174FAFD4D564BCBB30A866B0 /* libPods-EVYtinkTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,6 +278,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4191F63C4A23CC0FF9F0A1EB /* libPods-EVYtinkUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,6 +288,7 @@
 		181FDE151CED768600C47C37 = {
 			isa = PBXGroup;
 			children = (
+				18FB1D151D336B5C00EE3D0C /* CoreData.framework */,
 				18CB20801D13A9B000019C3F /* MapKit.framework */,
 				18EC799C1CF6AB43005C2649 /* WebKit.framework */,
 				18EC76A21CF2DBA4005C2649 /* Social.framework */,
@@ -179,6 +298,8 @@
 				181FDE3A1CED768600C47C37 /* EVYtinkTests */,
 				181FDE451CED768600C47C37 /* EVYtinkUITests */,
 				181FDE1F1CED768600C47C37 /* Products */,
+				5909F664F79148F4131CA97B /* Pods */,
+				B7214FD4F73162BA80DF0051 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -198,15 +319,9 @@
 				181FDE7A1CEDB23F00C47C37 /* Graphic */,
 				181FDE241CED768600C47C37 /* AppDelegate.h */,
 				181FDE251CED768600C47C37 /* AppDelegate.m */,
-				18EC76981CF2B425005C2649 /* CustomCell1.xib */,
-				18EC769A1CF2B506005C2649 /* P1CellCustom1.h */,
-				18EC769B1CF2B506005C2649 /* P1CellCustom1.m */,
-				18EC769D1CF2BE1A005C2649 /* CustomCell2.xib */,
-				18EC769F1CF2BEE2005C2649 /* P1CellCustom2.h */,
-				18EC76A01CF2BEE2005C2649 /* P1CellCustom2.m */,
-				18EC77611CF3F785005C2649 /* CustomCell3.xib */,
-				18EC77631CF3F7AD005C2649 /* P1CellCustom3.h */,
-				18EC77641CF3F7AD005C2649 /* P1CellCustom3.m */,
+				18CB21A41D30C38100019C3F /* SlideOutMenuFiles */,
+				18CB21A31D30C32D00019C3F /* CustomCell */,
+				18FB1CF21D30DC7B00EE3D0C /* LeftMenu */,
 				18CB20EF1D1A994300019C3F /* CommentTableViewCell.h */,
 				18CB20F01D1A994300019C3F /* CommentTableViewCell.m */,
 				181FDE2A1CED768600C47C37 /* Main.storyboard */,
@@ -214,6 +329,8 @@
 				181FDE701CED812500C47C37 /* LoginFacebook.m */,
 				18CB20EC1D1A76A300019C3F /* CommentViewController.h */,
 				18CB20ED1D1A76A300019C3F /* CommentViewController.m */,
+				180359E91D4090F20072B7FF /* CommentPostViewController.h */,
+				180359EA1D4090F20072B7FF /* CommentPostViewController.m */,
 				18EC79991CF6A7B2005C2649 /* ViewWeb.h */,
 				18EC799A1CF6A7B2005C2649 /* ViewWeb.m */,
 				183648871CEEFCB200C0DA03 /* P1News.h */,
@@ -222,15 +339,24 @@
 				18EC776D1CF40755005C2649 /* P2Event.m */,
 				18EC776F1CF40D2B005C2649 /* P3Promotion.h */,
 				18EC77701CF40D2B005C2649 /* P3Promotion.m */,
-				1836487C1CEEE36400C0DA03 /* GEOFencing.h */,
-				1836487D1CEEE36400C0DA03 /* GEOFencing.m */,
+				18035A961D49B88B0072B7FF /* P4TimelineViewController.h */,
+				18035A971D49B88B0072B7FF /* P4TimelineViewController.m */,
+				180359DB1D38DE9B0072B7FF /* P5ProfileViewController.h */,
+				180359DC1D38DE9B0072B7FF /* P5ProfileViewController.m */,
+				180359E61D3FF9C10072B7FF /* P5ProfilePostViewController.h */,
+				180359E71D3FF9C10072B7FF /* P5ProfilePostViewController.m */,
 				18EC799E1CF6C6B4005C2649 /* testTableView.h */,
 				18EC799F1CF6C6B4005C2649 /* testTableView.m */,
+				18035A991D49FBC30072B7FF /* PostToEventViewController.h */,
+				18035A9A1D49FBC30072B7FF /* PostToEventViewController.m */,
+				18035A9E1D4B436F0072B7FF /* PostToEventSelectDateTimeViewController.h */,
+				18035A9F1D4B436F0072B7FF /* PostToEventSelectDateTimeViewController.m */,
 				18EC79A11CF6E006005C2649 /* TestCell.h */,
 				18EC79A21CF6E006005C2649 /* TestCell.m */,
 				18CB207D1D13A8E400019C3F /* TestMapViewController.h */,
 				18CB207E1D13A8E400019C3F /* TestMapViewController.m */,
 				181FDE2D1CED768600C47C37 /* Assets.xcassets */,
+				18FB1D0E1D33686500EE3D0C /* CoreData */,
 				181FDE2F1CED768600C47C37 /* LaunchScreen.storyboard */,
 				181FDE321CED768600C47C37 /* Info.plist */,
 				181FDE561CED777500C47C37 /* SDK */,
@@ -268,9 +394,10 @@
 		181FDE561CED777500C47C37 /* SDK */ = {
 			isa = PBXGroup;
 			children = (
-				18CB20CA1D1935F200019C3F /* FBSDKShareKit.framework */,
-				181FDE571CED7CAD00C47C37 /* FBSDKLoginKit.framework */,
-				181FDE541CED776600C47C37 /* FBSDKCoreKit.framework */,
+				18FB1DD01D37855400EE3D0C /* Bolts.framework */,
+				18FB1DC81D377ECF00EE3D0C /* FBSDKCoreKit.framework */,
+				18FB1DC91D377ECF00EE3D0C /* FBSDKLoginKit.framework */,
+				18FB1DCA1D377ECF00EE3D0C /* FBSDKShareKit.framework */,
 			);
 			name = SDK;
 			sourceTree = "<group>";
@@ -278,19 +405,126 @@
 		181FDE7A1CEDB23F00C47C37 /* Graphic */ = {
 			isa = PBXGroup;
 			children = (
+				18EDA9BF1D5837AB008262F3 /* icGiftCard.png */,
+				18EDA9B51D58287D008262F3 /* icCamera.png */,
+				18EDA9B61D58287D008262F3 /* icLabel.png */,
+				18EDA9B71D58287D008262F3 /* icCalendar.png */,
+				18EDA9B81D58287D008262F3 /* icInformation.png */,
+				18EDA9B91D58287D008262F3 /* icPin.png */,
+				18EDA9741D508A6D008262F3 /* camera.png */,
+				18EDA9721D5081C6008262F3 /* threebuttonIcon.png */,
+				18EDA9661D4BB2D7008262F3 /* iconcomment.png */,
+				18EDA9671D4BB2D7008262F3 /* iconshare.png */,
+				18EDA9641D4BB1B6008262F3 /* TabProfile.png */,
+				18EDA9601D4BB10E008262F3 /* TabTimeline.png */,
+				18EDA9581D4BADDF008262F3 /* LP2.png */,
+				18EDA9591D4BADDF008262F3 /* LP3.png */,
+				18EDA95A1D4BADDF008262F3 /* LP4.png */,
+				18EDA95B1D4BADDF008262F3 /* LP5.png */,
+				18FB1D091D3357D300EE3D0C /* LeftSetting.png */,
+				18FB1D031D3353BF00EE3D0C /* TabWall.png */,
+				18CB21AA1D30CB8A00019C3F /* LeftMenuevylogo.png */,
+				18CB21A81D30CA6400019C3F /* TopCenterlogoevytink.png */,
 				181FDE781CEDB23500C47C37 /* logo.png */,
-				181FDE7E1CEDBAFB00C47C37 /* eventicon.png */,
-				181FDE7F1CEDBAFB00C47C37 /* favicon_click.png */,
-				181FDE801CEDBAFB00C47C37 /* favicon.png */,
-				181FDE811CEDBAFB00C47C37 /* helpicon.png */,
-				181FDE821CEDBAFB00C47C37 /* newsicon.png */,
-				181FDE831CEDBAFB00C47C37 /* promoicon.png */,
-				18EC79911CF561AF005C2649 /* icon_facebook.png */,
-				18CB20821D1908DF00019C3F /* iconLike.png */,
 				18CB20841D190AAE00019C3F /* iconFavClick.png */,
 				18CB20851D190AAE00019C3F /* iconFav.png */,
+				18CB21991D30C16900019C3F /* TabEventicon.png */,
+				18CB219A1D30C16900019C3F /* TabFavicon.png */,
+				18CB219C1D30C16900019C3F /* TabNewsicon.png */,
+				18CB219D1D30C16900019C3F /* TabPromoicon.png */,
 			);
 			name = Graphic;
+			sourceTree = "<group>";
+		};
+		18CB21A31D30C32D00019C3F /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				18EC76981CF2B425005C2649 /* CustomCell1.xib */,
+				18EC769A1CF2B506005C2649 /* P1CellCustom1.h */,
+				18EC769B1CF2B506005C2649 /* P1CellCustom1.m */,
+				18EC769D1CF2BE1A005C2649 /* CustomCell2.xib */,
+				18EC769F1CF2BEE2005C2649 /* P1CellCustom2.h */,
+				18EC76A01CF2BEE2005C2649 /* P1CellCustom2.m */,
+				18EC77611CF3F785005C2649 /* CustomCell3.xib */,
+				18EC77631CF3F7AD005C2649 /* P1CellCustom3.h */,
+				18EC77641CF3F7AD005C2649 /* P1CellCustom3.m */,
+				180359E31D3FCFBC0072B7FF /* DefaultTableViewCell.xib */,
+				180359E11D3FCFBC0072B7FF /* DefaultTableViewCell.h */,
+				180359E21D3FCFBC0072B7FF /* DefaultTableViewCell.m */,
+				18035A7E1D476ADC0072B7FF /* P1D1TableViewCell.h */,
+				18035A7F1D476ADC0072B7FF /* P1D1TableViewCell.m */,
+				18035A801D476ADC0072B7FF /* P1D1TableViewCell.xib */,
+				18035A8B1D476D090072B7FF /* P1D2TableViewCell.h */,
+				18035A8C1D476D090072B7FF /* P1D2TableViewCell.m */,
+				18035A8D1D476D090072B7FF /* P1D2TableViewCell.xib */,
+				18035A861D476CDD0072B7FF /* P1D3TableViewCell.h */,
+				18035A871D476CDD0072B7FF /* P1D3TableViewCell.m */,
+				18035A881D476CDD0072B7FF /* P1D3TableViewCell.xib */,
+			);
+			name = CustomCell;
+			sourceTree = "<group>";
+		};
+		18CB21A41D30C38100019C3F /* SlideOutMenuFiles */ = {
+			isa = PBXGroup;
+			children = (
+				18CB21A51D30C38200019C3F /* SWRevealViewController.h */,
+				18CB21A61D30C38200019C3F /* SWRevealViewController.m */,
+			);
+			path = SlideOutMenuFiles;
+			sourceTree = SOURCE_ROOT;
+		};
+		18FB1CF21D30DC7B00EE3D0C /* LeftMenu */ = {
+			isa = PBXGroup;
+			children = (
+				18FB1CEF1D30DA0100EE3D0C /* LeftMenuTableViewController.h */,
+				18FB1CF01D30DA0100EE3D0C /* LeftMenuTableViewController.m */,
+				18EDA96F1D507860008262F3 /* LMP2NotiTableViewCell.h */,
+				18EDA9701D507860008262F3 /* LMP2NotiTableViewCell.m */,
+				18FB1CF31D30DCB700EE3D0C /* LMP2NotificationViewController.h */,
+				18FB1CF41D30DCB700EE3D0C /* LMP2NotificationViewController.m */,
+				18FB1CF91D30ECC900EE3D0C /* LMP3SettingViewController.h */,
+				18FB1CFA1D30ECC900EE3D0C /* LMP3SettingViewController.m */,
+				18FB1CFC1D30ECDF00EE3D0C /* LMP4FAQViewController.h */,
+				18FB1CFD1D30ECDF00EE3D0C /* LMP4FAQViewController.m */,
+				18FB1CFF1D30ECEC00EE3D0C /* LMP5AboutUsViewController.h */,
+				18FB1D001D30ECEC00EE3D0C /* LMP5AboutUsViewController.m */,
+			);
+			name = LeftMenu;
+			sourceTree = "<group>";
+		};
+		18FB1D0E1D33686500EE3D0C /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				18FB1DC21D365F7100EE3D0C /* Geofence+CoreDataProperties.h */,
+				18FB1DC31D365F7100EE3D0C /* Geofence+CoreDataProperties.m */,
+				18FB1DC41D365F7100EE3D0C /* Geofence.h */,
+				18FB1DC51D365F7100EE3D0C /* Geofence.m */,
+				18FB1D4F1D338CFE00EE3D0C /* Coredata.xcdatamodeld */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		5909F664F79148F4131CA97B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0678F4E73546297C5B6708B1 /* Pods-EVYtink.debug.xcconfig */,
+				388DF70F09E778E21BC88E3E /* Pods-EVYtink.release.xcconfig */,
+				5269C0EAFF455E1DDD777724 /* Pods-EVYtinkTests.debug.xcconfig */,
+				BFCA681528FB03D1F2CC2D69 /* Pods-EVYtinkTests.release.xcconfig */,
+				8B763D4929EC7105A216DC53 /* Pods-EVYtinkUITests.debug.xcconfig */,
+				35049D59BE525AAD6E6854C9 /* Pods-EVYtinkUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B7214FD4F73162BA80DF0051 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A602000DBB5D87B5A1CD5702 /* libPods-EVYtink.a */,
+				98912E96A7BE0E3FC814DA0E /* libPods-EVYtinkTests.a */,
+				28FDDEE30BC5A60A11BA1E63 /* libPods-EVYtinkUITests.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,9 +534,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 181FDE4B1CED768600C47C37 /* Build configuration list for PBXNativeTarget "EVYtink" */;
 			buildPhases = (
+				A8EFE160C958F2EF6C16E585 /* [CP] Check Pods Manifest.lock */,
 				181FDE1A1CED768600C47C37 /* Sources */,
 				181FDE1B1CED768600C47C37 /* Frameworks */,
 				181FDE1C1CED768600C47C37 /* Resources */,
+				B2EFF075F1B23C3E7EE49C9B /* [CP] Embed Pods Frameworks */,
+				8BDA97FA7783161C173B0727 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -317,9 +554,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 181FDE4E1CED768600C47C37 /* Build configuration list for PBXNativeTarget "EVYtinkTests" */;
 			buildPhases = (
+				DD99C4E3420053704F6E9775 /* [CP] Check Pods Manifest.lock */,
 				181FDE331CED768600C47C37 /* Sources */,
 				181FDE341CED768600C47C37 /* Frameworks */,
 				181FDE351CED768600C47C37 /* Resources */,
+				A2952278F19619699AA31E02 /* [CP] Embed Pods Frameworks */,
+				33E2CD5910AF7955A4DF2D3A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -335,9 +575,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 181FDE511CED768600C47C37 /* Build configuration list for PBXNativeTarget "EVYtinkUITests" */;
 			buildPhases = (
+				5369CF7E80EFC46C3E8DC17F /* [CP] Check Pods Manifest.lock */,
 				181FDE3E1CED768600C47C37 /* Sources */,
 				181FDE3F1CED768600C47C37 /* Frameworks */,
 				181FDE401CED768600C47C37 /* Resources */,
+				7A9EB5C8781844996302743C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -360,6 +602,7 @@
 				TargetAttributes = {
 					181FDE1D1CED768600C47C37 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 3S6HM3H3XB;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -401,23 +644,43 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				181FDE891CEDBAFB00C47C37 /* promoicon.png in Resources */,
-				181FDE841CEDBAFB00C47C37 /* eventicon.png in Resources */,
-				181FDE871CEDBAFB00C47C37 /* helpicon.png in Resources */,
+				18EDA95C1D4BADDF008262F3 /* LP2.png in Resources */,
+				18EDA9BB1D58287D008262F3 /* icLabel.png in Resources */,
+				18CB21A11D30C16900019C3F /* TabNewsicon.png in Resources */,
+				18CB219F1D30C16900019C3F /* TabFavicon.png in Resources */,
+				18CB21A21D30C16900019C3F /* TabPromoicon.png in Resources */,
+				18EDA9751D508A6D008262F3 /* camera.png in Resources */,
+				18CB21AB1D30CB8A00019C3F /* LeftMenuevylogo.png in Resources */,
+				18EDA9611D4BB10E008262F3 /* TabTimeline.png in Resources */,
+				18035A8A1D476CDD0072B7FF /* P1D3TableViewCell.xib in Resources */,
+				18FB1D0A1D3357D300EE3D0C /* LeftSetting.png in Resources */,
+				18FB1D051D3353BF00EE3D0C /* TabWall.png in Resources */,
+				18EDA95F1D4BADDF008262F3 /* LP5.png in Resources */,
 				181FDE791CEDB23500C47C37 /* logo.png in Resources */,
+				18EDA95E1D4BADDF008262F3 /* LP4.png in Resources */,
+				18035A821D476ADC0072B7FF /* P1D1TableViewCell.xib in Resources */,
+				18EDA9BC1D58287D008262F3 /* icCalendar.png in Resources */,
 				181FDE311CED768600C47C37 /* LaunchScreen.storyboard in Resources */,
-				181FDE861CEDBAFB00C47C37 /* favicon.png in Resources */,
-				181FDE881CEDBAFB00C47C37 /* newsicon.png in Resources */,
 				181FDE2E1CED768600C47C37 /* Assets.xcassets in Resources */,
+				18EDA9691D4BB2D7008262F3 /* iconshare.png in Resources */,
 				181FDE2C1CED768600C47C37 /* Main.storyboard in Resources */,
+				18EDA9BD1D58287D008262F3 /* icInformation.png in Resources */,
 				18EC769E1CF2BE1A005C2649 /* CustomCell2.xib in Resources */,
-				18EC79921CF561B0005C2649 /* icon_facebook.png in Resources */,
+				18EDA95D1D4BADDF008262F3 /* LP3.png in Resources */,
+				18EDA9BA1D58287D008262F3 /* icCamera.png in Resources */,
+				18035A8F1D476D090072B7FF /* P1D2TableViewCell.xib in Resources */,
+				180359E51D3FCFBC0072B7FF /* DefaultTableViewCell.xib in Resources */,
+				18CB21A91D30CA6400019C3F /* TopCenterlogoevytink.png in Resources */,
+				18EDA9C01D5837AB008262F3 /* icGiftCard.png in Resources */,
+				18CB219E1D30C16900019C3F /* TabEventicon.png in Resources */,
+				18EDA9681D4BB2D7008262F3 /* iconcomment.png in Resources */,
 				18EC76991CF2B425005C2649 /* CustomCell1.xib in Resources */,
 				18CB20871D190AAE00019C3F /* iconFav.png in Resources */,
-				18CB20831D1908DF00019C3F /* iconLike.png in Resources */,
+				18EDA9651D4BB1B6008262F3 /* TabProfile.png in Resources */,
+				18EDA9731D5081C6008262F3 /* threebuttonIcon.png in Resources */,
 				18EC77621CF3F785005C2649 /* CustomCell3.xib in Resources */,
-				181FDE851CEDBAFB00C47C37 /* favicon_click.png in Resources */,
 				18CB20861D190AAE00019C3F /* iconFavClick.png in Resources */,
+				18EDA9BE1D58287D008262F3 /* icPin.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +700,129 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		33E2CD5910AF7955A4DF2D3A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EVYtinkTests/Pods-EVYtinkTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5369CF7E80EFC46C3E8DC17F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7A9EB5C8781844996302743C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EVYtinkUITests/Pods-EVYtinkUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8BDA97FA7783161C173B0727 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EVYtink/Pods-EVYtink-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A2952278F19619699AA31E02 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EVYtinkTests/Pods-EVYtinkTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A8EFE160C958F2EF6C16E585 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B2EFF075F1B23C3E7EE49C9B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EVYtink/Pods-EVYtink-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DD99C4E3420053704F6E9775 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		181FDE1A1CED768600C47C37 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -444,16 +830,35 @@
 			files = (
 				18EC76A11CF2BEE2005C2649 /* P1CellCustom2.m in Sources */,
 				181FDE711CED812500C47C37 /* LoginFacebook.m in Sources */,
+				18FB1CFE1D30ECDF00EE3D0C /* LMP4FAQViewController.m in Sources */,
 				18EC769C1CF2B506005C2649 /* P1CellCustom1.m in Sources */,
 				18EC77651CF3F7AD005C2649 /* P1CellCustom3.m in Sources */,
+				180359DD1D38DE9B0072B7FF /* P5ProfileViewController.m in Sources */,
+				18035A8E1D476D090072B7FF /* P1D2TableViewCell.m in Sources */,
 				18EC799B1CF6A7B2005C2649 /* ViewWeb.m in Sources */,
+				18FB1D011D30ECEC00EE3D0C /* LMP5AboutUsViewController.m in Sources */,
 				18EC79A31CF6E006005C2649 /* TestCell.m in Sources */,
 				181FDE261CED768600C47C37 /* AppDelegate.m in Sources */,
 				18CB20F11D1A994300019C3F /* CommentTableViewCell.m in Sources */,
-				1836487E1CEEE36400C0DA03 /* GEOFencing.m in Sources */,
+				18EDA9711D507860008262F3 /* LMP2NotiTableViewCell.m in Sources */,
+				18FB1DC71D365F7100EE3D0C /* Geofence.m in Sources */,
+				18035AA01D4B436F0072B7FF /* PostToEventSelectDateTimeViewController.m in Sources */,
 				183648891CEEFCB200C0DA03 /* P1News.m in Sources */,
+				180359E41D3FCFBC0072B7FF /* DefaultTableViewCell.m in Sources */,
+				18035A981D49B88B0072B7FF /* P4TimelineViewController.m in Sources */,
+				180359EB1D4090F20072B7FF /* CommentPostViewController.m in Sources */,
 				18CB20EE1D1A76A300019C3F /* CommentViewController.m in Sources */,
+				18FB1CF11D30DA0100EE3D0C /* LeftMenuTableViewController.m in Sources */,
+				18035A811D476ADC0072B7FF /* P1D1TableViewCell.m in Sources */,
+				18FB1D511D338CFE00EE3D0C /* Coredata.xcdatamodeld in Sources */,
+				18CB21A71D30C38200019C3F /* SWRevealViewController.m in Sources */,
+				18035A891D476CDD0072B7FF /* P1D3TableViewCell.m in Sources */,
+				18FB1DC61D365F7100EE3D0C /* Geofence+CoreDataProperties.m in Sources */,
+				18035A9B1D49FBC30072B7FF /* PostToEventViewController.m in Sources */,
+				180359E81D3FF9C10072B7FF /* P5ProfilePostViewController.m in Sources */,
 				181FDE231CED768600C47C37 /* main.m in Sources */,
+				18FB1CF51D30DCB700EE3D0C /* LMP2NotificationViewController.m in Sources */,
+				18FB1CFB1D30ECC900EE3D0C /* LMP3SettingViewController.m in Sources */,
 				18EC79A01CF6C6B4005C2649 /* testTableView.m in Sources */,
 				18CB207F1D13A8E400019C3F /* TestMapViewController.m in Sources */,
 				18EC77711CF40D2B005C2649 /* P3Promotion.m in Sources */,
@@ -465,6 +870,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18FB1D611D3396FD00EE3D0C /* Coredata.xcdatamodeld in Sources */,
 				181FDE3C1CED768600C47C37 /* EVYtinkTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -598,46 +1004,49 @@
 		};
 		181FDE4C1CED768600C47C37 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0678F4E73546297C5B6708B1 /* Pods-EVYtink.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/EVYtink",
 				);
 				INFOPLIST_FILE = EVYtink/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/EVYtink/EngagementSDK",
-					"$(PROJECT_DIR)/EngagementSDK",
-				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.roomlinksaas.EVYtink;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		181FDE4D1CED768600C47C37 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 388DF70F09E778E21BC88E3E /* Pods-EVYtink.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/EVYtink",
 				);
 				INFOPLIST_FILE = EVYtink/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/EVYtink/EngagementSDK",
-					"$(PROJECT_DIR)/EngagementSDK",
-				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.roomlinksaas.EVYtink;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		181FDE4F1CED768600C47C37 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5269C0EAFF455E1DDD777724 /* Pods-EVYtinkTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = EVYtinkTests/Info.plist;
@@ -650,6 +1059,7 @@
 		};
 		181FDE501CED768600C47C37 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BFCA681528FB03D1F2CC2D69 /* Pods-EVYtinkTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = EVYtinkTests/Info.plist;
@@ -662,6 +1072,7 @@
 		};
 		181FDE521CED768600C47C37 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B763D4929EC7105A216DC53 /* Pods-EVYtinkUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = EVYtinkUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -673,6 +1084,7 @@
 		};
 		181FDE531CED768600C47C37 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 35049D59BE525AAD6E6854C9 /* Pods-EVYtinkUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = EVYtinkUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -722,6 +1134,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		18FB1D4F1D338CFE00EE3D0C /* Coredata.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				18FB1D501D338CFE00EE3D0C /* Coredata.xcdatamodel */,
+			);
+			currentVersion = 18FB1D501D338CFE00EE3D0C /* Coredata.xcdatamodel */;
+			path = Coredata.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 181FDE161CED768600C47C37 /* Project object */;
 }

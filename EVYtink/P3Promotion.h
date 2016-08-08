@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "P1D1TableViewCell.h"
+#import "P1D2TableViewCell.h"
+#import "P1D3TableViewCell.h"
 
 @interface P3Promotion : UITableViewController
 
 @property (nonatomic,strong) NSMutableArray *arrPromotion;
 @property (nonatomic,strong) NSMutableArray *arrShowPromotion;
 
+- (IBAction)postBtAction:(id)sender;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *postBtProperties;
 @end

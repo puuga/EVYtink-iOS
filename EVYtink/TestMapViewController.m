@@ -10,6 +10,7 @@
 #define METERS_PER_MILE 1609.344
 @interface TestMapViewController (){
     BOOL _didStartMonitoringRegion;
+    int *countInside;
 }
 
 @end
@@ -20,10 +21,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    NSUserDefaults * defs = [NSUserDefaults standardUserDefaults];
+    NSDictionary * dict = [defs dictionaryRepresentation];
+    for (id key in dict) {
+        [defs removeObjectForKey:key];
+    }
+    countInside = 0;
+    NSLog(@"Count - inside = %d",countInside);
+    
     mapV = [[MKMapView alloc]init];
     mapV.showsUserLocation = YES;
     
     locationManager = [[CLLocationManager alloc] init];
+    [locationManager requestWhenInUseAuthorization];
+    [locationManager requestAlwaysAuthorization];
     [locationManager setDelegate:self];
     [locationManager setDesiredAccuracy:kCLLocationAccuracyHundredMeters];
     geofences = [NSMutableArray arrayWithArray:[[locationManager monitoredRegions] allObjects]];
@@ -38,10 +50,11 @@
     
     //Add and working Region.
     [locationManager startMonitoringForRegion:region];
+    NSLog(@"location manager - %@",locationManager);
     [geofences addObject:region];
-    
+    NSLog(@"add GEO");
     //use method Update location.
-    [locationManager startUpdatingLocation];
+    //[locationManager startUpdatingLocation];
 }
 
 /*
@@ -94,8 +107,23 @@
 
 
 - (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
-    NSLog(@"Entered Regoin : %@ - %@",region.identifier,geofences);
+    countInside += (int)1;
+    /*if (countInside>12) {
+        return;
+    }*/
+    NSLog(@"Entered Regoin : %@ - %@ ,count - %d",region.identifier,geofences,countInside);
     //NSLog(@"%s", __PRETTY_FUNCTION__);
+    /*defaults = [NSUserDefaults standardUserDefaults];*/
+    UIUserNotificationType types = UIUserNotificationTypeBadge| UIUserNotificationTypeSound| UIUserNotificationTypeAlert;
+    UIUserNotificationSettings *mySettings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
+    [[UIApplication sharedApplication] registerUserNotificationSettings:mySettings];
+
+    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+    localNotification.alertBody = [NSString stringWithFormat:@"Entered : %@",region.identifier,geofences];
+    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    localNotification.repeatInterval= NSCalendarUnitDay;//NSCalendarUnitMinute; //Repeating instructions here.
+    localNotification.soundName= UILocalNotificationDefaultSoundName;
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
     
 }
 
@@ -104,8 +132,8 @@
     //NSLog(@"%s", __PRETTY_FUNCTION__);
     
     //remove region, geofence.
-    [geofences removeObject:region];
-    [locationManager stopMonitoringForRegion:region];
+    //[geofences removeObject:region];
+    //[locationManager stopMonitoringForRegion:region];
     
     //disable method Update location.
     [locationManager stopUpdatingLocation];

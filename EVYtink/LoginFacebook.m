@@ -43,26 +43,25 @@
 }
 
 -(void)LoginSuccess{
-    //NSLog(@"FB : %@",[[FBSDKAccessToken currentAccessToken] userID]);
-    NSData *jsonData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://evbt.azurewebsites.net/docs/page/theme/evycheckfbloginjson.aspx?evarfid=%@",[[FBSDKAccessToken currentAccessToken] userID]]]];
-    id jsonObjects = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
-    NSLog(@"show event form facebook : %@",jsonObjects);
-    /*
-    for (int i=0; i<[jsonObjects count]; i++) {
-        [arrNews addObject:[jsonObjects objectAtIndex:i]];
-        [self.tableView reloadData];
-    }*/
-    NSLog(@"Show Back Pages.");
-    /*
-    UITabBarController *tbc = [self.storyboard instantiateViewControllerWithIdentifier:@"MainTabBar"];
-    tbc.selectedIndex = 0;
-    tbc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-    [self presentViewController:tbc animated:YES completion:nil];
-     */
-    UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"เข้าสู่ระบบ" message:@"เข้าสู่ระบบเรียบร้อย ท่านสามารถใช้งานแอพพลิเคชันในส่วนอื่นได้" delegate:nil cancelButtonTitle:@"ตกลง" otherButtonTitles:nil, nil];
-    [alertV show];
-    [self dismissViewControllerAnimated:YES completion:nil];
-    [self removeFromParentViewController];
+    NSLog(@"FB : %@",[[FBSDKAccessToken currentAccessToken] userID]);
+    NSMutableDictionary* parameters = [NSMutableDictionary dictionary];
+    [parameters setValue:@"id,name,email,first_name,last_name" forKey:@"fields"];
+    
+    [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:parameters]
+     startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
+                                  id result, NSError *error) {
+         if (!error) {
+             NSLog(@"results All - %@",result);
+             NSData *jsonData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://evbt.azurewebsites.net/docs/page/theme/evycheckfbloginjson.aspx?evarfid=%@&fname=%@%@%@",[result objectForKey:@"id"],[result objectForKey:@"first_name"],@"%20",[result objectForKey:@"last_name"]]]];
+             id jsonObjects = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
+             NSLog(@"json add - %@",jsonObjects);
+             UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"เข้าสู่ระบบ" message:@"เข้าสู่ระบบเรียบร้อย ท่านสามารถใช้งานแอพพลิเคชันในส่วนอื่นได้" delegate:nil cancelButtonTitle:@"ตกลง" otherButtonTitles:nil, nil];
+             [alertV show];
+             [self dismissViewControllerAnimated:YES completion:nil];
+             [self removeFromParentViewController];
+         }
+     }];
+    
 }
 
 
