@@ -15,10 +15,5 @@
 @property (nonatomic,strong) NSMutableArray *arrNews;
 @property (nonatomic,strong) NSMutableArray *arrShowNews;
 
-<<<<<<< HEAD
-=======
-- (IBAction)BtLogout:(id)sender;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *leftButton;
 
->>>>>>> origin/master
 @end

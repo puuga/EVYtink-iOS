@@ -1,17 +1,17 @@
 /*
 
  Copyright (c) 2013 Joan Lluch <joan.lluch@sweetwilliamsl.com>
- 
+
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
  in the Software without restriction, including without limitation the rights
  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  copies of the Software, and to permit persons to whom the Software is furnished
  to do so, subject to the following conditions:
- 
+
  The above copyright notice and this permission notice shall be included in all
  copies or substantial portions of the Software.
- 
+
  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -21,43 +21,43 @@
  THE SOFTWARE.
 
  Early code inspired on a similar class by Philip Kluz (Philip.Kluz@zuui.org)
- 
+
 */
 
 /*
 
  RELEASE NOTES
- 
+
  Version 2.1.0 (Current Version)
- 
+
  - Removed SWDirectionPanGestureRecognizer. Horizontal panning is filtered on the shouldBegin delegate. This is cleaner, I hope it does not break previous funcionality
  - Took a cleaner approach to storyboard support. SWRevealViewControllerSegue is now deprecated and you should use SWRevealViewControllerSegueSetController and SWRevealViewControllerSeguePushController instead.
  - A minor change on the autoresizingMask of the internal views to fix a glitch on iOS8. This should not affect iOS7
- 
+
  Version 2.0.2
- 
+
  - Added new delegates for better control of gesture recognizers
- 
+
  Version 2.0.1
- 
+
  - Fix: draggableBorderWidth now correctly handles the cases where one of the rear controllers is not provided
  - Fix: the shadow related properties are now granted at any time after view load, not just after initialization.
- 
+
  Version 2.0.0
- 
+
 - Dropped support for iOS6 and earlier. This version will only work on iOS7
- 
-- The method setFrontViewController:animated: does not longer perform a full reveal animation. Instead it just replaces the frontViewController in 
+
+- The method setFrontViewController:animated: does not longer perform a full reveal animation. Instead it just replaces the frontViewController in
     its current position. Use the new pushFrontViewController:animated: method to perform a replacement of the front controlles with reveal animation
     as in the previous version
-    
+
     IMPORTANT: You must replace all calls to setFrontViewController:animated by calls to pushFrontViewController:animated to prevent breaking
     functionality on existing projects.
- 
+
 - Added support for animated replacement of child controllers: setRearViewController, setFrontViewController, setRightViewController now have animated versions.
- 
+
 - The new 'replaceViewAnimationDuration' property sets the default duration of child viewController replacement.
- 
+
 - Added the following new delegate methods
     revealController:willAddViewController:forOperation:animated:
     revealController:didAddViewController:forOperation:animated:
@@ -65,31 +65,31 @@
 - The class also supports custom UIViewControllerAnimatedTransitioning related with the replacement of child viewControllers.
     You can implement the following new delegate method: revealController:animationControllerForOperation:fromViewController:toViewController:
     and provide an object conforming to UIViewControllerAnimatedTransitioning to implement custom animations.
- 
+
  Version 1.1.3
- 
+
 - Reverted the supportedInterfaceOrientations to the default behavior. This is consistent with Apple provided controllers
 
 - The presentFrontViewHierarchically now dynamically takes into account the smaller header height of bars on iPhone landscape orientation
- 
+
  Version 1.1.2
- 
- - The status bar style and appearance are now handled in sync with the class animations. 
+
+ - The status bar style and appearance are now handled in sync with the class animations.
     You can implement the methods preferredStatusBarStyle and prefersStatusBarHidden on your child controllers to define the desired appearance
-    
+
  - The loadView method now calls a method, loadStoryboardControllers, just for the purpose of loading child controllers from a storyboard.
     You can override this method and remove the @try @catch statements if you want the debugger not to stop at them in case you have set an exception breakpoint.
- 
+
  Version 1.1.1
- 
+
  - You can now get a tapGestureRecognizer from the class. See the tapGestureRecognizer method for more information.
- 
+
  - Both the panGestureRecognizer and the tapGestureRecognizer are now attached to the revealViewController's front content view
     by default, so they will start working just by calling their access methods even if you do not attach them to any of your views.
     This enables you to dissable interactions on your views -for example based on position- without breaking normal gesture behavior.
- 
+
  - Corrected a bug that caused a crash on iOS6 and earlier.
- 
+
  Version 1.1.0
 
  - The method setFrontViewController:animated now performs the correct animations both for left and right controllers.
@@ -97,11 +97,11 @@
  - The class now automatically handles the status bar appearance depending on the currently shown child controller.
 
  Version 1.0.8
- 
+
  - Support for constant width frontView by setting a negative value to reveal widths. See properties rearViewRevealWidth and rightViewRevealWidth
- 
+
  - Support for draggableBorderWidth. See property of the same name.
- 
+
  - The Pan gesture recongnizer can be disabled by implementing the following delegate method and returning NO
     revealControllerPanGestureShouldBegin:
 
@@ -109,19 +109,17 @@
     revealController:panGestureBeganFromLocation:progress:
     revealController:panGestureMovedToLocation:progress:
     revealController:panGestureEndedToLocation:progress:
- 
+
  Previous Versions
- 
+
  - No release notes were updated for previous versions.
 
 */
 
 
 #import <UIKit/UIKit.h>
-<<<<<<< HEAD
 #import <CoreLocation/CoreLocation.h>
-=======
->>>>>>> origin/master
+
 
 @class SWRevealViewController;
 @protocol SWRevealViewControllerDelegate;
@@ -135,38 +133,35 @@ typedef enum
     // effect than animating from FrontViewPositionLeftSideMost. Use this instead of FrontViewPositionLeftSideMost when
     // you want to remove the front view controller view from the view hierarchy.
     FrontViewPositionLeftSideMostRemoved,
-    
+
     // Left most position, front view is presented left-offseted by rightViewRevealWidth+rigthViewRevealOverdraw
     FrontViewPositionLeftSideMost,
-    
+
     // Left position, front view is presented left-offseted by rightViewRevealWidth
     FrontViewPositionLeftSide,
 
     // Center position, rear view is hidden behind front controller
 	FrontViewPositionLeft,
-    
+
     // Right possition, front view is presented right-offseted by rearViewRevealWidth
 	FrontViewPositionRight,
-    
+
     // Right most possition, front view is presented right-offseted by rearViewRevealWidth+rearViewRevealOverdraw
 	FrontViewPositionRightMost,
-    
+
     // Front controller is removed from view. Animated transitioning from this state will cause the same
     // effect than animating from FrontViewPositionRightMost. Use this instead of FrontViewPositionRightMost when
     // you intent to remove the front controller view from the view hierarchy.
     FrontViewPositionRightMostRemoved,
-    
+
 } FrontViewPosition;
 
 
-<<<<<<< HEAD
 @interface SWRevealViewController : UIViewController<CLLocationManagerDelegate>
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (strong, nonatomic) NSMutableArray *geofences;
-=======
-@interface SWRevealViewController : UIViewController
->>>>>>> origin/master
+
 
 // Object instance init and rear view setting
 - (id)initWithRearViewController:(UIViewController *)rearViewController frontViewController:(UIViewController *)frontViewController;
@@ -286,7 +281,7 @@ typedef enum
     SWRevealControllerOperationReplaceRearController,
     SWRevealControllerOperationReplaceFrontController,
     SWRevealControllerOperationReplaceRightController,
-    
+
 } SWRevealControllerOperation;
 
 

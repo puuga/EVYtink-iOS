@@ -13,16 +13,12 @@
 #import "FBSDKShareKit.framework/Headers/FBSDKShareKit.h"
 #import "LoginFacebook.h"
 #import "CommentViewController.h"
-<<<<<<< HEAD
+
 #import "SWRevealViewController.h"
 #import <UIImageView+AFNetworking.h>
 #import <AFNetworking.h>
 #import "P5ProfilePostViewController.h"
-=======
-#import <UIImageView+AFNetworking.h>
-#import "SlideOutMenuFiles/SWRevealViewController.h"
 
->>>>>>> origin/master
 
 @interface P1News (){
     BOOL chkLogin;
@@ -41,7 +37,7 @@
     anotherButton.target = self.revealViewController;
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     self.navigationItem.leftBarButtonItem = anotherButton;
-    
+
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"    " style:UIBarButtonItemStyleDone target:nil action:nil];
     UIImage* logoImage = [UIImage imageNamed:@"TopCenterlogoevytink.png"];
     UIImageView *uiimagelogoImage = [[UIImageView alloc] initWithImage:logoImage];
@@ -52,7 +48,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-<<<<<<< HEAD
+
     if ([self chkFacebook]) {
         chkLogin = YES;
         evyUId = [self checkUserId];
@@ -60,41 +56,18 @@
         chkLogin = NO;
     }
     [self setNavigationTitle];
-=======
-    leftButton.target = self.revealViewController;
-    leftButton.action = @selector(revealToggle:);
-    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-    
-    UIImage* logoImage = [UIImage imageNamed:@"TopCenterlogoevytink.png"];
-    UIImageView *uiimagelogoImage = [[UIImageView alloc] initWithImage:logoImage];
-    uiimagelogoImage.frame = CGRectMake(75, 0, 100, 44);
-    [uiimagelogoImage setContentMode:UIViewContentModeScaleAspectFit];
-    self.navigationItem.titleView = uiimagelogoImage;
-    
-    //self.tabBarController.tabBarItem.image = [UIImage imageNamed:@"icon_facebook.png"];
-    [[self.tabBarController.tabBar.items objectAtIndex:0] setImage:[[UIImage imageNamed:@"TabNewsicon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
-    [[self.tabBarController.tabBar.items objectAtIndex:1] setImage:[[UIImage imageNamed:@"TabEventicon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
-    [[self.tabBarController.tabBar.items objectAtIndex:2] setImage:[[UIImage imageNamed:@"TabPromoicon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
-    [[self.tabBarController.tabBar.items objectAtIndex:3] setImage:[[UIImage imageNamed:@"TabFavicon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
-    [[self.tabBarController.tabBar.items objectAtIndex:4] setImage:[[UIImage imageNamed:@"TabMoreManu.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
 
-    [self.tabBarController.tabBar.items objectAtIndex:0].imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
-    [self.tabBarController.tabBar.items objectAtIndex:1].imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
-    [self.tabBarController.tabBar.items objectAtIndex:2].imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
-    [self.tabBarController.tabBar.items objectAtIndex:3].imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
-    [self.tabBarController.tabBar.items objectAtIndex:4].imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
->>>>>>> origin/master
-    
+
     static NSString *CellIdentifier1 = @"idenCell1";
     static NSString *CellIdentifier2 = @"idenCell2";
     static NSString *CellIdentifier3 = @"idenCell3";
-    
+
     UINib *nib1 = [UINib nibWithNibName:@"CustomCell1" bundle:nil];
     [self.tableView registerNib:nib1 forCellReuseIdentifier:CellIdentifier1];
-    
+
     UINib *nib2 = [UINib nibWithNibName:@"CustomCell2" bundle:nil];
     [self.tableView registerNib:nib2 forCellReuseIdentifier:CellIdentifier2];
-    
+
     UINib *nib3 = [UINib nibWithNibName:@"CustomCell3" bundle:nil];
     [self.tableView registerNib:nib3 forCellReuseIdentifier:CellIdentifier3];
 
@@ -146,8 +119,8 @@
 }
 
 -(void)setArrNews:(NSMutableArray *)arrNews{
-<<<<<<< HEAD
-    
+
+
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://evbt.azurewebsites.net/docs/page/theme/betajsonnews.aspx"]]];
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:urlRequest];
     operation.responseSerializer = [AFJSONResponseSerializer serializer];
@@ -168,16 +141,7 @@
         NSLog(@"Not Success afnetworking.");
     }];
     [operation start];
-=======
-    NSData *jsonData = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"https://evbt.azurewebsites.net/docs/page/theme/betajsonnews.aspx"]];
-    id jsonObjects = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
-    NSLog(@"JSON DATA - %@,\nJSON OBJECT - %@",jsonData,jsonObjects);
-    NSLog(@"COunt json - %@",jsonObjects);
-     for (int i=0; i<[jsonObjects count]; i++) {
-        [arrNews addObject:[jsonObjects objectAtIndex:i]];
-         NSLog(@"รอบที่ - %d",i);
-     }
->>>>>>> origin/master
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -201,7 +165,7 @@
     static NSString *CellIdentifier1 = @"idenCell1";
     static NSString *CellIdentifier2 = @"idenCell2";
     static NSString *CellIdentifier3 = @"idenCell3";
-    
+
     if ((indexPath.row == ([arrShowNews count])-1)&&([arrNews count]!=[arrShowNews count])) {
         if (([arrShowNews count] + 5) <= [arrNews count]) {
             [self startArrShowNews:arrNews startAt:(indexPath.row + 1) endAt:(indexPath.row + 5)];
@@ -211,7 +175,7 @@
             NSLog(@"บวกเพิ่ม %lu",[arrNews count]);
         }
     }
-    
+
     if ([[[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"imageurl"]isEqualToString:@"no"]) {
         P1CellCustom1 *cell = (P1CellCustom1 *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier1];
         cell.delegate = self;
@@ -219,21 +183,8 @@
             NSString *string = [NSString stringWithFormat:@"%@",[[[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"user"] objectForKey:@"imgprofile"]];
             NSArray *subString = [string componentsSeparatedByString:@"?"];
             NSString *urlimg = subString[0];
-<<<<<<< HEAD
-=======
-            NSURL *urlUser = [NSURL URLWithString:[NSString stringWithFormat:@"%@?",urlimg]];
-            NSData *datUrlUser = [[NSData alloc] initWithContentsOfURL:urlUser];
-            
-            NSURLRequest *requestImageUser = [NSURLRequest requestWithURL:[NSURL URLWithString:string]];
-            [cell.img setImageWithURLRequest:requestImageUser placeholderImage:NULL success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull imageShowHere) {
-                cell.img.image = imageShowHere;
-                
-            } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
-                NSLog(@"Errorrrrrrrr");
-            }];
-            
->>>>>>> origin/master
-            
+
+
             cell.indexAction = indexPath;
             NSLog(@"strObjId - %@",[[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"newsevyid"]);
             cell.strObjId = [[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"newsevyid"];
@@ -253,31 +204,7 @@
             NSString *string = [NSString stringWithFormat:@"%@",[[[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"user"] objectForKey:@"imgprofile"]];
             NSArray *subString = [string componentsSeparatedByString:@"?"];
             NSString *urlimg = subString[0];
-<<<<<<< HEAD
-            
-=======
-            NSURL *urlUser = [NSURL URLWithString:[NSString stringWithFormat:@"%@?",urlimg]];
-            NSData *datUrlUser = [[NSData alloc] initWithContentsOfURL:urlUser];
-            
-            NSURLRequest *requestImageUser = [NSURLRequest requestWithURL:[NSURL URLWithString:string]];
-            [cell.img setImageWithURLRequest:requestImageUser placeholderImage:NULL success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull imageShowHere) {
-                cell.img.image = imageShowHere;
-                
-            } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
-                NSLog(@"Errorrrrrrrr");
-            }];
-            
-            
-            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@",[[arrNews objectAtIndex:indexPath.row] objectForKey:@"imageurl"]]];
-            NSURLRequest *urlrequest = [NSURLRequest requestWithURL:url];
-            [cell.imgPic1 setImageWithURLRequest:urlrequest placeholderImage:NULL success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull imageShowHere) {
-                cell.imgPic1.image = imageShowHere;
-                
-            } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
-                NSLog(@"Errorrrrrrrr");
-            }];
-            
->>>>>>> origin/master
+
             cell.indexAction = indexPath;
             cell.strObjId = [[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"newsevyid"];
             cell.EvyUserId = evyUId;
@@ -290,7 +217,7 @@
             cell.userPostId = [[[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"user"] objectForKey:@"evyaccountid"];
         }
         return cell;
-        
+
     }else{
         P1CellCustom3 *cell = (P1CellCustom3 *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier3];
         cell.delegate = self;
@@ -299,58 +226,24 @@
             NSArray *subString = [string componentsSeparatedByString:@"?"];
             NSString *urlimg = subString[0];
             NSURL *urlUser = [NSURL URLWithString:[NSString stringWithFormat:@"%@?",urlimg]];
-<<<<<<< HEAD
-            
+
+
             cell.indexAction = indexPath;
             cell.strObjId = [[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"newsevyid"];
             cell.EvyUserId = evyUId;
-=======
-            NSData *datUrlUser = [[NSData alloc] initWithContentsOfURL:urlUser];
-            
-            NSURLRequest *requestImageUser = [NSURLRequest requestWithURL:[NSURL URLWithString:string]];
-            [cell.img setImageWithURLRequest:requestImageUser placeholderImage:NULL success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull imageShowHere) {
-                cell.img.image = imageShowHere;
-                
-            } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
-                NSLog(@"Errorrrrrrrr");
-            }];
-            
-            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@",[[arrNews objectAtIndex:indexPath.row] objectForKey:@"imageurl"]]];
-            NSURLRequest *urlrequest = [NSURLRequest requestWithURL:url];
-            
-            [cell.imgPic1 setImageWithURLRequest:urlrequest placeholderImage:NULL success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull imageShowHere) {
-                cell.imgPic1.image = imageShowHere;
-                
-            } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
-                NSLog(@"Errorrrrrrrr");
-            }];
-            
-            NSURL *url2 = [NSURL URLWithString:[NSString stringWithFormat:@"%@",[[arrNews objectAtIndex:indexPath.row] objectForKey:@"imageurl2"]]];
-            NSURLRequest *urlrequest2 = [NSURLRequest requestWithURL:url2];
-            
-            [cell.imgPic2 setImageWithURLRequest:urlrequest2 placeholderImage:NULL success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull imageShowHere) {
-                cell.imgPic2.image = imageShowHere;
-            } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
-                NSLog(@"Errorrrrrrrr");
-            }];
-            
-            
-            
-            cell.indexAction = indexPath;
-            cell.strObjId = [[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"newsevyid"];
->>>>>>> origin/master
+
             cell.txtName.text = [[[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"user"] objectForKey:@"publishtitle"];
             cell.txtDate.text = [[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"evydatetime"];
             cell.txtDetail.text = [[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"title"];
             cell.urlToShow = [NSString stringWithFormat:@"%@",[[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"url"]];
-            
+
             [cell.img setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@?",urlimg]]];
             [cell.imgPic1 setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"imageurl"]]]];
             [cell.imgPic2 setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"imageurl2"]]]];
             cell.userPostId = [[[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"user"] objectForKey:@"evyaccountid"];
         }
         return cell;
-        
+
     }
 }
 
@@ -368,7 +261,7 @@
 -(void)getImageFormUrlForCell:(NSString *)urlString forIndex:(NSIndexPath *)indexPath{
     NSString *dataUrl = @"http://koratstartup.com/wp-content/uploads/2016/04/NjpUs24nCQKx5e1EaLRzVmhEaudlUAKrWs0nDIVOAVQ.jpg";
     NSURL *url = [NSURL URLWithString:dataUrl];
-    
+
     NSURLSessionDataTask *downloadTask = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         UIImage *imgChange = [UIImage imageWithData:data];
         float oldWidth = imgChange.size.width;
@@ -412,7 +305,7 @@
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    }
 }
 */
 
@@ -477,7 +370,7 @@
 -(void)commentTo:(NSIndexPath *)indexPath{
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
     CommentViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"storyComment"];
-    
+
     NSString *string = [NSString stringWithFormat:@"%@",[[[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"user"] objectForKey:@"imgprofile"]];
     NSArray *subString = [string componentsSeparatedByString:@"?"];
     NSString *urlimg = subString[0];
@@ -525,7 +418,7 @@
                                                             }];
                                   UIAlertAction *cancle = [UIAlertAction actionWithTitle:@"ยกเลิก" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
                                                            {
-                                                               
+
                                                            }];
                                   [alertDelete addAction:confirm];
                                   [alertDelete addAction:cancle];
@@ -543,10 +436,10 @@
                                  {
                                      NSLog(@"ยกเลิก");
                                      [myAlertController dismissViewControllerAnimated:YES completion:nil];
-                                     
+
                                  }];
         [myAlertController addAction: cancle];
-        
+
         dispatch_async(dispatch_get_main_queue(), ^ {
             [self presentViewController:myAlertController animated:YES completion:nil];
         });
@@ -561,11 +454,11 @@
                                  {
                                      NSLog(@"ยกเลิก");
                                      [myAlertController dismissViewControllerAnimated:YES completion:nil];
-                                     
+
                                  }];
         [myAlertController addAction: cancle];
-        
-        
+
+
         dispatch_async(dispatch_get_main_queue(), ^ {
             [self presentViewController:myAlertController animated:YES completion:nil];
         });
@@ -577,12 +470,12 @@
     UIAlertAction* report = [UIAlertAction actionWithTitle:@"ยืนยัน" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
                              {
                                  [myAlertController dismissViewControllerAnimated:YES completion:nil];
-                                 
-                                 
+
+
                                  AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
                                  NSLog(@"user ID - %@, objectId - %@",userId,objectId);
                                  NSDictionary *jsonParameter = @{@"evarid":userId,@"evarnewsid":objectId,@"evarcommand":@"deletenews",@"evarnewscontent":@""};
-                                 
+
                                  [manager POST:@"http://evbt.azurewebsites.net/docs/page/theme/betajsonnewsedit.aspx" parameters:jsonParameter constructingBodyWithBlock:^(id<AFMultipartFormData>  formData) {
                                  } success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                      NSLog(@"Success POST Delete");
@@ -593,13 +486,13 @@
                                  } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                      NSLog(@"Not success POST delete - %@",error);
                                  }];
-                                 
+
                              }];
     [myAlertController addAction: report];
     UIAlertAction* cancle = [UIAlertAction actionWithTitle:@"ยกเลิก" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
                              {
                                  [myAlertController dismissViewControllerAnimated:YES completion:nil];
-                                 
+
                              }];
     [myAlertController addAction: cancle];
     dispatch_async(dispatch_get_main_queue(), ^ {
@@ -634,14 +527,14 @@
                               }];
     UIAlertAction* action4 = [UIAlertAction actionWithTitle:@"ยกเลิก" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
                               {
-                                  
+
                               }];
     [myAlertController addAction: action1];
     [myAlertController addAction: action2];
     [myAlertController addAction: action3];
     [myAlertController addAction: action4];
-    
-    
+
+
     dispatch_async(dispatch_get_main_queue(), ^ {
         [self presentViewController:myAlertController animated:YES completion:nil];
     });
@@ -654,39 +547,39 @@
     if ([detail isEqualToString:@"1"]) {
         AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
         NSDictionary *jsonParameter = @{@"evyaccountid":userId,@"postid":[[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"newsevyid"],@"reportdetail":@"รายงานนี้ไม่เหมาะสม สำหรับ EVYtink",@"posttype":@"news",@"adddatetime":sendDate,@"command":@"savereport"};
-        
+
         [manager POST:@"http://evbt.azurewebsites.net/docs/page/theme/betajsonevyreport.aspx" parameters:jsonParameter constructingBodyWithBlock:^(id<AFMultipartFormData>  formData) {
         } success:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSLog(@"Success POST Report");
-            
+
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Not success POST Report - %@",error);
         }];
     }else if ([detail isEqualToString:@"2"]){
         AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
         NSDictionary *jsonParameter = @{@"evyaccountid":userId,@"postid":[[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"newsevyid"],@"reportdetail":@"เป็นแสปม การหลอกลวงหรือบัญชีปลอม",@"posttype":@"news",@"adddatetime":sendDate,@"command":@"savereport"};
-        
+
         [manager POST:@"http://evbt.azurewebsites.net/docs/page/theme/betajsonevyreport.aspx" parameters:jsonParameter constructingBodyWithBlock:^(id<AFMultipartFormData>  formData) {
         } success:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSLog(@"Success POST Report");
-            
-            
+
+
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Not success POST Report - %@",error);
         }];
     }else if ([detail isEqualToString:@"3"]){
         AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
         NSDictionary *jsonParameter = @{@"evyaccountid":userId,@"postid":[[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"newsevyid"],@"reportdetail":@"บัญผู้ใช้อาจโดนแฮก",@"posttype":@"news",@"adddatetime":sendDate,@"command":@"savereport"};
-        
+
         [manager POST:@"http://evbt.azurewebsites.net/docs/page/theme/betajsonevyreport.aspx" parameters:jsonParameter constructingBodyWithBlock:^(id<AFMultipartFormData>  formData) {
         } success:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSLog(@"Success POST Report");
-            
-            
+
+
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Not success POST Report - %@",error);
         }];
     }
-    
+
 }
 @end

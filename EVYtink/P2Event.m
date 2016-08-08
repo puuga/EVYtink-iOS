@@ -8,15 +8,13 @@
 
 #import "P2Event.h"
 #import "ViewWeb.h"
-<<<<<<< HEAD
+
 #import "SWRevealViewController.h"
 #import <UIImageView+AFNetworking.h>
 #import <AFNetworking.h>
 #import "LoginFacebook.h"
 #import "PostToEventViewController.h"
-=======
-#import <UIImageView+AFNetworking.h>
->>>>>>> origin/master
+
 
 @interface P2Event (){
     BOOL chkLogin;
@@ -35,7 +33,7 @@
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     self.navigationItem.leftBarButtonItem = anotherButton;
 
-<<<<<<< HEAD
+
     UIImage* logoImage = [UIImage imageNamed:@"TopCenterlogoevytink.png"];
     UIImageView *uiimagelogoImage = [[UIImageView alloc] initWithImage:logoImage];
     uiimagelogoImage.frame = CGRectMake(75, 0, 100, 44);
@@ -88,26 +86,8 @@
     arrEvent = [[NSMutableArray alloc] init];
     arrShowEvent = [[NSMutableArray alloc] init];
     [self setArrEvent:arrEvent];
-=======
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    static NSString *CellIdentifier1 = @"idenCell1";
-    static NSString *CellIdentifier2 = @"idenCell2";
-    static NSString *CellIdentifier3 = @"idenCell3";
-    UINib *nib = [UINib nibWithNibName:@"CustomCell1" bundle:nil];
-    [self.tableView registerNib:nib forCellReuseIdentifier:CellIdentifier1];
-    
-    nib = [UINib nibWithNibName:@"CustomCell2" bundle:nil];
-    [self.tableView registerNib:nib forCellReuseIdentifier:CellIdentifier2];
-    
-    nib = [UINib nibWithNibName:@"CustomCell3" bundle:nil];
-    [self.tableView registerNib:nib forCellReuseIdentifier:CellIdentifier3];
-    
-    [self.tableView reloadData];
-    
->>>>>>> origin/master
-    
+
+
     if ([arrEvent count]<5) {
         [self startArrShowEvent:arrEvent startAt:0 endAt:([arrEvent count] - 1)];
     }else{
@@ -119,7 +99,7 @@
     arrEvent = [[NSMutableArray alloc] init];
     arrShowEvent = [[NSMutableArray alloc] init];
     [self setArrEvent:arrEvent];
-    
+
     if ([arrEvent count]<5) {
         [self startArrShowEvent:arrEvent startAt:0 endAt:([arrEvent count] - 1)];
     }else{
@@ -135,13 +115,13 @@
     static NSString *CellIdentifier3 = @"idenDefCell3";
     UINib *nib = [UINib nibWithNibName:@"P1D1TableViewCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:CellIdentifier1];
-    
+
     nib = [UINib nibWithNibName:@"P1D2TableViewCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:CellIdentifier2];
-    
+
     nib = [UINib nibWithNibName:@"P1D3TableViewCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:CellIdentifier3];
-    
+
     [self.tableView reloadData];
 }
 
@@ -160,7 +140,7 @@
 }
 
 -(void)setArrEvent:(NSMutableArray *)arrE{
-    
+
     NSData *jsonData = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"https://evbt.azurewebsites.net/docs/page/theme/betajsonevent.aspx"]];
     NSError *error;
     id jsonObjects = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
@@ -168,7 +148,7 @@
         [arrE addObject:[jsonObjects objectAtIndex:i]];
         [self.tableView reloadData];
     }
-    
+
     /*
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://evbt.azurewebsites.net/docs/page/theme/betajsonevent.aspx"]]];
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:urlRequest];
@@ -205,7 +185,7 @@
     static NSString *CellIdentifier1 = @"idenDefCell1";
     static NSString *CellIdentifier2 = @"idenDefCell2";
     static NSString *CellIdentifier3 = @"idenDefCell3";
-    
+
     if ((indexPath.row == ([arrShowEvent count])-1)&&([arrEvent count]!=[arrShowEvent count])) {
         if (([arrShowEvent count] + 5) <= [arrEvent count]) {
             [self startArrShowEvent:arrEvent startAt:(indexPath.row + 1) endAt:(indexPath.row + 5)];
@@ -215,7 +195,7 @@
             NSLog(@"บวกเพิ่ม %lu",[arrEvent count]);
         }
     }
-    
+
     NSLog(@"Cell - %@",[arrShowEvent objectAtIndex:indexPath.row]);
     NSLog(@"user post id - %@",[[[arrShowEvent objectAtIndex:indexPath.row] objectForKey:@"user"] objectForKey:@"evyaccountid"]);
     if ([[[arrShowEvent objectAtIndex:indexPath.row] objectForKey:@"imageurl"]isEqualToString:@"no"]) {
@@ -242,7 +222,7 @@
             NSString *string = [NSString stringWithFormat:@"%@",[[[arrShowEvent objectAtIndex:indexPath.row] objectForKey:@"user"] objectForKey:@"imgprofile"]];
             NSArray *subString = [string componentsSeparatedByString:@"?"];
             NSString *urlimg = subString[0];
-            
+
             cell.indexAction = indexPath;
             cell.strObjId = [[arrShowEvent objectAtIndex:indexPath.row] objectForKey:@"eventevyid"];
             cell.txtName.text = [[[arrShowEvent objectAtIndex:indexPath.row] objectForKey:@"user"] objectForKey:@"organizatitle"];
@@ -263,14 +243,14 @@
             NSArray *subString = [string componentsSeparatedByString:@"?"];
             NSString *urlimg = subString[0];
             NSURL *urlUser = [NSURL URLWithString:[NSString stringWithFormat:@"%@?",urlimg]];
-            
+
             cell.indexAction = indexPath;
             cell.strObjId = [[arrShowEvent objectAtIndex:indexPath.row] objectForKey:@"eventevyid"];
             cell.txtName.text = [[[arrShowEvent objectAtIndex:indexPath.row] objectForKey:@"user"] objectForKey:@"organizatitle"];
             cell.txtDate.text = [[arrShowEvent objectAtIndex:indexPath.row] objectForKey:@"evydatetime"];
             cell.txtDetail.text = [[arrShowEvent objectAtIndex:indexPath.row] objectForKey:@"title"];
             cell.urlToShow = [NSString stringWithFormat:@"%@",[[arrShowEvent objectAtIndex:indexPath.row] objectForKey:@"url"]];
-            
+
             [cell.img setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@?",urlimg]]];
             [cell.imgPic1 setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[[arrShowEvent objectAtIndex:indexPath.row] objectForKey:@"imageurl"]]]];
             [cell.imgPic2 setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[[arrShowEvent objectAtIndex:indexPath.row] objectForKey:@"imageurl2"]]]];
@@ -293,7 +273,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if ([self ChkFacebookLoginStatusLoginPage]) {
         ViewWeb *sendWebView = [self.storyboard instantiateViewControllerWithIdentifier:@"openWebView"];
-        
+
         sendWebView.url = [NSURL URLWithString:[NSString stringWithFormat:@"http://evbt.azurewebsites.net/docs/page/theme/evytinkeventdetail.aspx/?evarid=%@&evaracid=%@",[[arrShowEvent objectAtIndex:indexPath.row] objectForKey:@"eventevyid"],evyUId]];
         [self presentViewController:sendWebView animated:YES completion:NULL];
     }
@@ -315,7 +295,7 @@
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    }
 }
 */
 
@@ -381,10 +361,10 @@
                                  {
                                      NSLog(@"ยกเลิก");
                                      [myAlertController dismissViewControllerAnimated:YES completion:nil];
-                                     
+
                                  }];
         [myAlertController addAction: cancle];
-        
+
         dispatch_async(dispatch_get_main_queue(), ^ {
             [self presentViewController:myAlertController animated:YES completion:nil];
         });
@@ -399,11 +379,11 @@
                                  {
                                      NSLog(@"ยกเลิก");
                                      [myAlertController dismissViewControllerAnimated:YES completion:nil];
-                                     
+
                                  }];
         [myAlertController addAction: cancle];
-        
-        
+
+
         dispatch_async(dispatch_get_main_queue(), ^ {
             [self presentViewController:myAlertController animated:YES completion:nil];
         });
@@ -415,12 +395,12 @@
     UIAlertAction* report = [UIAlertAction actionWithTitle:@"ยืนยัน" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
                              {
                                  [myAlertController dismissViewControllerAnimated:YES completion:nil];
-                                 
-                                 
+
+
                                  AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
                                  NSLog(@"user ID - %@, objectId - %@",userId,objectId);
                                  NSDictionary *jsonParameter = @{@"Id":objectId,@"status":@"0"};
-                                 
+
                                  [manager POST:@"http://evbt.azurewebsites.net/docs/page/theme/betajsoneventdelete.aspx" parameters:jsonParameter constructingBodyWithBlock:^(id<AFMultipartFormData>  formData) {
                                  } success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                      [myAlertController dismissViewControllerAnimated:YES completion:nil];
@@ -429,13 +409,13 @@
                                  } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                      NSLog(@"Not success POST delete - %@",error);
                                  }];
-                                 
+
                              }];
     [myAlertController addAction: report];
     UIAlertAction* cancle = [UIAlertAction actionWithTitle:@"ยกเลิก" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
                              {
                                  [myAlertController dismissViewControllerAnimated:YES completion:nil];
-                                 
+
                              }];
     [myAlertController addAction: cancle];
     dispatch_async(dispatch_get_main_queue(), ^ {
@@ -456,7 +436,7 @@
     addEvent.upTimeStart = @"START";
     addEvent.upDateEnd = @"END";
     addEvent.upTimeEnd = @"END";
-    
+
     [self.navigationController pushViewController:addEvent animated:YES];
 }
 
@@ -476,14 +456,14 @@
                               }];
     UIAlertAction* action4 = [UIAlertAction actionWithTitle:@"ยกเลิก" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
                               {
-                                  
+
                               }];
     [myAlertController addAction: action1];
     [myAlertController addAction: action2];
     [myAlertController addAction: action3];
     [myAlertController addAction: action4];
-    
-    
+
+
     dispatch_async(dispatch_get_main_queue(), ^ {
         [self presentViewController:myAlertController animated:YES completion:nil];
     });
@@ -501,35 +481,35 @@
         [manager POST:@"http://evbt.azurewebsites.net/docs/page/theme/betajsonevyreport.aspx" parameters:jsonParameter constructingBodyWithBlock:^(id<AFMultipartFormData>  formData) {
         } success:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSLog(@"Success POST Report");
-            
+
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Not success POST Report - %@",error);
         }];
     }else if ([detail isEqualToString:@"2"]){
         AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
         NSDictionary *jsonParameter = @{@"evyaccountid":userId,@"postid":[[arrShowEvent objectAtIndex:indexPath.row] objectForKey:@"eventevyid"],@"reportdetail":@"เป็นแสปม การหลอกลวงหรือบัญชีปลอม",@"posttype":@"event",@"adddatetime":sendDate,@"command":@"savereport"};
-        
+
         [manager POST:@"http://evbt.azurewebsites.net/docs/page/theme/betajsonevyreport.aspx" parameters:jsonParameter constructingBodyWithBlock:^(id<AFMultipartFormData>  formData) {
         } success:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSLog(@"Success POST Report");
-            
-            
+
+
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Not success POST Report - %@",error);
         }];
     }else if ([detail isEqualToString:@"3"]){
         AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
         NSDictionary *jsonParameter = @{@"evyaccountid":userId,@"postid":[[arrShowEvent objectAtIndex:indexPath.row] objectForKey:@"eventevyid"],@"reportdetail":@"บัญผู้ใช้อาจโดนแฮก",@"posttype":@"event",@"adddatetime":sendDate,@"command":@"savereport"};
-        
+
         [manager POST:@"http://evbt.azurewebsites.net/docs/page/theme/betajsonevyreport.aspx" parameters:jsonParameter constructingBodyWithBlock:^(id<AFMultipartFormData>  formData) {
         } success:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSLog(@"Success POST Report");
-            
-            
+
+
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Not success POST Report - %@",error);
         }];
     }
-    
+
 }
 @end
