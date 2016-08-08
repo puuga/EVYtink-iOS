@@ -41,13 +41,21 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="I5z-dE-ODv">
+<<<<<<< HEAD
                         <rect key="frame" x="8" y="128" width="148" height="148"/>
+=======
+                        <rect key="frame" x="8" y="66" width="148" height="148"/>
+>>>>>>> origin/master
                         <constraints>
                             <constraint firstAttribute="height" constant="148" id="O6I-vV-Fhj"/>
                         </constraints>
                     </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kxF-Kx-7rf">
+<<<<<<< HEAD
                         <rect key="frame" x="164" y="128" width="148" height="148"/>
+=======
+                        <rect key="frame" x="164" y="66" width="148" height="148"/>
+>>>>>>> origin/master
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F7h-bs-2NI">
                         <rect key="frame" x="0.0" y="284" width="320" height="40"/>

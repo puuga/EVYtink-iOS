@@ -118,7 +118,10 @@
 
 
 #import <UIKit/UIKit.h>
+<<<<<<< HEAD
 #import <CoreLocation/CoreLocation.h>
+=======
+>>>>>>> origin/master
 
 @class SWRevealViewController;
 @protocol SWRevealViewControllerDelegate;
@@ -156,10 +159,14 @@ typedef enum
 } FrontViewPosition;
 
 
+<<<<<<< HEAD
 @interface SWRevealViewController : UIViewController<CLLocationManagerDelegate>
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (strong, nonatomic) NSMutableArray *geofences;
+=======
+@interface SWRevealViewController : UIViewController
+>>>>>>> origin/master
 
 // Object instance init and rear view setting
 - (id)initWithRearViewController:(UIViewController *)rearViewController frontViewController:(UIViewController *)frontViewController;

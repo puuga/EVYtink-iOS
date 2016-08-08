@@ -8,11 +8,15 @@
 
 #import "P2Event.h"
 #import "ViewWeb.h"
+<<<<<<< HEAD
 #import "SWRevealViewController.h"
 #import <UIImageView+AFNetworking.h>
 #import <AFNetworking.h>
 #import "LoginFacebook.h"
 #import "PostToEventViewController.h"
+=======
+#import <UIImageView+AFNetworking.h>
+>>>>>>> origin/master
 
 @interface P2Event (){
     BOOL chkLogin;
@@ -31,6 +35,7 @@
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     self.navigationItem.leftBarButtonItem = anotherButton;
 
+<<<<<<< HEAD
     UIImage* logoImage = [UIImage imageNamed:@"TopCenterlogoevytink.png"];
     UIImageView *uiimagelogoImage = [[UIImageView alloc] initWithImage:logoImage];
     uiimagelogoImage.frame = CGRectMake(75, 0, 100, 44);
@@ -83,6 +88,25 @@
     arrEvent = [[NSMutableArray alloc] init];
     arrShowEvent = [[NSMutableArray alloc] init];
     [self setArrEvent:arrEvent];
+=======
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    static NSString *CellIdentifier1 = @"idenCell1";
+    static NSString *CellIdentifier2 = @"idenCell2";
+    static NSString *CellIdentifier3 = @"idenCell3";
+    UINib *nib = [UINib nibWithNibName:@"CustomCell1" bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:CellIdentifier1];
+    
+    nib = [UINib nibWithNibName:@"CustomCell2" bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:CellIdentifier2];
+    
+    nib = [UINib nibWithNibName:@"CustomCell3" bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:CellIdentifier3];
+    
+    [self.tableView reloadData];
+    
+>>>>>>> origin/master
     
     if ([arrEvent count]<5) {
         [self startArrShowEvent:arrEvent startAt:0 endAt:([arrEvent count] - 1)];

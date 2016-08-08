@@ -25,7 +25,11 @@
     [[FBSDKApplicationDelegate sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
     
     //Navigation bar Custom.
+<<<<<<< HEAD
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:225.0f/255.0f green:27.0f/255.0f blue:40.0f/255.0f alpha:1.0f]];
+=======
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:224.0f/255.0f green:28.0f/255.0f blue:39.0f/255.0f alpha:1.0f]];
+>>>>>>> origin/master
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UINavigationBar appearance] setTranslucent:NO];
     //Tabbar Custom.

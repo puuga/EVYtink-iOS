@@ -13,10 +13,16 @@
 #import "FBSDKShareKit.framework/Headers/FBSDKShareKit.h"
 #import "LoginFacebook.h"
 #import "CommentViewController.h"
+<<<<<<< HEAD
 #import "SWRevealViewController.h"
 #import <UIImageView+AFNetworking.h>
 #import <AFNetworking.h>
 #import "P5ProfilePostViewController.h"
+=======
+#import <UIImageView+AFNetworking.h>
+#import "SlideOutMenuFiles/SWRevealViewController.h"
+
+>>>>>>> origin/master
 
 @interface P1News (){
     BOOL chkLogin;
@@ -26,7 +32,8 @@
 @end
 
 @implementation P1News
-@synthesize arrNews,arrShowNews;
+@synthesize arrNews,arrShowNews,leftButton;
+
 
 -(void)setNavigationTitle{
     UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@" " style:UIBarButtonItemStyleDone target:self action:@selector(revealToggle:)];
@@ -45,6 +52,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+<<<<<<< HEAD
     if ([self chkFacebook]) {
         chkLogin = YES;
         evyUId = [self checkUserId];
@@ -52,6 +60,30 @@
         chkLogin = NO;
     }
     [self setNavigationTitle];
+=======
+    leftButton.target = self.revealViewController;
+    leftButton.action = @selector(revealToggle:);
+    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    
+    UIImage* logoImage = [UIImage imageNamed:@"TopCenterlogoevytink.png"];
+    UIImageView *uiimagelogoImage = [[UIImageView alloc] initWithImage:logoImage];
+    uiimagelogoImage.frame = CGRectMake(75, 0, 100, 44);
+    [uiimagelogoImage setContentMode:UIViewContentModeScaleAspectFit];
+    self.navigationItem.titleView = uiimagelogoImage;
+    
+    //self.tabBarController.tabBarItem.image = [UIImage imageNamed:@"icon_facebook.png"];
+    [[self.tabBarController.tabBar.items objectAtIndex:0] setImage:[[UIImage imageNamed:@"TabNewsicon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    [[self.tabBarController.tabBar.items objectAtIndex:1] setImage:[[UIImage imageNamed:@"TabEventicon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    [[self.tabBarController.tabBar.items objectAtIndex:2] setImage:[[UIImage imageNamed:@"TabPromoicon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    [[self.tabBarController.tabBar.items objectAtIndex:3] setImage:[[UIImage imageNamed:@"TabFavicon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    [[self.tabBarController.tabBar.items objectAtIndex:4] setImage:[[UIImage imageNamed:@"TabMoreManu.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+
+    [self.tabBarController.tabBar.items objectAtIndex:0].imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
+    [self.tabBarController.tabBar.items objectAtIndex:1].imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
+    [self.tabBarController.tabBar.items objectAtIndex:2].imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
+    [self.tabBarController.tabBar.items objectAtIndex:3].imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
+    [self.tabBarController.tabBar.items objectAtIndex:4].imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
+>>>>>>> origin/master
     
     static NSString *CellIdentifier1 = @"idenCell1";
     static NSString *CellIdentifier2 = @"idenCell2";
@@ -114,6 +146,7 @@
 }
 
 -(void)setArrNews:(NSMutableArray *)arrNews{
+<<<<<<< HEAD
     
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://evbt.azurewebsites.net/docs/page/theme/betajsonnews.aspx"]]];
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:urlRequest];
@@ -135,6 +168,16 @@
         NSLog(@"Not Success afnetworking.");
     }];
     [operation start];
+=======
+    NSData *jsonData = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"https://evbt.azurewebsites.net/docs/page/theme/betajsonnews.aspx"]];
+    id jsonObjects = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
+    NSLog(@"JSON DATA - %@,\nJSON OBJECT - %@",jsonData,jsonObjects);
+    NSLog(@"COunt json - %@",jsonObjects);
+     for (int i=0; i<[jsonObjects count]; i++) {
+        [arrNews addObject:[jsonObjects objectAtIndex:i]];
+         NSLog(@"รอบที่ - %d",i);
+     }
+>>>>>>> origin/master
 }
 
 - (void)didReceiveMemoryWarning {
@@ -153,18 +196,6 @@
     return [arrShowNews count];
 }
 
--(UIImage *)changeImage:(UIImage *)imageSorce{
-    UIImage *imgChange = imageSorce;
-    float oldWidth = imgChange.size.width;
-    float scaleFactor = self.view.frame.size.width / oldWidth;
-    float newHeight = imgChange.size.height * scaleFactor;
-    float newWidth = oldWidth * scaleFactor;
-    UIGraphicsBeginImageContext(CGSizeMake(newWidth, newHeight));
-    [imgChange drawInRect:CGRectMake(0, 0, newWidth, newHeight)];
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return newImage;
-}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier1 = @"idenCell1";
@@ -188,6 +219,20 @@
             NSString *string = [NSString stringWithFormat:@"%@",[[[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"user"] objectForKey:@"imgprofile"]];
             NSArray *subString = [string componentsSeparatedByString:@"?"];
             NSString *urlimg = subString[0];
+<<<<<<< HEAD
+=======
+            NSURL *urlUser = [NSURL URLWithString:[NSString stringWithFormat:@"%@?",urlimg]];
+            NSData *datUrlUser = [[NSData alloc] initWithContentsOfURL:urlUser];
+            
+            NSURLRequest *requestImageUser = [NSURLRequest requestWithURL:[NSURL URLWithString:string]];
+            [cell.img setImageWithURLRequest:requestImageUser placeholderImage:NULL success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull imageShowHere) {
+                cell.img.image = imageShowHere;
+                
+            } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
+                NSLog(@"Errorrrrrrrr");
+            }];
+            
+>>>>>>> origin/master
             
             cell.indexAction = indexPath;
             NSLog(@"strObjId - %@",[[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"newsevyid"]);
@@ -208,7 +253,31 @@
             NSString *string = [NSString stringWithFormat:@"%@",[[[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"user"] objectForKey:@"imgprofile"]];
             NSArray *subString = [string componentsSeparatedByString:@"?"];
             NSString *urlimg = subString[0];
+<<<<<<< HEAD
             
+=======
+            NSURL *urlUser = [NSURL URLWithString:[NSString stringWithFormat:@"%@?",urlimg]];
+            NSData *datUrlUser = [[NSData alloc] initWithContentsOfURL:urlUser];
+            
+            NSURLRequest *requestImageUser = [NSURLRequest requestWithURL:[NSURL URLWithString:string]];
+            [cell.img setImageWithURLRequest:requestImageUser placeholderImage:NULL success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull imageShowHere) {
+                cell.img.image = imageShowHere;
+                
+            } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
+                NSLog(@"Errorrrrrrrr");
+            }];
+            
+            
+            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@",[[arrNews objectAtIndex:indexPath.row] objectForKey:@"imageurl"]]];
+            NSURLRequest *urlrequest = [NSURLRequest requestWithURL:url];
+            [cell.imgPic1 setImageWithURLRequest:urlrequest placeholderImage:NULL success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull imageShowHere) {
+                cell.imgPic1.image = imageShowHere;
+                
+            } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
+                NSLog(@"Errorrrrrrrr");
+            }];
+            
+>>>>>>> origin/master
             cell.indexAction = indexPath;
             cell.strObjId = [[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"newsevyid"];
             cell.EvyUserId = evyUId;
@@ -230,10 +299,46 @@
             NSArray *subString = [string componentsSeparatedByString:@"?"];
             NSString *urlimg = subString[0];
             NSURL *urlUser = [NSURL URLWithString:[NSString stringWithFormat:@"%@?",urlimg]];
+<<<<<<< HEAD
             
             cell.indexAction = indexPath;
             cell.strObjId = [[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"newsevyid"];
             cell.EvyUserId = evyUId;
+=======
+            NSData *datUrlUser = [[NSData alloc] initWithContentsOfURL:urlUser];
+            
+            NSURLRequest *requestImageUser = [NSURLRequest requestWithURL:[NSURL URLWithString:string]];
+            [cell.img setImageWithURLRequest:requestImageUser placeholderImage:NULL success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull imageShowHere) {
+                cell.img.image = imageShowHere;
+                
+            } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
+                NSLog(@"Errorrrrrrrr");
+            }];
+            
+            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@",[[arrNews objectAtIndex:indexPath.row] objectForKey:@"imageurl"]]];
+            NSURLRequest *urlrequest = [NSURLRequest requestWithURL:url];
+            
+            [cell.imgPic1 setImageWithURLRequest:urlrequest placeholderImage:NULL success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull imageShowHere) {
+                cell.imgPic1.image = imageShowHere;
+                
+            } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
+                NSLog(@"Errorrrrrrrr");
+            }];
+            
+            NSURL *url2 = [NSURL URLWithString:[NSString stringWithFormat:@"%@",[[arrNews objectAtIndex:indexPath.row] objectForKey:@"imageurl2"]]];
+            NSURLRequest *urlrequest2 = [NSURLRequest requestWithURL:url2];
+            
+            [cell.imgPic2 setImageWithURLRequest:urlrequest2 placeholderImage:NULL success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull imageShowHere) {
+                cell.imgPic2.image = imageShowHere;
+            } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
+                NSLog(@"Errorrrrrrrr");
+            }];
+            
+            
+            
+            cell.indexAction = indexPath;
+            cell.strObjId = [[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"newsevyid"];
+>>>>>>> origin/master
             cell.txtName.text = [[[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"user"] objectForKey:@"publishtitle"];
             cell.txtDate.text = [[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"evydatetime"];
             cell.txtDetail.text = [[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"title"];
