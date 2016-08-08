@@ -5,7 +5,7 @@ platform :ios, '9.0'
 
 target 'EVYtink' do
 
-  pod 'AFNetworking'
+  pod 'AFNetworking', '~> 2.5'
 
   target 'EVYtinkTests' do
     inherit! :search_paths

@@ -64,7 +64,6 @@
 		18EDA95E1D4BADDF008262F3 /* LP4.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EDA95A1D4BADDF008262F3 /* LP4.png */; };
 		18EDA95F1D4BADDF008262F3 /* LP5.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EDA95B1D4BADDF008262F3 /* LP5.png */; };
 		18EDA9611D4BB10E008262F3 /* TabTimeline.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EDA9601D4BB10E008262F3 /* TabTimeline.png */; };
-		18EDA9651D4BB1B6008262F3 /* TabProfile.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EDA9641D4BB1B6008262F3 /* TabProfile.png */; };
 		18EDA9681D4BB2D7008262F3 /* iconcomment.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EDA9661D4BB2D7008262F3 /* iconcomment.png */; };
 		18EDA9691D4BB2D7008262F3 /* iconshare.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EDA9671D4BB2D7008262F3 /* iconshare.png */; };
 		18EDA9711D507860008262F3 /* LMP2NotiTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EDA9701D507860008262F3 /* LMP2NotiTableViewCell.m */; };
@@ -76,13 +75,12 @@
 		18EDA9BD1D58287D008262F3 /* icInformation.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EDA9B81D58287D008262F3 /* icInformation.png */; };
 		18EDA9BE1D58287D008262F3 /* icPin.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EDA9B91D58287D008262F3 /* icPin.png */; };
 		18EDA9C01D5837AB008262F3 /* icGiftCard.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EDA9BF1D5837AB008262F3 /* icGiftCard.png */; };
+		18EDA9C21D585725008262F3 /* TabProfile.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EDA9C11D585725008262F3 /* TabProfile.png */; };
 		18FB1CF11D30DA0100EE3D0C /* LeftMenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FB1CF01D30DA0100EE3D0C /* LeftMenuTableViewController.m */; };
 		18FB1CF51D30DCB700EE3D0C /* LMP2NotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FB1CF41D30DCB700EE3D0C /* LMP2NotificationViewController.m */; };
 		18FB1CFB1D30ECC900EE3D0C /* LMP3SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FB1CFA1D30ECC900EE3D0C /* LMP3SettingViewController.m */; };
 		18FB1CFE1D30ECDF00EE3D0C /* LMP4FAQViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FB1CFD1D30ECDF00EE3D0C /* LMP4FAQViewController.m */; };
 		18FB1D011D30ECEC00EE3D0C /* LMP5AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FB1D001D30ECEC00EE3D0C /* LMP5AboutUsViewController.m */; };
-		18FB1D051D3353BF00EE3D0C /* TabWall.png in Resources */ = {isa = PBXBuildFile; fileRef = 18FB1D031D3353BF00EE3D0C /* TabWall.png */; };
-		18FB1D0A1D3357D300EE3D0C /* LeftSetting.png in Resources */ = {isa = PBXBuildFile; fileRef = 18FB1D091D3357D300EE3D0C /* LeftSetting.png */; };
 		18FB1D161D336B5C00EE3D0C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18FB1D151D336B5C00EE3D0C /* CoreData.framework */; };
 		18FB1D511D338CFE00EE3D0C /* Coredata.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 18FB1D4F1D338CFE00EE3D0C /* Coredata.xcdatamodeld */; };
 		18FB1D611D3396FD00EE3D0C /* Coredata.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 18FB1D4F1D338CFE00EE3D0C /* Coredata.xcdatamodeld */; };
@@ -203,7 +201,6 @@
 		18EDA95A1D4BADDF008262F3 /* LP4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LP4.png; sourceTree = "<group>"; };
 		18EDA95B1D4BADDF008262F3 /* LP5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LP5.png; sourceTree = "<group>"; };
 		18EDA9601D4BB10E008262F3 /* TabTimeline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabTimeline.png; sourceTree = "<group>"; };
-		18EDA9641D4BB1B6008262F3 /* TabProfile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabProfile.png; sourceTree = "<group>"; };
 		18EDA9661D4BB2D7008262F3 /* iconcomment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconcomment.png; sourceTree = "<group>"; };
 		18EDA9671D4BB2D7008262F3 /* iconshare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconshare.png; sourceTree = "<group>"; };
 		18EDA96F1D507860008262F3 /* LMP2NotiTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMP2NotiTableViewCell.h; sourceTree = "<group>"; };
@@ -216,6 +213,7 @@
 		18EDA9B81D58287D008262F3 /* icInformation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icInformation.png; sourceTree = "<group>"; };
 		18EDA9B91D58287D008262F3 /* icPin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icPin.png; sourceTree = "<group>"; };
 		18EDA9BF1D5837AB008262F3 /* icGiftCard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icGiftCard.png; sourceTree = "<group>"; };
+		18EDA9C11D585725008262F3 /* TabProfile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabProfile.png; sourceTree = "<group>"; };
 		18FB1CEF1D30DA0100EE3D0C /* LeftMenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftMenuTableViewController.h; sourceTree = "<group>"; };
 		18FB1CF01D30DA0100EE3D0C /* LeftMenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftMenuTableViewController.m; sourceTree = "<group>"; };
 		18FB1CF31D30DCB700EE3D0C /* LMP2NotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMP2NotificationViewController.h; sourceTree = "<group>"; };
@@ -226,8 +224,6 @@
 		18FB1CFD1D30ECDF00EE3D0C /* LMP4FAQViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMP4FAQViewController.m; sourceTree = "<group>"; };
 		18FB1CFF1D30ECEC00EE3D0C /* LMP5AboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMP5AboutUsViewController.h; sourceTree = "<group>"; };
 		18FB1D001D30ECEC00EE3D0C /* LMP5AboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMP5AboutUsViewController.m; sourceTree = "<group>"; };
-		18FB1D031D3353BF00EE3D0C /* TabWall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabWall.png; sourceTree = "<group>"; };
-		18FB1D091D3357D300EE3D0C /* LeftSetting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LeftSetting.png; sourceTree = "<group>"; };
 		18FB1D151D336B5C00EE3D0C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		18FB1D501D338CFE00EE3D0C /* Coredata.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Coredata.xcdatamodel; sourceTree = "<group>"; };
 		18FB1DC21D365F7100EE3D0C /* Geofence+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Geofence+CoreDataProperties.h"; path = "../Geofence+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -415,14 +411,11 @@
 				18EDA9721D5081C6008262F3 /* threebuttonIcon.png */,
 				18EDA9661D4BB2D7008262F3 /* iconcomment.png */,
 				18EDA9671D4BB2D7008262F3 /* iconshare.png */,
-				18EDA9641D4BB1B6008262F3 /* TabProfile.png */,
 				18EDA9601D4BB10E008262F3 /* TabTimeline.png */,
 				18EDA9581D4BADDF008262F3 /* LP2.png */,
 				18EDA9591D4BADDF008262F3 /* LP3.png */,
 				18EDA95A1D4BADDF008262F3 /* LP4.png */,
 				18EDA95B1D4BADDF008262F3 /* LP5.png */,
-				18FB1D091D3357D300EE3D0C /* LeftSetting.png */,
-				18FB1D031D3353BF00EE3D0C /* TabWall.png */,
 				18CB21AA1D30CB8A00019C3F /* LeftMenuevylogo.png */,
 				18CB21A81D30CA6400019C3F /* TopCenterlogoevytink.png */,
 				181FDE781CEDB23500C47C37 /* logo.png */,
@@ -432,6 +425,7 @@
 				18CB219A1D30C16900019C3F /* TabFavicon.png */,
 				18CB219C1D30C16900019C3F /* TabNewsicon.png */,
 				18CB219D1D30C16900019C3F /* TabPromoicon.png */,
+				18EDA9C11D585725008262F3 /* TabProfile.png */,
 			);
 			name = Graphic;
 			sourceTree = "<group>";
@@ -653,10 +647,9 @@
 				18CB21AB1D30CB8A00019C3F /* LeftMenuevylogo.png in Resources */,
 				18EDA9611D4BB10E008262F3 /* TabTimeline.png in Resources */,
 				18035A8A1D476CDD0072B7FF /* P1D3TableViewCell.xib in Resources */,
-				18FB1D0A1D3357D300EE3D0C /* LeftSetting.png in Resources */,
-				18FB1D051D3353BF00EE3D0C /* TabWall.png in Resources */,
 				18EDA95F1D4BADDF008262F3 /* LP5.png in Resources */,
 				181FDE791CEDB23500C47C37 /* logo.png in Resources */,
+				18EDA9C21D585725008262F3 /* TabProfile.png in Resources */,
 				18EDA95E1D4BADDF008262F3 /* LP4.png in Resources */,
 				18035A821D476ADC0072B7FF /* P1D1TableViewCell.xib in Resources */,
 				18EDA9BC1D58287D008262F3 /* icCalendar.png in Resources */,
@@ -676,7 +669,6 @@
 				18EDA9681D4BB2D7008262F3 /* iconcomment.png in Resources */,
 				18EC76991CF2B425005C2649 /* CustomCell1.xib in Resources */,
 				18CB20871D190AAE00019C3F /* iconFav.png in Resources */,
-				18EDA9651D4BB1B6008262F3 /* TabProfile.png in Resources */,
 				18EDA9731D5081C6008262F3 /* threebuttonIcon.png in Resources */,
 				18EC77621CF3F785005C2649 /* CustomCell3.xib in Resources */,
 				18CB20861D190AAE00019C3F /* iconFavClick.png in Resources */,
