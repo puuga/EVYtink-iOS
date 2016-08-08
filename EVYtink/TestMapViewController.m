@@ -21,6 +21,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
+    [singleTap setNumberOfTapsRequired:1];
+    [mapV addGestureRecognizer:singleTap];
     
     NSUserDefaults * defs = [NSUserDefaults standardUserDefaults];
     NSDictionary * dict = [defs dictionaryRepresentation];
@@ -33,6 +36,7 @@
     
     mapV = [[MKMapView alloc]init];
     mapV.showsUserLocation = YES;
+    mapV.userInteractionEnabled = YES;
     
     locationManager = [[CLLocationManager alloc] init];
 
@@ -41,6 +45,33 @@
     [locationManager setDelegate:self];
     [locationManager setDesiredAccuracy:kCLLocationAccuracyHundredMeters];
     geofences = [NSMutableArray arrayWithArray:[[locationManager monitoredRegions] allObjects]];
+    
+
+    
+    //UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
+    //lpgr.minimumPressDuration = 1.0; //user needs to press for 2 seconds
+    //[mapV addGestureRecognizer:lpgr];
+}
+
+- (void)handleLongPress:(UIGestureRecognizer *)gestureRecognizer
+{
+    NSLog(@"long press");
+    if (gestureRecognizer.state != UIGestureRecognizerStateBegan){
+        NSLog(@"!");
+        return;
+    }else{
+        NSLog(@"=");
+        return;
+    }
+    
+    CGPoint touchPoint = [gestureRecognizer locationInView:mapV];
+    CLLocationCoordinate2D touchMapCoordinate =
+    [mapV convertPoint:touchPoint toCoordinateFromView:mapV];
+    
+    
+    MKPointAnnotation *annotation= [MKPointAnnotation new];
+    annotation.coordinate = touchMapCoordinate;
+    [mapV addAnnotation:annotation];
 }
 
 -(void)addGeo{
@@ -56,7 +87,7 @@
     [geofences addObject:region];
     NSLog(@"add GEO");
     //use method Update location.
-    //[locationManager startUpdatingLocation];
+    [locationManager startUpdatingLocation];
 }
 
 /*
@@ -102,6 +133,76 @@
         //[geofences addObject:region];
 
         NSLog(@"update location");
+        CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+        
+        CLLocation *currentLocation = location;
+        
+        if (currentLocation != nil)
+            NSLog(@"longitude = %.8f\nlatitude = %.8f", currentLocation.coordinate.longitude,currentLocation.coordinate.latitude);
+        
+        // stop updating location in order to save battery power
+        [locationManager stopUpdatingLocation];
+        
+        
+        [geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error)
+         {
+             NSLog(@"Found placemarks: %@, error: %@", placemarks, error);
+             if (error == nil && [placemarks count] > 0)
+             {
+                 CLPlacemark *placemark = [placemarks lastObject];
+                 
+                 // strAdd -> take bydefault value nil
+                 NSString *strAdd = nil;
+                 
+                 if ([placemark.subThoroughfare length] != 0)
+                     strAdd = placemark.subThoroughfare;
+                 
+                 if ([placemark.thoroughfare length] != 0)
+                 {
+                     // strAdd -> store value of current location
+                     if ([strAdd length] != 0)
+                         strAdd = [NSString stringWithFormat:@"%@, %@",strAdd,[placemark thoroughfare]];
+                     else
+                     {
+                         // strAdd -> store only this value,which is not null
+                         strAdd = placemark.thoroughfare;
+                     }
+                 }
+                 
+                 if ([placemark.postalCode length] != 0)
+                 {
+                     if ([strAdd length] != 0)
+                         strAdd = [NSString stringWithFormat:@"%@, %@",strAdd,[placemark postalCode]];
+                     else
+                         strAdd = placemark.postalCode;
+                 }
+                 
+                 if ([placemark.locality length] != 0)
+                 {
+                     if ([strAdd length] != 0)
+                         strAdd = [NSString stringWithFormat:@"%@, %@",strAdd,[placemark locality]];
+                     else
+                         strAdd = placemark.locality;
+                 }
+                 
+                 if ([placemark.administrativeArea length] != 0)
+                 {
+                     if ([strAdd length] != 0)
+                         strAdd = [NSString stringWithFormat:@"%@, %@",strAdd,[placemark administrativeArea]];
+                     else
+                         strAdd = placemark.administrativeArea;
+                 }
+                 
+                 if ([placemark.country length] != 0)
+                 {
+                     if ([strAdd length] != 0)
+                         strAdd = [NSString stringWithFormat:@"%@, %@",strAdd,[placemark country]];
+                     else
+                         strAdd = placemark.country;
+                 }
+                 NSLog(@"address : %@",strAdd);
+             }
+         }];
         
     }
 }

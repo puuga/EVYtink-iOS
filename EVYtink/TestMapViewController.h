@@ -11,7 +11,7 @@
 #import <MapKit/MapKit.h>
 
 
-@interface TestMapViewController : UIViewController<CLLocationManagerDelegate>
+@interface TestMapViewController : UIViewController<CLLocationManagerDelegate,MKMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapV;
 @property (nonatomic, strong) CLLocationManager *locationManager;
