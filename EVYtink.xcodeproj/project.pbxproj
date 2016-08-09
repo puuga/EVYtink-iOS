@@ -22,6 +22,7 @@
 		18035A981D49B88B0072B7FF /* P4TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18035A971D49B88B0072B7FF /* P4TimelineViewController.m */; };
 		18035A9B1D49FBC30072B7FF /* PostToEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18035A9A1D49FBC30072B7FF /* PostToEventViewController.m */; };
 		18035AA01D4B436F0072B7FF /* PostToEventSelectDateTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18035A9F1D4B436F0072B7FF /* PostToEventSelectDateTimeViewController.m */; };
+		1803D5451D59E95800E49D61 /* AnotherProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1803D5441D59E95800E49D61 /* AnotherProfileViewController.m */; };
 		181FDE231CED768600C47C37 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 181FDE221CED768600C47C37 /* main.m */; };
 		181FDE261CED768600C47C37 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 181FDE251CED768600C47C37 /* AppDelegate.m */; };
 		181FDE2C1CED768600C47C37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 181FDE2A1CED768600C47C37 /* Main.storyboard */; };
@@ -137,6 +138,8 @@
 		18035A9A1D49FBC30072B7FF /* PostToEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostToEventViewController.m; sourceTree = "<group>"; };
 		18035A9E1D4B436F0072B7FF /* PostToEventSelectDateTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostToEventSelectDateTimeViewController.h; sourceTree = "<group>"; };
 		18035A9F1D4B436F0072B7FF /* PostToEventSelectDateTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostToEventSelectDateTimeViewController.m; sourceTree = "<group>"; };
+		1803D5431D59E95800E49D61 /* AnotherProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnotherProfileViewController.h; sourceTree = "<group>"; };
+		1803D5441D59E95800E49D61 /* AnotherProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnotherProfileViewController.m; sourceTree = "<group>"; };
 		181FDE1E1CED768600C47C37 /* EVYtink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EVYtink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		181FDE221CED768600C47C37 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		181FDE241CED768600C47C37 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -337,6 +340,8 @@
 				18EC77701CF40D2B005C2649 /* P3Promotion.m */,
 				18035A961D49B88B0072B7FF /* P4TimelineViewController.h */,
 				18035A971D49B88B0072B7FF /* P4TimelineViewController.m */,
+				1803D5431D59E95800E49D61 /* AnotherProfileViewController.h */,
+				1803D5441D59E95800E49D61 /* AnotherProfileViewController.m */,
 				180359DB1D38DE9B0072B7FF /* P5ProfileViewController.h */,
 				180359DC1D38DE9B0072B7FF /* P5ProfileViewController.m */,
 				180359E61D3FF9C10072B7FF /* P5ProfilePostViewController.h */,
@@ -830,6 +835,7 @@
 				18EC799B1CF6A7B2005C2649 /* ViewWeb.m in Sources */,
 				18FB1D011D30ECEC00EE3D0C /* LMP5AboutUsViewController.m in Sources */,
 				18EC79A31CF6E006005C2649 /* TestCell.m in Sources */,
+				1803D5451D59E95800E49D61 /* AnotherProfileViewController.m in Sources */,
 				181FDE261CED768600C47C37 /* AppDelegate.m in Sources */,
 				18CB20F11D1A994300019C3F /* CommentTableViewCell.m in Sources */,
 				18EDA9711D507860008262F3 /* LMP2NotiTableViewCell.m in Sources */,

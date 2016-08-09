@@ -15,6 +15,7 @@
 #import "LoginFacebook.h"
 #import "PostToEventViewController.h"
 #import <AFHTTPRequestOperationManager.h>
+#import "AnotherProfileViewController.h"
 
 
 @interface P2Event (){
@@ -332,10 +333,12 @@
 }
 
 -(void)userPost:(NSString *)idUserPost{
-    NSString *strUrl = [NSString stringWithFormat:@"http://evbt.azurewebsites.net/docs/page/theme/evytinkprofile.aspx?evarid=%@",idUserPost];
-    ViewWeb *sendWebView = [self.storyboard instantiateViewControllerWithIdentifier:@"openWebView"];
-    sendWebView.url = [NSURL URLWithString:strUrl];
-    [self presentViewController:sendWebView animated:YES completion:NULL];
+    AnotherProfileViewController *profile = [self.storyboard instantiateViewControllerWithIdentifier:@"openProfileView"];
+    profile.urlProfileshow = [NSString stringWithFormat:@"http://evbt.azurewebsites.net/docs/page/theme/betajsonnewsbyid.aspx?evarid=%@",idUserPost];
+    
+    UINavigationController *navigationcontroller = [[UINavigationController alloc] initWithRootViewController:profile];
+    
+    [self presentViewController:navigationcontroller animated:YES completion:nil];
 }
 
 #pragma mark - button edit

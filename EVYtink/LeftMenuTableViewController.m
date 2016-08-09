@@ -11,6 +11,7 @@
 #import "FBSDKLoginKit.framework/Headers/FBSDKLoginKit.h"
 #import "FBSDKCoreKit.framework/Headers/FBSDKCoreKit.h"
 #import "ViewWeb.h"
+#import "LoginFacebook.h"
 
 @interface LeftMenuTableViewController (){
     NSMutableArray *menu;
@@ -28,7 +29,6 @@
 }
 
 -(void)loadDataTotableView{
-    
     if ([FBSDKAccessToken currentAccessToken]) {
         NSData *dataUrl = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://evbt.azurewebsites.net/docs/page/theme/betajsonhastag.aspx?evarid=%@",[self getEvyId]]]];
         NSLog(@"EVY ID : %@",[self getEvyId]);
@@ -63,7 +63,20 @@
     return 60;
 }
 
+-(BOOL)ChkFacebookLoginStatus{
+    if ([FBSDKAccessToken currentAccessToken]) {
+        return TRUE;
+    }else{
+        LoginFacebook *LoginFacebookView = [self.storyboard instantiateViewControllerWithIdentifier:@"LogInF"];
+        [self presentViewController:LoginFacebookView animated:YES completion:nil];
+        return FALSE;
+    }
+}
+
 -(NSString *)getEvyId{
+    if (![self ChkFacebookLoginStatus]) {
+        return nil;
+    }
     NSData *jsonData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://evbt.azurewebsites.net/docs/page/theme/evycheckfbloginjson.aspx?evarfid=%@",[[FBSDKAccessToken currentAccessToken] userID]]]];
     NSLog(@"U ID - %@",[[FBSDKAccessToken currentAccessToken] userID]);
     id jsonObjects = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
