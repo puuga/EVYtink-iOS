@@ -7,6 +7,7 @@
 //
 
 #import "CommentPostViewController.h"
+#import <AFNetworking.h>
 
 @interface CommentPostViewController ()
 
@@ -41,9 +42,26 @@
 */
 
 -(void)postToComment:(id)sender{
-    NSData *jsonData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://evbt.azurewebsites.net/docs/page/theme/betajsonnewscomment.aspx?evarnid=%@&chlogin=false&evcommand=save&evyid=%@&enewscomment=%@",newsId,userId,[[NSString stringWithFormat:@"%@",txtPost.text] stringByReplacingOccurrencesOfString:@" " withString:@"%20"]]]];
+    /*NSData *jsonData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://evbt.azurewebsites.net/docs/page/theme/betajsonnewscomment.aspx?evarnid=%@&chlogin=false&evcommand=save&evyid=%@&enewscomment=%@",newsId,userId,[[NSString stringWithFormat:@"%@",txtPost.text] stringByReplacingOccurrencesOfString:@" " withString:@"%20"]]]];
     NSLog(@"Show comment - %@",[NSString stringWithFormat:@"http://evbt.azurewebsites.net/docs/page/theme/betajsonnewscomment.aspx?evarnid=%@&chlogin=false&evcommand=save&evyid=%@&enewscomment=%@",newsId,userId,[NSString stringWithFormat:@"%@",txtPost.text]]);
-    //id jsonObjects = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
+    id jsonObjects = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
+    */
+    
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://evbt.azurewebsites.net/docs/page/theme/betajsonnewscomment.aspx?evarnid=%@&chlogin=false&evcommand=save&evyid=%@&enewscomment=%@",newsId,userId,[[NSString stringWithFormat:@"%@",txtPost.text] stringByReplacingOccurrencesOfString:@" " withString:@"%20"]]]];
+    
+    NSLog(@"show str - %@",[NSString stringWithFormat:@"http://evbt.azurewebsites.net/docs/page/theme/betajsonnewscomment.aspx?evarnid=%@&chlogin=false&evcommand=save&evyid=%@&enewscomment=%@",newsId,userId,[[NSString stringWithFormat:@"%@",txtPost.text] stringByReplacingOccurrencesOfString:@" " withString:@"%20"]]);
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:urlRequest];
+    operation.responseSerializer = [AFJSONResponseSerializer serializer];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Success comment - %@",responseObject);
+        [self performSelector:@selector(backToComment:) withObject:nil afterDelay:1.0f];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Not Success afnetworking.,%@",error);
+    }];
+    [operation start];
+    
+    
+    
     [self performSelector:@selector(backToComment:) withObject:nil afterDelay:1.0f];
 }
 

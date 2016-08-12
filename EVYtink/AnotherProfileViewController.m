@@ -9,16 +9,20 @@
 #import "AnotherProfileViewController.h"
 #import <AFNetworking.h>
 #import <UIImageView+AFNetworking.h>
+#import "LoginFacebook.h"
+#import "FBSDKCoreKit.framework/Headers/FBSDKCoreKit.h"
+#import "FBSDKLoginKit.framework/Headers/FBSDKLoginKit.h"
+#import "FBSDKShareKit.framework/Headers/FBSDKShareKit.h"
+#import "CommentViewController.h"
 
 @interface AnotherProfileViewController (){
     NSMutableArray *arrProfileContent;
-    NSString *evyUId;
 }
 
 @end
 
 @implementation AnotherProfileViewController
-@synthesize urlProfileshow,imgUser,imgUserBg,labelUserName,tableView;
+@synthesize urlProfileshow,imgUser,imgUserBg,labelUserName,tableView,evyUId;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -184,6 +188,16 @@
     
 }
 
+-(BOOL)ChkFacebookLoginStatus{
+    if ([FBSDKAccessToken currentAccessToken]) {
+        return TRUE;
+    }else{
+        LoginFacebook *LoginFacebookView = [self.storyboard instantiateViewControllerWithIdentifier:@"LogInF"];
+        [self presentViewController:LoginFacebookView animated:YES completion:nil];
+        return FALSE;
+    }
+}
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if ([arrProfileContent count]==0) {
         return 100;
@@ -196,6 +210,35 @@
         return 291;
     }
 }
+
+-(void)shareToFacebook:(NSString *)urlToShare{
+    FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
+    content.contentURL = [NSURL URLWithString:urlToShare];
+    content.placeID = [NSString stringWithFormat:@"%@",[[FBSDKAccessToken currentAccessToken] userID]];
+    [FBSDKShareDialog showFromViewController:self withContent:content delegate:nil];
+}
+
+-(void)commentTo:(NSIndexPath *)indexPath{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    CommentViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"storyComment"];
+    
+    NSString *string = [NSString stringWithFormat:@"%@",[[[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"user"] objectForKey:@"imgprofile"]];
+    NSArray *subString = [string componentsSeparatedByString:@"?"];
+    NSString *urlimg = subString[0];
+    viewController.statusShared = @"private";
+    viewController.userId = evyUId;
+    viewController.newsId = [[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"newsevyid"];
+    viewController.txtname = [[[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"user"] objectForKey:@"publishtitle"];
+    viewController.userPostId = [[[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"user"] objectForKey:@"evyaccountid"];
+    viewController.txtDate = [[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"evydatetime"];
+    viewController.txtDetail = [[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"title"];
+    viewController.urlToShow = [NSString stringWithFormat:@"%@",[[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"url"]];
+    viewController.urlimgUser = [NSString stringWithFormat:@"%@?",urlimg];
+    viewController.urlImg1 = [NSString stringWithFormat:@"%@",[[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"imageurl"]];
+    viewController.urlImg2 = [NSString stringWithFormat:@"%@",[[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"imageurl2"]];
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
 
 - (IBAction)btClose:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];

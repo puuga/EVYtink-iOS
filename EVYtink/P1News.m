@@ -206,6 +206,7 @@
             NSArray *subString = [string componentsSeparatedByString:@"?"];
             NSString *urlimg = subString[0];
 
+            cell.EvyUserId = evyUId;
             cell.indexAction = indexPath;
             cell.strObjId = [[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"newsevyid"];
             cell.EvyUserId = evyUId;
@@ -399,7 +400,7 @@
     
     AnotherProfileViewController *profile = [self.storyboard instantiateViewControllerWithIdentifier:@"openProfileView"];
     profile.urlProfileshow = [NSString stringWithFormat:@"http://evbt.azurewebsites.net/docs/page/theme/betajsonnewsbyid.aspx?evarid=%@",idUserPost];
-    
+    profile.evyUId = evyUId;
     UINavigationController *navigationcontroller = [[UINavigationController alloc] initWithRootViewController:profile];
     
     [self presentViewController:navigationcontroller animated:YES completion:nil];

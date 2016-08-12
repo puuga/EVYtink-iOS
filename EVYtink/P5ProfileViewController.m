@@ -196,6 +196,7 @@
     _varLogout.hidden = YES;
     imgUser.hidden = YES;
     tableView.hidden = YES;
+    lbUserName.hidden = YES;
     imgVNotlogin.hidden = NO;
     loginBtProperties.hidden = NO;
     postBtProperties.enabled = NO;
@@ -209,6 +210,7 @@
     tableView.hidden = NO;
     imgVNotlogin.hidden = YES;
     loginBtProperties.hidden = YES;
+    lbUserName.hidden = NO;
 //    postBtProperties.enabled = YES;
 //    [postBtProperties setTintColor:nil];
     postBtProperties.enabled = NO;

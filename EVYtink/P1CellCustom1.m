@@ -121,11 +121,12 @@
 
 -(void)LikeData{
     NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"http://evbt.azurewebsites.net/docs/page/theme/betajsonlikejson.aspx?evaracid=%@&evarnc=slike&evarnsid=%@",EvyUserId,strObjId]];
+    NSLog(@"USER PUSH LIKE : %@, str obj like - %@",EvyUserId,strObjId);
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager GET:URL.absoluteString parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"like success - %@",responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError * error) {
-        NSLog(@"like Unsuccess");
+        NSLog(@"like Unsuccess : %@",error);
     }];
     
     

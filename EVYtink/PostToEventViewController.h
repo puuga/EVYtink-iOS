@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <AFNetworking.h>
 #import "PostToEventSelectDateTimeViewController.h"
+#import "PGetLocationViewController.h"
 
 @interface PostToEventViewController : UIViewController<PostToEventSelectDateTimeViewControllerDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>{
     UIImagePickerController *pickerCamera;
@@ -42,6 +43,8 @@
 @property (nonnull,strong) NSString *upTimeEnd;
 
 - (IBAction)btSave:(id)sender;
+- (IBAction)btGetPositionAction:(id)sender;
+
 
 
 

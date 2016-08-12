@@ -21,9 +21,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
-    [singleTap setNumberOfTapsRequired:1];
-    [mapV addGestureRecognizer:singleTap];
+    
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(foundTap:)];
+    
+    tapRecognizer.numberOfTapsRequired = 1;
+    tapRecognizer.numberOfTouchesRequired = 1;
+    [self.mapV addGestureRecognizer:tapRecognizer];
+    self.mapV.delegate = self;
+    [self.mapV setShowsUserLocation:YES];
+    self.locationManager = [[CLLocationManager alloc] init];
+    [self.locationManager setDelegate:self];
+    [self.locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
+    
+    
+    
     
     NSUserDefaults * defs = [NSUserDefaults standardUserDefaults];
     NSDictionary * dict = [defs dictionaryRepresentation];
@@ -53,11 +64,44 @@
     //[mapV addGestureRecognizer:lpgr];
 }
 
+-(void)foundTap:(UITapGestureRecognizer *)recognizer
+{
+    CGPoint point = [recognizer locationInView:self.mapV];
+    
+    CLLocationCoordinate2D tapPoint = [self.mapV convertPoint:point toCoordinateFromView:self.view];
+    
+    MKPointAnnotation *point1 = [[MKPointAnnotation alloc] init];
+    
+    point1.coordinate = tapPoint;
+    NSLog(@"%@",[NSString stringWithFormat:@"Lat: %f, Long: %f",tapPoint.latitude, tapPoint.longitude]);
+    point1.subtitle = [NSString stringWithFormat:@"Lat: %f, Long: %f",tapPoint.latitude, tapPoint.longitude];
+    [self.mapV addAnnotation:point1];
+}
+
 - (void)handleLongPress:(UIGestureRecognizer *)gestureRecognizer
 {
+    CGPoint point = [gestureRecognizer locationInView:self.mapV];
+    
+    CLLocationCoordinate2D tapPoint = [self.mapV convertPoint:point toCoordinateFromView:self.view];
+    
+    MKPointAnnotation *point1 = [[MKPointAnnotation alloc] init];
+    
+    point1.coordinate = tapPoint;
+    
+    point1.subtitle = [NSString stringWithFormat:@"Lat: %f, Long: %f",tapPoint.latitude, tapPoint.longitude];
+    [self.mapV addAnnotation:point1];
+    
+    
+    
     NSLog(@"long press");
     if (gestureRecognizer.state != UIGestureRecognizerStateBegan){
         NSLog(@"!");
+        
+        CGPoint touchPoint = [gestureRecognizer locationInView:self.mapV];
+        CLLocationCoordinate2D location =
+        [self.mapV convertPoint:touchPoint toCoordinateFromView:self.mapV];
+        
+        NSLog(@"Location found from Map: %f %f",location.latitude,location.longitude);
         return;
     }else{
         NSLog(@"=");
@@ -146,7 +190,7 @@
         
         [geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error)
          {
-             NSLog(@"Found placemarks: %@, error: %@", placemarks, error);
+             //NSLog(@"Found placemarks: %@, error: %@", placemarks, error);
              if (error == nil && [placemarks count] > 0)
              {
                  CLPlacemark *placemark = [placemarks lastObject];
@@ -200,7 +244,7 @@
                      else
                          strAdd = placemark.country;
                  }
-                 NSLog(@"address : %@",strAdd);
+                 //NSLog(@"address : %@",strAdd);
              }
          }];
         

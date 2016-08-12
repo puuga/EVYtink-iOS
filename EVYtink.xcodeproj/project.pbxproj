@@ -23,6 +23,9 @@
 		18035A9B1D49FBC30072B7FF /* PostToEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18035A9A1D49FBC30072B7FF /* PostToEventViewController.m */; };
 		18035AA01D4B436F0072B7FF /* PostToEventSelectDateTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18035A9F1D4B436F0072B7FF /* PostToEventSelectDateTimeViewController.m */; };
 		1803D5451D59E95800E49D61 /* AnotherProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1803D5441D59E95800E49D61 /* AnotherProfileViewController.m */; };
+		1803D5541D5DFB8600E49D61 /* PGetLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1803D5531D5DFB8600E49D61 /* PGetLocationViewController.m */; };
+		1803D5561D5DFC3100E49D61 /* icMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 1803D5551D5DFC3100E49D61 /* icMap.png */; };
+		1803D5581D5E009700E49D61 /* icMyLocation.png in Resources */ = {isa = PBXBuildFile; fileRef = 1803D5571D5E009700E49D61 /* icMyLocation.png */; };
 		181FDE231CED768600C47C37 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 181FDE221CED768600C47C37 /* main.m */; };
 		181FDE261CED768600C47C37 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 181FDE251CED768600C47C37 /* AppDelegate.m */; };
 		181FDE2C1CED768600C47C37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 181FDE2A1CED768600C47C37 /* Main.storyboard */; };
@@ -140,6 +143,10 @@
 		18035A9F1D4B436F0072B7FF /* PostToEventSelectDateTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostToEventSelectDateTimeViewController.m; sourceTree = "<group>"; };
 		1803D5431D59E95800E49D61 /* AnotherProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnotherProfileViewController.h; sourceTree = "<group>"; };
 		1803D5441D59E95800E49D61 /* AnotherProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnotherProfileViewController.m; sourceTree = "<group>"; };
+		1803D5521D5DFB8600E49D61 /* PGetLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGetLocationViewController.h; sourceTree = "<group>"; };
+		1803D5531D5DFB8600E49D61 /* PGetLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGetLocationViewController.m; sourceTree = "<group>"; };
+		1803D5551D5DFC3100E49D61 /* icMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icMap.png; sourceTree = "<group>"; };
+		1803D5571D5E009700E49D61 /* icMyLocation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icMyLocation.png; sourceTree = "<group>"; };
 		181FDE1E1CED768600C47C37 /* EVYtink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EVYtink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		181FDE221CED768600C47C37 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		181FDE241CED768600C47C37 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -356,6 +363,8 @@
 				18EC79A21CF6E006005C2649 /* TestCell.m */,
 				18CB207D1D13A8E400019C3F /* TestMapViewController.h */,
 				18CB207E1D13A8E400019C3F /* TestMapViewController.m */,
+				1803D5521D5DFB8600E49D61 /* PGetLocationViewController.h */,
+				1803D5531D5DFB8600E49D61 /* PGetLocationViewController.m */,
 				181FDE2D1CED768600C47C37 /* Assets.xcassets */,
 				18FB1D0E1D33686500EE3D0C /* CoreData */,
 				181FDE2F1CED768600C47C37 /* LaunchScreen.storyboard */,
@@ -406,6 +415,8 @@
 		181FDE7A1CEDB23F00C47C37 /* Graphic */ = {
 			isa = PBXGroup;
 			children = (
+				1803D5571D5E009700E49D61 /* icMyLocation.png */,
+				1803D5551D5DFC3100E49D61 /* icMap.png */,
 				18EDA9BF1D5837AB008262F3 /* icGiftCard.png */,
 				18EDA9B51D58287D008262F3 /* icCamera.png */,
 				18EDA9B61D58287D008262F3 /* icLabel.png */,
@@ -654,6 +665,7 @@
 				18035A8A1D476CDD0072B7FF /* P1D3TableViewCell.xib in Resources */,
 				18EDA95F1D4BADDF008262F3 /* LP5.png in Resources */,
 				181FDE791CEDB23500C47C37 /* logo.png in Resources */,
+				1803D5581D5E009700E49D61 /* icMyLocation.png in Resources */,
 				18EDA9C21D585725008262F3 /* TabProfile.png in Resources */,
 				18EDA95E1D4BADDF008262F3 /* LP4.png in Resources */,
 				18035A821D476ADC0072B7FF /* P1D1TableViewCell.xib in Resources */,
@@ -670,6 +682,7 @@
 				180359E51D3FCFBC0072B7FF /* DefaultTableViewCell.xib in Resources */,
 				18CB21A91D30CA6400019C3F /* TopCenterlogoevytink.png in Resources */,
 				18EDA9C01D5837AB008262F3 /* icGiftCard.png in Resources */,
+				1803D5561D5DFC3100E49D61 /* icMap.png in Resources */,
 				18CB219E1D30C16900019C3F /* TabEventicon.png in Resources */,
 				18EDA9681D4BB2D7008262F3 /* iconcomment.png in Resources */,
 				18EC76991CF2B425005C2649 /* CustomCell1.xib in Resources */,
@@ -833,6 +846,7 @@
 				180359DD1D38DE9B0072B7FF /* P5ProfileViewController.m in Sources */,
 				18035A8E1D476D090072B7FF /* P1D2TableViewCell.m in Sources */,
 				18EC799B1CF6A7B2005C2649 /* ViewWeb.m in Sources */,
+				1803D5541D5DFB8600E49D61 /* PGetLocationViewController.m in Sources */,
 				18FB1D011D30ECEC00EE3D0C /* LMP5AboutUsViewController.m in Sources */,
 				18EC79A31CF6E006005C2649 /* TestCell.m in Sources */,
 				1803D5451D59E95800E49D61 /* AnotherProfileViewController.m in Sources */,

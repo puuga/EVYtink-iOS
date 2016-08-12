@@ -274,4 +274,11 @@
         });
     }
 }
+
+- (IBAction)btGetPositionAction:(id)sender {
+    PGetLocationViewController *getPosition = [self.storyboard instantiateViewControllerWithIdentifier:@"getPosition"];
+    //getPosition.delegate = self;
+    [self.navigationController pushViewController:getPosition animated:YES];
+
+}
 @end

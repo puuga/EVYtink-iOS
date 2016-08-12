@@ -15,9 +15,14 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 - (IBAction)btClose:(id)sender;
+
+
 @property (nonatomic, strong) NSString *urlProfileshow;
+@property (nonatomic,strong) NSString *evyUId;
+
 @property (weak, nonatomic) IBOutlet UIImageView *imgUser;
 @property (weak, nonatomic) IBOutlet UIImageView *imgUserBg;
 @property (weak, nonatomic) IBOutlet UILabel *labelUserName;
+
 
 @end

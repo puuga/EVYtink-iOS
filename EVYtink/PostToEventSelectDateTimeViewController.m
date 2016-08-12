@@ -21,7 +21,7 @@
     [self.navigationController.navigationBar setTitleTextAttributes:
      @{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     
-    self.navigationController.navigationBar.topItem.title = @"ย้อนกลับ";
+    //self.navigationController.navigationBar.topItem.title = @"ย้อนกลับ";
 }
 
 -(void)setDatePicker:(UIDatePicker *)picker{
