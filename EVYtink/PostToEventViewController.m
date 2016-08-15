@@ -20,25 +20,38 @@
     NSString *endDate;
     NSString *endTime;
     NSString *EvyId;
+    BOOL statusChooseImg;
 }
 
 @end
 
 @implementation PostToEventViewController
-@synthesize imgPreview,imgAddToserver,startDateTimeProperties,endDateTimeProperties,txtName,txtTag,txtPosition,statusPOST,scrollV;
+@synthesize imgPreview,imgAddToserver,startDateTimeProperties,endDateTimeProperties,txtName,txtTag,statusPOST,scrollV,Adderss;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.navigationController.navigationBar setTitleTextAttributes:
      @{NSForegroundColorAttributeName:[UIColor whiteColor]}];
-    [self addPickerTapGestureRecognizer];
+    //
     [self addHideKeyboardGestureRecognizer];
     EvyId = [self getEvyId];
-    
+    statusChooseImg = NO;
     self.navigationController.navigationBar.topItem.title = @"ย้อนกลับ";
     if (_upObjid != nil) {
         txtName.text = _upTitle;
+        txtTag.text = _upDetail;
+        startDate = _upDateStart;
+        startTime = _upTimeStart;
+        endDate = _upDateEnd;
+        endTime = _upTimeEnd;
+        Adderss = _upPosition;
+        [_btGetPositionProperties setTitle:_upPosition forState:UIControlStateNormal];
+        [startDateTimeProperties setTitle:[NSString stringWithFormat:@"%@, %@",startDate,startTime] forState:UIControlStateNormal];
+        [endDateTimeProperties setTitle:[NSString stringWithFormat:@"%@, %@",endDate,endTime] forState:UIControlStateNormal];
         [imgPreview setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",_upUrlImage]]];
+        statusChooseImg = YES;
+    }else{
+        [self addPickerTapGestureRecognizer];
     }
 }
 
@@ -74,6 +87,7 @@
     imgAddToserver = info[UIImagePickerControllerEditedImage];
     picker.allowsEditing = YES;
     [imgPreview setImage:imgAddToserver];
+    statusChooseImg = YES;
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
@@ -144,57 +158,117 @@
 -(void)tapHideKeyboard{
     [txtTag resignFirstResponder];
     [txtName resignFirstResponder];
-    [txtPosition resignFirstResponder];
+}
+
+-(void)pushBack{
+    UIAlertController *alertConfirm = [UIAlertController alertControllerWithTitle:@"อัพโหลดข้อมูล" message:@"อัพโหลดข้อมูลเรียบร้อย" preferredStyle:UIAlertActionStyleDefault];
+    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"ยืนยัน" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                         {
+                             [alertConfirm dismissViewControllerAnimated:YES completion:nil];
+                             [self.navigationController popViewControllerAnimated:YES];
+                         }];
+    [alertConfirm addAction: ok];
+    dispatch_async(dispatch_get_main_queue(), ^ {
+        [self presentViewController:alertConfirm animated:YES completion:nil];
+    });
 }
 
 -(void)AddPostEvent{
-    UIAlertController *myAlertController = [UIAlertController alertControllerWithTitle:@"กำลังอัพโหลด Event" message: @"กำลังอัพโหลด Event กรุณารอสักครู่" preferredStyle: UIAlertControllerStyleAlert];
-    
-    dispatch_async(dispatch_get_main_queue(), ^ {
-        [self presentViewController:myAlertController animated:YES completion:nil];
-    });
-
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
-    NSData *imageData = UIImageJPEGRepresentation(imgAddToserver, 1);
-    NSDictionary *jsonParameter = @{@"evyaccountid":EvyId,@"enentname":txtName.text,@"eventtag":txtTag.text,@"locationevent":txtPosition.text,@"datestart":startDate,@"Stoptdate":endDate,@"Timestart":startTime,@"Timeend":endTime,@"chkOverride":@"1"};
-    
-    [manager POST:@"http://evbt.azurewebsites.net/docs/page/theme/betajsonaddevent.aspx" parameters:jsonParameter constructingBodyWithBlock:^(id<AFMultipartFormData>  formData) {
-        [formData appendPartWithFileData:imageData name:@"attrachment" fileName:@"myImage.jpg" mimeType:@"image/jpeg"];
-    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"Success POST");
+    if (_upObjid != nil) {
+        UIAlertController *myAlertController = [UIAlertController alertControllerWithTitle:@"กำลังอัพโหลดแก้ไข Event" message: @"กำลังอัพโหลดแก้ไข Event กรุณารอสักครู่" preferredStyle: UIAlertControllerStyleAlert];
         
-        [myAlertController dismissViewControllerAnimated:YES completion:nil];
-
-        [self.navigationController popViewControllerAnimated:YES];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Not success POST");
-    }];
+        dispatch_async(dispatch_get_main_queue(), ^ {
+            [self presentViewController:myAlertController animated:YES completion:nil];
+        });
+        
+        AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
+        //NSData *imageData = UIImageJPEGRepresentation(imgAddToserver, 1);
+        NSLog(@"Show chk - !");
+        NSString *objId = _upObjid;
+        NSLog(@"CHK %@, %@",_upObjid,Adderss);
+        NSDictionary *jsonParameter = @{@"Id":objId,@"eventtitle":txtName.text,@"eventtag":@"",@"location":Adderss,@"startdate":startDate,@"stopdate":endDate,@"timestart":startTime,@"timeend":endTime,@"chkOverride":@"1",@"description":txtTag.text,@"eventurl":@""};
+        
+        [manager POST:@"http://evbt.azurewebsites.net/docs/page/theme/beatajsoneventedit.aspx" parameters:jsonParameter constructingBodyWithBlock:^(id<AFMultipartFormData>  formData) {
+            //[formData appendPartWithFileData:imageData name:@"attrachment" fileName:@"myImage.jpg" mimeType:@"image/jpeg"];
+        } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [self pushBack];
+            [myAlertController dismissViewControllerAnimated:YES completion:nil];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"Not success POST - %@",error);
+        }];
+        
+    }else{
+        UIAlertController *myAlertController = [UIAlertController alertControllerWithTitle:@"กำลังอัพโหลด Event" message: @"กำลังอัพโหลด Event กรุณารอสักครู่" preferredStyle: UIAlertControllerStyleAlert];
+        
+        dispatch_async(dispatch_get_main_queue(), ^ {
+            [self presentViewController:myAlertController animated:YES completion:nil];
+        });
+        
+        AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
+        NSData *imageData = UIImageJPEGRepresentation(imgAddToserver, 1);
+        NSDictionary *jsonParameter = @{@"evyaccountid":EvyId,@"enentname":txtName.text,@"eventtag":@"",@"locationevent":Adderss,@"datestart":startDate,@"Stoptdate":endDate,@"Timestart":startTime,@"Timeend":endTime,@"chkOverride":@"1",@"description":txtTag.text};
+        
+        [manager POST:@"http://evbt.azurewebsites.net/docs/page/theme/betajsonaddevent.aspx" parameters:jsonParameter constructingBodyWithBlock:^(id<AFMultipartFormData>  formData) {
+            [formData appendPartWithFileData:imageData name:@"attrachment" fileName:@"myImage.jpg" mimeType:@"image/jpeg"];
+        } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [self pushBack];
+            [myAlertController dismissViewControllerAnimated:YES completion:nil];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"Not success POST - %@",error);
+        }];
+    }
 }
 
 -(void)AddPostPromotion{
-    UIAlertController *myAlertController = [UIAlertController alertControllerWithTitle:@"กำลังอัพโหลด Promotion" message: @"กำลังอัพโหลด Promotion กรุณารอสักครู่" preferredStyle: UIAlertControllerStyleAlert];
-    
-    dispatch_async(dispatch_get_main_queue(), ^ {
-        [self presentViewController:myAlertController animated:YES completion:nil];
-    });
-
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
-    NSData *imageData = UIImageJPEGRepresentation(imgAddToserver, 1);
-    
-    NSDateFormatter *formatToDate = [[NSDateFormatter alloc] init];
-    [formatToDate setDateFormat:@"M/dd/yyyy hh:mm:ss a"];
-    
-    NSDictionary *jsonParameter = @{@"evyaccountid":EvyId,@"protitle":txtName.text,@"protag":txtTag.text,@"Location":txtPosition.text,@"Startdate":startDate,@"Stoptdate":endDate,@"Timestart":startTime,@"Timeend":endTime,@"chkOverride":@"1",@"Description":@"",@"prourl":@"",@"Datetimeadd":[NSString stringWithFormat:@"%@",[formatToDate stringFromDate:[NSDate date]]]};
-    
-    [manager POST:@"http://evbt.azurewebsites.net/docs/page/theme/betajsonaddpromo.aspx" parameters:jsonParameter constructingBodyWithBlock:^(id<AFMultipartFormData>  formData) {
-        [formData appendPartWithFileData:imageData name:@"attrachment" fileName:@"myImage.jpg" mimeType:@"image/jpeg"];
-    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"Success POST");
-        [myAlertController dismissViewControllerAnimated:YES completion:nil];
-        [self.navigationController popViewControllerAnimated:YES];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Not success POST - %@",error);
-    }];
+    if (_upObjid != nil) {
+        UIAlertController *myAlertController = [UIAlertController alertControllerWithTitle:@"กำลังอัพโหลดแก้ไข Promotion" message: @"กำลังอัพโหลดแก้ไข Promotion กรุณารอสักครู่" preferredStyle: UIAlertControllerStyleAlert];
+        
+        dispatch_async(dispatch_get_main_queue(), ^ {
+            [self presentViewController:myAlertController animated:YES completion:nil];
+        });
+        
+        AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
+        //NSData *imageData = UIImageJPEGRepresentation(imgAddToserver, 1);
+        
+        NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+        NSDateFormatter *formatToDate = [[NSDateFormatter alloc] init];
+        [formatToDate setCalendar:gregorianCalendar];
+        [formatToDate setDateFormat:@"dd/M/yyyy hh:mm:ss a"];
+        NSDictionary *jsonParameter = @{@"Id":_upObjid,@"protitle":txtName.text,@"Location":Adderss,@"Startdate":startDate,@"Stoptdate":endDate,@"Timestart":startTime,@"Timeend":endTime,@"Description":txtTag.text,@"prourl":@""};
+        
+        [manager POST:@"http://evbt.azurewebsites.net/docs/page/theme/betajsonpromoedit.aspx" parameters:jsonParameter constructingBodyWithBlock:^(id<AFMultipartFormData>  formData) {
+            //[formData appendPartWithFileData:imageData name:@"attrachment" fileName:@"myImage.jpg" mimeType:@"image/jpeg"];
+        } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [self pushBack];
+            [myAlertController dismissViewControllerAnimated:YES completion:nil];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"Not success POST - %@",error);
+        }];
+    }else{
+        UIAlertController *myAlertController = [UIAlertController alertControllerWithTitle:@"กำลังอัพโหลด Promotion" message: @"กำลังอัพโหลด Promotion กรุณารอสักครู่" preferredStyle: UIAlertControllerStyleAlert];
+        
+        dispatch_async(dispatch_get_main_queue(), ^ {
+            [self presentViewController:myAlertController animated:YES completion:nil];
+        });
+        
+        AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
+        NSData *imageData = UIImageJPEGRepresentation(imgAddToserver, 1);
+        
+        NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+        NSDateFormatter *formatToDate = [[NSDateFormatter alloc] init];
+        [formatToDate setCalendar:gregorianCalendar];
+        [formatToDate setDateFormat:@"dd/M/yyyy hh:mm:ss a"];
+        NSDictionary *jsonParameter = @{@"evyaccountid":EvyId,@"protitle":txtName.text,@"protag":@"",@"Location":Adderss,@"Startdate":startDate,@"Stoptdate":endDate,@"Timestart":startTime,@"Timeend":endTime,@"chkOverride":@"1",@"Description":txtTag.text,@"prourl":@"",@"Datetimeadd":[NSString stringWithFormat:@"%@",[formatToDate stringFromDate:[NSDate date]]],@"Description":txtTag.text};
+        
+        [manager POST:@"http://evbt.azurewebsites.net/docs/page/theme/betajsonaddpromo.aspx" parameters:jsonParameter constructingBodyWithBlock:^(id<AFMultipartFormData>  formData) {
+            [formData appendPartWithFileData:imageData name:@"attrachment" fileName:@"myImage.jpg" mimeType:@"image/jpeg"];
+        } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [self pushBack];
+            [myAlertController dismissViewControllerAnimated:YES completion:nil];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"Not success POST - %@",error);
+        }];
+    }
 }
 
 - (IBAction)startDateTimeAction:(id)sender {
@@ -214,8 +288,13 @@
 }
 
 -(void)setDate:(NSDate *)date setTime:(NSDate *)time setType:(NSString *)type{
+    NSLog(@"date - %@",date);
+    
+    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    
     NSDateFormatter *formatToDate = [[NSDateFormatter alloc] init];
-    [formatToDate setDateFormat:@"M/dd/yyyy"];
+    [formatToDate setCalendar:gregorianCalendar];
+    [formatToDate setDateFormat:@"dd/M/yyyy"];
 
     NSDateFormatter *formatToTime = [[NSDateFormatter alloc] init];
     [formatToTime setDateFormat:@"hh:mm:00 a"];
@@ -236,6 +315,7 @@
 }
 
 - (IBAction)btSave:(id)sender {
+    [self tapHideKeyboard];
     NSString *alertNoti = @"";
     if ([txtName.text isEqualToString:@""]) {
         alertNoti = [NSString stringWithFormat:@"%@ชื่อกิจกรรม: กรุณากรอกชื่อกิจกรรม\n",alertNoti];
@@ -249,8 +329,11 @@
     if (endDate==nil||endTime==nil) {
         alertNoti = [NSString stringWithFormat:@"%@วันสิ้นสุด: กรุณาเลือกวันสิ้นสุด\n",alertNoti];
     }
-    if ([txtPosition.text isEqualToString:@""]) {
-        alertNoti = [NSString stringWithFormat:@"%@พิกัดสถานที่: กรุณากรอกพิกัดสถานที่\n",alertNoti];
+    if ([Adderss isEqualToString:@""]) {
+        alertNoti = [NSString stringWithFormat:@"%@พิกัดสถานที่: กรุณากำหนดพิกัดสถานที่\n",alertNoti];
+    }
+    if (statusChooseImg == NO) {
+        alertNoti = [NSString stringWithFormat:@"%@รูปภาพ: กรุณาเลือกรูปภาพ\n",alertNoti];
     }
     if ([alertNoti isEqualToString:@""]) {
         if ([statusPOST isEqualToString:@"event"]) {
@@ -277,8 +360,14 @@
 
 - (IBAction)btGetPositionAction:(id)sender {
     PGetLocationViewController *getPosition = [self.storyboard instantiateViewControllerWithIdentifier:@"getPosition"];
-    //getPosition.delegate = self;
+    getPosition.delegate = self;
     [self.navigationController pushViewController:getPosition animated:YES];
 
 }
+
+-(void)setAddress:(NSString *)addressforSave{
+    Adderss = addressforSave;
+    [_btGetPositionProperties setTitle:Adderss forState:UIControlStateNormal];
+}
+
 @end

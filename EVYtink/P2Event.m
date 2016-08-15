@@ -433,13 +433,13 @@
     addEvent.statusPOST = @"event";
     addEvent.upObjid = [[arrShowEvent objectAtIndex:indexPath.row] objectForKey:@"eventevyid"];
     addEvent.upTitle = [[arrShowEvent objectAtIndex:indexPath.row] objectForKey:@"title"];
-    addEvent.upDetail = @"Detail";
-    addEvent.upPosition = @"Position";
+    addEvent.upDetail = [[arrShowEvent objectAtIndex:indexPath.row] objectForKey:@"description"];
+    addEvent.upPosition = [[arrShowEvent objectAtIndex:indexPath.row] objectForKey:@"location"];
     addEvent.upUrlImage = [[arrShowEvent objectAtIndex:indexPath.row] objectForKey:@"imageurl"];
-    addEvent.upDateStart = @"START";
-    addEvent.upTimeStart = @"START";
-    addEvent.upDateEnd = @"END";
-    addEvent.upTimeEnd = @"END";
+    addEvent.upDateStart = [[arrShowEvent objectAtIndex:indexPath.row] objectForKey:@"startdate"];
+    addEvent.upTimeStart = [[arrShowEvent objectAtIndex:indexPath.row] objectForKey:@"timestart"];
+    addEvent.upDateEnd = [[arrShowEvent objectAtIndex:indexPath.row] objectForKey:@"stopdate"];
+    addEvent.upTimeEnd = [[arrShowEvent objectAtIndex:indexPath.row] objectForKey:@"timeend"];
 
     [self.navigationController pushViewController:addEvent animated:YES];
 }

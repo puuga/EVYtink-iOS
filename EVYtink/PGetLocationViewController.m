@@ -7,6 +7,7 @@
 //
 
 #import "PGetLocationViewController.h"
+#import <AFNetworking.h>
 
 @interface PGetLocationViewController (){
     double zoom;
@@ -41,6 +42,49 @@
 - (IBAction)BTsaveLocationAction:(id)sender {
     CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(MapV.centerCoordinate.latitude, MapV.centerCoordinate.longitude);
     NSLog(@"lat - %.8f, long - %.8f",coord.latitude,coord.longitude);
+
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/geocode/json?latlng=%f,%f",coord.latitude,coord.longitude]]];
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:urlRequest];
+    operation.responseSerializer = [AFJSONResponseSerializer serializer];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        UIAlertController *myAlertController = [UIAlertController alertControllerWithTitle:@"เลือกพิกัดสถานที่" message: nil preferredStyle: UIAlertControllerStyleAlert];
+        for (int i = 0; i<[[responseObject objectForKey:@"results"] count]; i++) {
+            NSString *str = [[[responseObject objectForKey:@"results"] objectAtIndex:i] objectForKey:@"formatted_address"];
+            UIAlertAction *alertChoice = [UIAlertAction actionWithTitle:str style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                                     {
+                                         NSString *strAddress = [[[responseObject objectForKey:@"results"] objectAtIndex:i] objectForKey:@"formatted_address"];
+                                         UIAlertController *myAlertController = [UIAlertController alertControllerWithTitle:@"ยืนยันสถานที่" message: strAddress preferredStyle: UIAlertControllerStyleAlert];
+                                             UIAlertAction *alertCancle = [UIAlertAction actionWithTitle:@"ยกเลิก" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                                                                           {
+                                                                               
+                                                                           }];
+                                             [myAlertController addAction:alertCancle];
+                                         UIAlertAction *alertConfirm = [UIAlertAction actionWithTitle:@"ยืนยัน" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                                                                       {
+                                                                           [self.delegate setAddress:strAddress];
+                                                                           [self.navigationController popViewControllerAnimated:YES];
+                                                                       }];
+                                         [myAlertController addAction:alertConfirm];
+
+                                         dispatch_async(dispatch_get_main_queue(), ^ {
+                                             [self presentViewController:myAlertController animated:YES completion:nil];
+                                         });
+                                         
+                                         
+                                     }];
+            [myAlertController addAction:alertChoice];
+        }
+        dispatch_async(dispatch_get_main_queue(), ^ {
+            [self presentViewController:myAlertController animated:YES completion:nil];
+        });
+        
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Not Success afnetworking.,%@",error);
+    }];
+    [operation start];
 
 }
 

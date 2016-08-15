@@ -415,16 +415,20 @@
 }
 
 -(void)updatePost:(NSString *)userId indexpath:(NSIndexPath *)indexPath{
-    /*UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
-     P5ProfilePostViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"storyPostProfile"];
-     viewController.evyId = userId;
-     viewController.statusToServer = @"updatenews";
-     viewController.statusShared = @"public";
-     viewController.objId = [NSString stringWithFormat:@"%@",[[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"eventevyid"]];
-     viewController.strUpdate = [NSString stringWithFormat:@"%@",[[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"title"]];
-     [self.navigationController pushViewController:viewController animated:YES];
-     */
-    NSLog(@"Update post");
+    PostToEventViewController *addEvent = [self.storyboard instantiateViewControllerWithIdentifier:@"addActivity"];
+    addEvent.navigationItem.title = @"แก้ไข Promotion";
+    addEvent.statusPOST = @"promotion";
+    addEvent.upObjid = [[arrShowPromotion objectAtIndex:indexPath.row] objectForKey:@"eventevyid"];
+    addEvent.upTitle = [[arrShowPromotion objectAtIndex:indexPath.row] objectForKey:@"title"];
+    addEvent.upDetail = [[arrShowPromotion objectAtIndex:indexPath.row] objectForKey:@"description"];
+    addEvent.upPosition = [[arrShowPromotion objectAtIndex:indexPath.row] objectForKey:@"location"];
+    addEvent.upUrlImage = [[arrShowPromotion objectAtIndex:indexPath.row] objectForKey:@"imageurl"];
+    addEvent.upDateStart = [[arrShowPromotion objectAtIndex:indexPath.row] objectForKey:@"istartdate"];
+    addEvent.upTimeStart = [[arrShowPromotion objectAtIndex:indexPath.row] objectForKey:@"timestart"];
+    addEvent.upDateEnd = [[arrShowPromotion objectAtIndex:indexPath.row] objectForKey:@"istopdate"];
+    addEvent.upTimeEnd = [[arrShowPromotion objectAtIndex:indexPath.row] objectForKey:@"timeend"];
+    
+    [self.navigationController pushViewController:addEvent animated:YES];
 }
 
 -(void)reportPost:(NSString *)userId indexpath:(NSIndexPath *)indexPath{
@@ -463,7 +467,7 @@
     NSLog(@"Report date - %@",sendDate);
     if ([detail isEqualToString:@"1"]) {
         AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
-        NSDictionary *jsonParameter = @{@"evyaccountid":userId,@"postid":[[arrShowPromotion objectAtIndex:indexPath.row] objectForKey:@"eventevyid"],@"reportdetail":@"รายงานนี้ไม่เหมาะสม สำหรับ EVYtink",@"posttype":@"event",@"adddatetime":sendDate,@"command":@"savereport"};
+        NSDictionary *jsonParameter = @{@"evyaccountid":userId,@"postid":[[arrShowPromotion objectAtIndex:indexPath.row] objectForKey:@"eventevyid"],@"reportdetail":@"รายงานนี้ไม่เหมาะสม สำหรับ EVYtink",@"posttype":@"Promotion",@"adddatetime":sendDate,@"command":@"savereport"};
         NSLog(@"Action 2");
         [manager POST:@"http://evbt.azurewebsites.net/docs/page/theme/betajsonevyreport.aspx" parameters:jsonParameter constructingBodyWithBlock:^(id<AFMultipartFormData>  formData) {
         } success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -474,7 +478,7 @@
         }];
     }else if ([detail isEqualToString:@"2"]){
         AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
-        NSDictionary *jsonParameter = @{@"evyaccountid":userId,@"postid":[[arrShowPromotion objectAtIndex:indexPath.row] objectForKey:@"eventevyid"],@"reportdetail":@"เป็นแสปม การหลอกลวงหรือบัญชีปลอม",@"posttype":@"event",@"adddatetime":sendDate,@"command":@"savereport"};
+        NSDictionary *jsonParameter = @{@"evyaccountid":userId,@"postid":[[arrShowPromotion objectAtIndex:indexPath.row] objectForKey:@"eventevyid"],@"reportdetail":@"เป็นแสปม การหลอกลวงหรือบัญชีปลอม",@"posttype":@"Promotion",@"adddatetime":sendDate,@"command":@"savereport"};
         
         [manager POST:@"http://evbt.azurewebsites.net/docs/page/theme/betajsonevyreport.aspx" parameters:jsonParameter constructingBodyWithBlock:^(id<AFMultipartFormData>  formData) {
         } success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -486,7 +490,7 @@
         }];
     }else if ([detail isEqualToString:@"3"]){
         AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
-        NSDictionary *jsonParameter = @{@"evyaccountid":userId,@"postid":[[arrShowPromotion objectAtIndex:indexPath.row] objectForKey:@"eventevyid"],@"reportdetail":@"บัญผู้ใช้อาจโดนแฮก",@"posttype":@"event",@"adddatetime":sendDate,@"command":@"savereport"};
+        NSDictionary *jsonParameter = @{@"evyaccountid":userId,@"postid":[[arrShowPromotion objectAtIndex:indexPath.row] objectForKey:@"eventevyid"],@"reportdetail":@"บัญผู้ใช้อาจโดนแฮก",@"posttype":@"Promotion",@"adddatetime":sendDate,@"command":@"savereport"};
         
         [manager POST:@"http://evbt.azurewebsites.net/docs/page/theme/betajsonevyreport.aspx" parameters:jsonParameter constructingBodyWithBlock:^(id<AFMultipartFormData>  formData) {
         } success:^(AFHTTPRequestOperation *operation, id responseObject) {

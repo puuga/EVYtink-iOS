@@ -21,6 +21,9 @@
     [self.navigationController.navigationBar setTitleTextAttributes:
      @{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     
+    //NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    //[dPicker setCalendar:gregorianCalendar];
+    
     //self.navigationController.navigationBar.topItem.title = @"ย้อนกลับ";
 }
 

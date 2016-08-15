@@ -1915,6 +1915,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="btGetPositionProperties" destination="X8i-bK-TYt" id="cUT-Q1-nIK"/>
                         <outlet property="endDateTimeProperties" destination="YWt-YF-mrS" id="dWt-3Q-k8T"/>
                         <outlet property="imgPreview" destination="7p7-9v-l08" id="Yr6-vL-qKX"/>
                         <outlet property="scrollV" destination="mPn-Io-NRm" id="lTT-yY-ZoP"/>
@@ -2506,7 +2507,7 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="x0d-cM-k03">
-                        <barButtonItem key="rightBarButtonItem" title="ยืนยัน" id="my9-r2-cxy">
+                        <barButtonItem key="rightBarButtonItem" title="เลือก" id="my9-r2-cxy">
                             <connections>
                                 <action selector="BTsaveLocationAction:" destination="uqJ-nk-7mG" id="YCE-z1-EDD"/>
                             </connections>

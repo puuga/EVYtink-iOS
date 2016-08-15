@@ -605,10 +605,12 @@
 }
 
 -(void)userPost:(NSString *)idUserPost{
+    /*
     NSString *strUrl = [NSString stringWithFormat:@"http://evbt.azurewebsites.net/docs/page/theme/evytinkprofile.aspx?evarid=%@",idUserPost];
     ViewWeb *sendWebView = [self.storyboard instantiateViewControllerWithIdentifier:@"openWebView"];
     sendWebView.url = [NSURL URLWithString:strUrl];
     [self presentViewController:sendWebView animated:YES completion:NULL];
+     */
 }
 
 -(void)editPost:(NSString *)idUserPost indexpath:(NSIndexPath *)indexPath{

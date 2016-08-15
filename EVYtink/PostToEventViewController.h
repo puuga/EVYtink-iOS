@@ -27,7 +27,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *endDateTimeProperties;
 @property (weak, nonatomic) IBOutlet UITextField *txtName;
 @property (weak, nonatomic) IBOutlet UITextField *txtTag;
-@property (weak, nonatomic) IBOutlet UITextField *txtPosition;
+@property (nonatomic,strong) NSString *Adderss;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollV;
 
@@ -45,6 +45,7 @@
 - (IBAction)btSave:(id)sender;
 - (IBAction)btGetPositionAction:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIButton *btGetPositionProperties;
 
 
 
