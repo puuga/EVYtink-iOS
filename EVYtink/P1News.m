@@ -82,6 +82,7 @@
 -(void)reloadData{
     arrNews = [[NSMutableArray alloc] init];
     arrShowNews = [[NSMutableArray alloc] init];
+    self.tableView.userInteractionEnabled = NO;
     [self setArrNews:arrNews];
 }
 
@@ -94,6 +95,9 @@
             NSLog(@"%d Pic - มีรูปที่ 1",count);
         }else{
             NSLog(@"Pic - มีรูป 2 รูป");
+        }
+        if (count==end) {
+            self.tableView.userInteractionEnabled = YES;
         }
     }
     [self.tableView reloadData];

@@ -85,6 +85,7 @@
     [self ChkFacebookLoginStatus];
     arrPromotion = [[NSMutableArray alloc] init];
     arrShowPromotion = [[NSMutableArray alloc] init];
+    self.tableView.userInteractionEnabled = NO;
     [self setArrPromotion:arrPromotion];
     if ([arrPromotion count]<5) {
         [self startArrShowPromotion:arrPromotion startAt:0 endAt:([arrPromotion count]-1)];
@@ -131,6 +132,9 @@
             NSLog(@"%d Pic - มีรูปที่ 1",count);
         }else{
             NSLog(@"Pic - มีรูป 2 รูป");
+        }
+        if (count==end) {
+            self.tableView.userInteractionEnabled = YES;
         }
     }
     [self.tableView reloadData];

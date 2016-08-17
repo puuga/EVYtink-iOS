@@ -28,6 +28,7 @@
 
 @implementation CommentViewController
 @synthesize userId,newsId,arrComment,tableViewComment,urlImg1,urlImg2,urlimgUser,strObj,txtDate,txtname,txtDetail,urlToShow,userPostId,statusShared;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     static NSString *CellIdentifier1 = @"idenCell1";
@@ -49,12 +50,17 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated{
+    [self reloadComment];
+}
+
+-(void)reloadComment{
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://evbt.azurewebsites.net/docs/page/theme/betajsonnewscomment.aspx?evarnid=%@&chlogin=true&evyid=%@",newsId,userId]]];
     NSLog(@"news ID - %@,user Id - %@",newsId,userId);
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:urlRequest];
     operation.responseSerializer = [AFJSONResponseSerializer serializer];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         arrComment = [[NSMutableArray alloc] init];
+        [tableViewComment reloadData];
         for (int Cou = 0; Cou<[responseObject count]; Cou++) {
             //[self addArrComment:[responseObject objectAtIndex:Cou]];
             [arrComment addObject:[responseObject objectAtIndex:Cou]];
@@ -146,36 +152,54 @@
         cell.txtTime.text = [[arrComment objectAtIndex:(indexPath.row - 1)] objectForKey:@"timecomment"];
         
         
-        UILongPressGestureRecognizer *longPressCell = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressCellAction)];
+        UILongPressGestureRecognizer *longPressCell = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressCellAction:)];
         [cell addGestureRecognizer:longPressCell];
         
         return cell;
     }
 }
 
--(void)longPressCellAction{
-    UIAlertController *myAlertController = [UIAlertController alertControllerWithTitle:@"แก้ไขคอมเม้นต์" message:nil preferredStyle: UIAlertControllerStyleAlert];
-    UIAlertAction* edit = [UIAlertAction actionWithTitle:@"แก้ไข" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
-                             {
-                                 [myAlertController dismissViewControllerAnimated:YES completion:nil];
-                                 
-                             }];
-    [myAlertController addAction: edit];
-    UIAlertAction* del = [UIAlertAction actionWithTitle:@"ลบ" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
-                             {
-                                 [myAlertController dismissViewControllerAnimated:YES completion:nil];
-                                 
-                             }];
-    [myAlertController addAction: del];
-    UIAlertAction* cancle = [UIAlertAction actionWithTitle:@"ยกเลิก" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
-                             {
-                                 [myAlertController dismissViewControllerAnimated:YES completion:nil];
-                                 
-                             }];
-    [myAlertController addAction: cancle];
-    dispatch_async(dispatch_get_main_queue(), ^ {
-        [self presentViewController:myAlertController animated:YES completion:nil];
-    });
+
+-(void)longPressCellAction:(UILongPressGestureRecognizer *)gestureRecognizer{
+    CGPoint point = [gestureRecognizer locationInView:self.tableViewComment];
+    NSIndexPath *indexPath = [self.tableViewComment indexPathForRowAtPoint:point];
+    if (indexPath == nil) {
+        NSLog(@"long press on table view but not on a row");
+    } else if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
+        if ([[[[arrComment objectAtIndex:(indexPath.row - 1)] objectForKey:@"user"] objectForKey:@"evytinkaccountid"] isEqualToString:userId]) {
+            UIAlertController *myAlertController = [UIAlertController alertControllerWithTitle:@"ลบคอมเม้นต์" message:nil preferredStyle: UIAlertControllerStyleAlert];
+            UIAlertAction* del = [UIAlertAction actionWithTitle:@"ลบ" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                                  {
+                                      [myAlertController dismissViewControllerAnimated:YES completion:nil];
+                                      [self deleteCommentNewsId:newsId comment:[[arrComment objectAtIndex:(indexPath.row - 1)] objectForKey:@"commentid"]];
+                                  }];
+            [myAlertController addAction: del];
+            UIAlertAction* cancle = [UIAlertAction actionWithTitle:@"ยกเลิก" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                                     {
+                                         [myAlertController dismissViewControllerAnimated:YES completion:nil];
+                                         
+                                     }];
+            [myAlertController addAction: cancle];
+            dispatch_async(dispatch_get_main_queue(), ^ {
+                [self presentViewController:myAlertController animated:YES completion:nil];
+            });
+        }
+    }
+}
+
+-(void)deleteCommentNewsId:(NSString *)newsId comment:(NSString *)commentId{
+    UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"กำลังลบคอมเม้นต์" message:nil preferredStyle: UIAlertControllerStyleAlert];
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
+    NSDictionary *jsonParameter = @{@"evynewscommentId":commentId,@"news_id":newsId};
+    
+    [manager POST:@"http://evbt.azurewebsites.net/docs/page/theme/betajsondeletecomment.aspx" parameters:jsonParameter constructingBodyWithBlock:^(id<AFMultipartFormData>  formData) {
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Success POST Delete");
+        [alertCon dismissViewControllerAnimated:YES completion:nil];
+        [self reloadComment];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Not success POST delete - %@",error);
+    }];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -311,8 +335,6 @@
     UIAlertAction* report = [UIAlertAction actionWithTitle:@"ยืนยัน" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
                              {
                                  [myAlertController dismissViewControllerAnimated:YES completion:nil];
-                                 
-                                 
                                  AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
                                  NSLog(@"user ID - %@, objectId - %@",userObjId,objectId);
                                  NSDictionary *jsonParameter = @{@"evarid":userObjId,@"evarnewsid":objectId,@"evarcommand":@"deletenews",@"evarnewscontent":@""};

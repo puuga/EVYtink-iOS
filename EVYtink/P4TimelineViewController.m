@@ -81,10 +81,14 @@
             [alert show];
         }
         arrTimeline = [[NSMutableArray alloc] init];
+        self.TableView.userInteractionEnabled = NO;
         for (int i = 0; i<[responseObject count]; i++) {
             NSLog(@"arrprofile No.%d - %@",i,[responseObject objectAtIndex:i]);
             [arrTimeline addObject:[responseObject objectAtIndex:i]];
             [TableView reloadData];
+            if (i==([responseObject count] - 1)) {
+                self.TableView.userInteractionEnabled = YES;
+            }
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Not Success afnetworking.,%@",error);

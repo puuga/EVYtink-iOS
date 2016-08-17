@@ -227,6 +227,7 @@
      }];
     
     arrProfileContent = [[NSMutableArray alloc] init];
+    self.tableView.userInteractionEnabled = NO;
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://evbt.azurewebsites.net/docs/page/theme/betajsonnewsbyid.aspx?evarid=%@",[self getEvyId]]]];
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:urlRequest];
     operation.responseSerializer = [AFJSONResponseSerializer serializer];
@@ -241,6 +242,9 @@
             NSLog(@"arrprofile No.%d - %@",i,[responseObject objectAtIndex:i]);
             [arrProfileContent addObject:[responseObject objectAtIndex:i]];
             [self.tableView reloadData];
+            if (i==([responseObject count]-1)) {
+                self.tableView.userInteractionEnabled = YES;
+            }
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Not Success afnetworking.,%@",error);
