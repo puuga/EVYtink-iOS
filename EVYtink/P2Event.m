@@ -337,12 +337,23 @@
 }
 
 -(void)userPost:(NSString *)idUserPost{
-    AnotherProfileViewController *profile = [self.storyboard instantiateViewControllerWithIdentifier:@"openProfileView"];
-    profile.urlProfileshow = [NSString stringWithFormat:@"http://evbt.azurewebsites.net/docs/page/theme/betajsonnewsbyid.aspx?evarid=%@",idUserPost];
-    
-    UINavigationController *navigationcontroller = [[UINavigationController alloc] initWithRootViewController:profile];
-    
-    [self presentViewController:navigationcontroller animated:YES completion:nil];
+    NSString *urlString = [NSString stringWithFormat:@"http://evbt.azurewebsites.net/docs/page/theme/betajsonencode.aspx?evarid=%@&evarpass=evy21m",idUserPost];
+    NSString *urlStringEncode = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:urlStringEncode]];
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:urlRequest];
+    operation.responseSerializer = [AFJSONResponseSerializer serializer];//Hide this not error but return object.
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"obj success - %@",responseObject);
+        AnotherProfileViewController *profile = [self.storyboard instantiateViewControllerWithIdentifier:@"openProfileView"];
+        profile.urlProfileshow = [NSString stringWithFormat:@"http://evbt.azurewebsites.net/docs/page/theme/betajsonnewsbyid.aspx?evarid=%@",[[responseObject objectAtIndex:0] objectForKey:@"promotionid"]];
+        profile.evyUId = [[responseObject objectAtIndex:0] objectForKey:@"promotionid"];
+        UINavigationController *navigationcontroller = [[UINavigationController alloc] initWithRootViewController:profile];
+        
+        [self presentViewController:navigationcontroller animated:YES completion:nil];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Not Success afnetworking. - %@",error);
+    }];
+    [operation start];
 }
 
 #pragma mark - button edit

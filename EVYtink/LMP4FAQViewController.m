@@ -28,6 +28,7 @@
     uiimagelogoImage.frame = CGRectMake(75, 0, 100, 44);
     [uiimagelogoImage setContentMode:UIViewContentModeScaleAspectFit];
     self.navigationItem.titleView = uiimagelogoImage;
+    self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 -(void)hideTabbar{

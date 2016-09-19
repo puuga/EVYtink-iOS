@@ -191,7 +191,8 @@
         [manager POST:@"http://evbt.azurewebsites.net/docs/page/theme/beatajsoneventedit.aspx" parameters:jsonParameter constructingBodyWithBlock:^(id<AFMultipartFormData>  formData) {
             //[formData appendPartWithFileData:imageData name:@"attrachment" fileName:@"myImage.jpg" mimeType:@"image/jpeg"];
         } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            [self pushBack];
+            
+            [self performSelector:@selector(pushBack) withObject:nil afterDelay:0.5f];
             [myAlertController dismissViewControllerAnimated:YES completion:nil];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Not success POST - %@",error);
@@ -211,7 +212,7 @@
         [manager POST:@"http://evbt.azurewebsites.net/docs/page/theme/betajsonaddevent.aspx" parameters:jsonParameter constructingBodyWithBlock:^(id<AFMultipartFormData>  formData) {
             [formData appendPartWithFileData:imageData name:@"attrachment" fileName:@"myImage.jpg" mimeType:@"image/jpeg"];
         } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            [self pushBack];
+            [self performSelector:@selector(pushBack) withObject:nil afterDelay:0.5f];
             [myAlertController dismissViewControllerAnimated:YES completion:nil];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Not success POST - %@",error);
@@ -239,7 +240,7 @@
         [manager POST:@"http://evbt.azurewebsites.net/docs/page/theme/betajsonpromoedit.aspx" parameters:jsonParameter constructingBodyWithBlock:^(id<AFMultipartFormData>  formData) {
             //[formData appendPartWithFileData:imageData name:@"attrachment" fileName:@"myImage.jpg" mimeType:@"image/jpeg"];
         } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            [self pushBack];
+            [self performSelector:@selector(pushBack) withObject:nil afterDelay:0.5f];
             [myAlertController dismissViewControllerAnimated:YES completion:nil];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Not success POST - %@",error);
@@ -263,7 +264,7 @@
         [manager POST:@"http://evbt.azurewebsites.net/docs/page/theme/betajsonaddpromo.aspx" parameters:jsonParameter constructingBodyWithBlock:^(id<AFMultipartFormData>  formData) {
             [formData appendPartWithFileData:imageData name:@"attrachment" fileName:@"myImage.jpg" mimeType:@"image/jpeg"];
         } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            [self pushBack];
+            [self performSelector:@selector(pushBack) withObject:nil afterDelay:0.5f];
             [myAlertController dismissViewControllerAnimated:YES completion:nil];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Not success POST - %@",error);

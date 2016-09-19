@@ -6,6 +6,8 @@ platform :ios, '9.0'
 target 'EVYtink' do
 
   pod 'AFNetworking', '~> 2.5'
+  pod 'Firebase'
+  pod 'Firebase/Auth'
 
   target 'EVYtinkTests' do
     inherit! :search_paths

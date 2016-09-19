@@ -94,6 +94,7 @@
                     <constraint firstItem="03A-DA-BGf" firstAttribute="trailing" secondItem="hdY-Mc-wjB" secondAttribute="trailing" id="w9H-de-4oj"/>
                 </constraints>
             </tableViewCellContentView>
+            <inset key="separatorInset" minX="0.0" minY="0.0" maxX="8" maxY="0.0"/>
             <connections>
                 <outlet property="img" destination="7F2-SJ-KZV" id="PKM-e4-pzI"/>
                 <outlet property="imgPic1" destination="pt8-DO-Y7G" id="SFQ-2B-DXu"/>

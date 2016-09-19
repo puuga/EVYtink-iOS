@@ -58,55 +58,30 @@
     }
     if ([statusToServer isEqualToString:@"updatenews"]) {
         NSLog(@"update");
-        /*AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
-        NSLog(@"user ID - %@, objectId - %@ will edit Status - %@,content - %@",evyId,objId,statusToServer,txtPost.text);
-        NSDictionary *jsonParameter = @{@"evarid":evyId,@"evarnewsid":objId,@"evarcommand":statusToServer,@"evarnewscontent":txtPost.text};
+        
+        AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
+        NSDictionary *jsonParameter = @{@"evarid":evyId,@"evarnewsid":objId,@"evarcommand":statusToServer,@"evarnewscontent":txtPost.text,@"evarprivacy":statusPrivacy};
         
         [manager POST:@"http://evbt.azurewebsites.net/docs/page/theme/betajsonnewsedit.aspx" parameters:jsonParameter constructingBodyWithBlock:^(id<AFMultipartFormData>  formData) {
         } success:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSLog(@"Success POST Delete");
-            //[myAlertController dismissViewControllerAnimated:YES completion:nil];
             [txtPost resignFirstResponder];
             [self performSelector:@selector(backToProfile:) withObject:nil afterDelay:1.0f];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Not success POST delete - %@",error);
         }];
-        */
-        NSString *post = [NSString stringWithFormat:@"evarid=%@&evarnewsid=%@&evarcommand=%@&evarnewscontent=%@&evarprivacy=%@",evyId,objId,statusToServer,txtPost.text,statusPrivacy];
-        NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-        NSString *postLength = [NSString stringWithFormat:@"%lu", [postData length]];
-        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-        [request setURL:[NSURL URLWithString:@"http://evbt.azurewebsites.net/docs/page/theme/betajsonnewsedit.aspx"]];
-        [request setHTTPMethod:@"POST"];
-        [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-        [request setHTTPBody:postData];
-        NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-        if(conn) {
-            NSLog(@"Connection Successful Post");
+        
+        }else{
+        AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
+        NSDictionary *jsonParameter = @{@"evyaccountid":evyId,@"newtitle":txtPost.text,@"privacy":statusPrivacy};
+        [manager POST:@"http://evbt.azurewebsites.net/docs/page/theme/evytinkapipost.aspx" parameters:jsonParameter constructingBodyWithBlock:^(id<AFMultipartFormData>  formData) {
+        } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"Success POST Delete");
             [txtPost resignFirstResponder];
             [self performSelector:@selector(backToProfile:) withObject:nil afterDelay:1.0f];
-        } else {
-            NSLog(@"Connection could not be made Post");
-        }
-    }else{
-        NSString *post = [NSString stringWithFormat:@"evyaccountid=%@&newtitle=%@&privacy=%@",evyId,txtPost.text,statusPrivacy];
-        NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-        NSString *postLength = [NSString stringWithFormat:@"%lu", [postData length]];
-        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-        [request setURL:[NSURL URLWithString:@"http://evbt.azurewebsites.net/docs/page/theme/evytinkapipost.aspx"]];
-        [request setHTTPMethod:@"POST"];
-        [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-        [request setHTTPBody:postData];
-        NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-        if(conn) {
-            NSLog(@"Connection Successful Post");
-            [txtPost resignFirstResponder];
-            [self performSelector:@selector(backToProfile:) withObject:nil afterDelay:1.0f];
-        } else {
-            NSLog(@"Connection could not be made Post");
-        }
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"Not success POST delete - %@",error);
+        }];
     }
 }
 

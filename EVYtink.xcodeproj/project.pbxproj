@@ -51,6 +51,26 @@
 		18CB21A71D30C38200019C3F /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CB21A61D30C38200019C3F /* SWRevealViewController.m */; };
 		18CB21A91D30CA6400019C3F /* TopCenterlogoevytink.png in Resources */ = {isa = PBXBuildFile; fileRef = 18CB21A81D30CA6400019C3F /* TopCenterlogoevytink.png */; };
 		18CB21AB1D30CB8A00019C3F /* LeftMenuevylogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 18CB21AA1D30CB8A00019C3F /* LeftMenuevylogo.png */; };
+		18EB3E261D6AF82A0066DDC5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18EB3E251D6AF82A0066DDC5 /* GoogleService-Info.plist */; };
+		18EB40111D76DC820066DDC5 /* PGetlocationTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EB40101D76DC820066DDC5 /* PGetlocationTabbarViewController.m */; };
+		18EB40141D7D8F160066DDC5 /* PeditPersonalProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EB40131D7D8F160066DDC5 /* PeditPersonalProfileViewController.m */; };
+		18EB40181D7E87330066DDC5 /* P5EditInformationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EB40161D7E87330066DDC5 /* P5EditInformationTableViewCell.m */; };
+		18EB40191D7E87330066DDC5 /* P5EditInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EB40171D7E87330066DDC5 /* P5EditInformationTableViewCell.xib */; };
+		18EB401D1D814A1F0066DDC5 /* PromoteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EB401B1D814A1F0066DDC5 /* PromoteTableViewCell.m */; };
+		18EB401E1D814A1F0066DDC5 /* PromoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EB401C1D814A1F0066DDC5 /* PromoteTableViewCell.xib */; };
+		18EB40291D8938BF0066DDC5 /* P5EditInformationAnotherTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EB40271D8938BF0066DDC5 /* P5EditInformationAnotherTableViewCell.m */; };
+		18EB402A1D8938BF0066DDC5 /* P5EditInformationAnotherTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EB40281D8938BF0066DDC5 /* P5EditInformationAnotherTableViewCell.xib */; };
+		18EB402C1D8A6B840066DDC5 /* logoScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EB402B1D8A6B840066DDC5 /* logoScreen.png */; };
+		18EB402E1D8A6C140066DDC5 /* icRibbon.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EB402D1D8A6C140066DDC5 /* icRibbon.png */; };
+		18EB40341D9068320066DDC5 /* DetailBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EB40321D9068320066DDC5 /* DetailBookViewController.m */; };
+		18EB40381D9069D10066DDC5 /* PMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EB40371D9069D10066DDC5 /* PMainViewController.m */; };
+		18EB403F1D9069FC0066DDC5 /* StyleVerticalCollectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EB403A1D9069FC0066DDC5 /* StyleVerticalCollectionTableViewCell.m */; };
+		18EB40401D9069FC0066DDC5 /* StyleVerticalCollectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EB403B1D9069FC0066DDC5 /* StyleVerticalCollectionTableViewCell.xib */; };
+		18EB40411D9069FC0066DDC5 /* StyleVerticalCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EB403D1D9069FC0066DDC5 /* StyleVerticalCollectionViewCell.m */; };
+		18EB40421D9069FC0066DDC5 /* StyleVerticalCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EB403E1D9069FC0066DDC5 /* StyleVerticalCollectionViewCell.xib */; };
+		18EB40441D906BA10066DDC5 /* shelf.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EB40431D906BA10066DDC5 /* shelf.png */; };
+		18EB40481D9070DE0066DDC5 /* PromoteNewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EB40461D9070DE0066DDC5 /* PromoteNewsTableViewCell.m */; };
+		18EB40491D9070DE0066DDC5 /* PromoteNewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EB40471D9070DE0066DDC5 /* PromoteNewsTableViewCell.xib */; };
 		18EC76991CF2B425005C2649 /* CustomCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EC76981CF2B425005C2649 /* CustomCell1.xib */; };
 		18EC769C1CF2B506005C2649 /* P1CellCustom1.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EC769B1CF2B506005C2649 /* P1CellCustom1.m */; };
 		18EC769E1CF2BE1A005C2649 /* CustomCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EC769D1CF2BE1A005C2649 /* CustomCell2.xib */; };
@@ -185,6 +205,36 @@
 		18CB21A61D30C38200019C3F /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		18CB21A81D30CA6400019C3F /* TopCenterlogoevytink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TopCenterlogoevytink.png; sourceTree = "<group>"; };
 		18CB21AA1D30CB8A00019C3F /* LeftMenuevylogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LeftMenuevylogo.png; sourceTree = "<group>"; };
+		18EB3E251D6AF82A0066DDC5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		18EB400F1D76DC820066DDC5 /* PGetlocationTabbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGetlocationTabbarViewController.h; sourceTree = "<group>"; };
+		18EB40101D76DC820066DDC5 /* PGetlocationTabbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGetlocationTabbarViewController.m; sourceTree = "<group>"; };
+		18EB40121D7D8F160066DDC5 /* PeditPersonalProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeditPersonalProfileViewController.h; sourceTree = "<group>"; };
+		18EB40131D7D8F160066DDC5 /* PeditPersonalProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeditPersonalProfileViewController.m; sourceTree = "<group>"; };
+		18EB40151D7E87330066DDC5 /* P5EditInformationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = P5EditInformationTableViewCell.h; sourceTree = "<group>"; };
+		18EB40161D7E87330066DDC5 /* P5EditInformationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = P5EditInformationTableViewCell.m; sourceTree = "<group>"; };
+		18EB40171D7E87330066DDC5 /* P5EditInformationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = P5EditInformationTableViewCell.xib; sourceTree = "<group>"; };
+		18EB401A1D814A1F0066DDC5 /* PromoteTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PromoteTableViewCell.h; sourceTree = "<group>"; };
+		18EB401B1D814A1F0066DDC5 /* PromoteTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PromoteTableViewCell.m; sourceTree = "<group>"; };
+		18EB401C1D814A1F0066DDC5 /* PromoteTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PromoteTableViewCell.xib; sourceTree = "<group>"; };
+		18EB40261D8938BF0066DDC5 /* P5EditInformationAnotherTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = P5EditInformationAnotherTableViewCell.h; sourceTree = "<group>"; };
+		18EB40271D8938BF0066DDC5 /* P5EditInformationAnotherTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = P5EditInformationAnotherTableViewCell.m; sourceTree = "<group>"; };
+		18EB40281D8938BF0066DDC5 /* P5EditInformationAnotherTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = P5EditInformationAnotherTableViewCell.xib; sourceTree = "<group>"; };
+		18EB402B1D8A6B840066DDC5 /* logoScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoScreen.png; sourceTree = "<group>"; };
+		18EB402D1D8A6C140066DDC5 /* icRibbon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icRibbon.png; sourceTree = "<group>"; };
+		18EB40311D9068320066DDC5 /* DetailBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailBookViewController.h; sourceTree = "<group>"; };
+		18EB40321D9068320066DDC5 /* DetailBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailBookViewController.m; sourceTree = "<group>"; };
+		18EB40361D9069D10066DDC5 /* PMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMainViewController.h; sourceTree = "<group>"; };
+		18EB40371D9069D10066DDC5 /* PMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMainViewController.m; sourceTree = "<group>"; };
+		18EB40391D9069FC0066DDC5 /* StyleVerticalCollectionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyleVerticalCollectionTableViewCell.h; sourceTree = "<group>"; };
+		18EB403A1D9069FC0066DDC5 /* StyleVerticalCollectionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyleVerticalCollectionTableViewCell.m; sourceTree = "<group>"; };
+		18EB403B1D9069FC0066DDC5 /* StyleVerticalCollectionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StyleVerticalCollectionTableViewCell.xib; sourceTree = "<group>"; };
+		18EB403C1D9069FC0066DDC5 /* StyleVerticalCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyleVerticalCollectionViewCell.h; sourceTree = "<group>"; };
+		18EB403D1D9069FC0066DDC5 /* StyleVerticalCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyleVerticalCollectionViewCell.m; sourceTree = "<group>"; };
+		18EB403E1D9069FC0066DDC5 /* StyleVerticalCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StyleVerticalCollectionViewCell.xib; sourceTree = "<group>"; };
+		18EB40431D906BA10066DDC5 /* shelf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shelf.png; sourceTree = "<group>"; };
+		18EB40451D9070DE0066DDC5 /* PromoteNewsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PromoteNewsTableViewCell.h; sourceTree = "<group>"; };
+		18EB40461D9070DE0066DDC5 /* PromoteNewsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PromoteNewsTableViewCell.m; sourceTree = "<group>"; };
+		18EB40471D9070DE0066DDC5 /* PromoteNewsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PromoteNewsTableViewCell.xib; sourceTree = "<group>"; };
 		18EC76981CF2B425005C2649 /* CustomCell1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCell1.xib; sourceTree = "<group>"; };
 		18EC769A1CF2B506005C2649 /* P1CellCustom1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = P1CellCustom1.h; sourceTree = "<group>"; };
 		18EC769B1CF2B506005C2649 /* P1CellCustom1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = P1CellCustom1.m; sourceTree = "<group>"; };
@@ -322,12 +372,14 @@
 		181FDE201CED768600C47C37 /* EVYtink */ = {
 			isa = PBXGroup;
 			children = (
+				18EB3E251D6AF82A0066DDC5 /* GoogleService-Info.plist */,
 				181FDE7A1CEDB23F00C47C37 /* Graphic */,
 				181FDE241CED768600C47C37 /* AppDelegate.h */,
 				181FDE251CED768600C47C37 /* AppDelegate.m */,
 				18CB21A41D30C38100019C3F /* SlideOutMenuFiles */,
 				18CB21A31D30C32D00019C3F /* CustomCell */,
 				18FB1CF21D30DC7B00EE3D0C /* LeftMenu */,
+				18EB40351D9068390066DDC5 /* EvyBook */,
 				18CB20EF1D1A994300019C3F /* CommentTableViewCell.h */,
 				18CB20F01D1A994300019C3F /* CommentTableViewCell.m */,
 				181FDE2A1CED768600C47C37 /* Main.storyboard */,
@@ -365,6 +417,10 @@
 				18EC79A21CF6E006005C2649 /* TestCell.m */,
 				18CB207D1D13A8E400019C3F /* TestMapViewController.h */,
 				18CB207E1D13A8E400019C3F /* TestMapViewController.m */,
+				18EB400F1D76DC820066DDC5 /* PGetlocationTabbarViewController.h */,
+				18EB40101D76DC820066DDC5 /* PGetlocationTabbarViewController.m */,
+				18EB40121D7D8F160066DDC5 /* PeditPersonalProfileViewController.h */,
+				18EB40131D7D8F160066DDC5 /* PeditPersonalProfileViewController.m */,
 				181FDE2D1CED768600C47C37 /* Assets.xcassets */,
 				18FB1D0E1D33686500EE3D0C /* CoreData */,
 				181FDE2F1CED768600C47C37 /* LaunchScreen.storyboard */,
@@ -415,6 +471,9 @@
 		181FDE7A1CEDB23F00C47C37 /* Graphic */ = {
 			isa = PBXGroup;
 			children = (
+				18EB40431D906BA10066DDC5 /* shelf.png */,
+				18EB402D1D8A6C140066DDC5 /* icRibbon.png */,
+				18EB402B1D8A6B840066DDC5 /* logoScreen.png */,
 				1803D5571D5E009700E49D61 /* icMyLocation.png */,
 				1803D5551D5DFC3100E49D61 /* icMap.png */,
 				18EDA9BF1D5837AB008262F3 /* icGiftCard.png */,
@@ -470,6 +529,18 @@
 				18035A861D476CDD0072B7FF /* P1D3TableViewCell.h */,
 				18035A871D476CDD0072B7FF /* P1D3TableViewCell.m */,
 				18035A881D476CDD0072B7FF /* P1D3TableViewCell.xib */,
+				18EB40151D7E87330066DDC5 /* P5EditInformationTableViewCell.h */,
+				18EB40161D7E87330066DDC5 /* P5EditInformationTableViewCell.m */,
+				18EB40171D7E87330066DDC5 /* P5EditInformationTableViewCell.xib */,
+				18EB40261D8938BF0066DDC5 /* P5EditInformationAnotherTableViewCell.h */,
+				18EB40271D8938BF0066DDC5 /* P5EditInformationAnotherTableViewCell.m */,
+				18EB40281D8938BF0066DDC5 /* P5EditInformationAnotherTableViewCell.xib */,
+				18EB401A1D814A1F0066DDC5 /* PromoteTableViewCell.h */,
+				18EB401B1D814A1F0066DDC5 /* PromoteTableViewCell.m */,
+				18EB401C1D814A1F0066DDC5 /* PromoteTableViewCell.xib */,
+				18EB40451D9070DE0066DDC5 /* PromoteNewsTableViewCell.h */,
+				18EB40461D9070DE0066DDC5 /* PromoteNewsTableViewCell.m */,
+				18EB40471D9070DE0066DDC5 /* PromoteNewsTableViewCell.xib */,
 			);
 			name = CustomCell;
 			sourceTree = "<group>";
@@ -482,6 +553,23 @@
 			);
 			path = SlideOutMenuFiles;
 			sourceTree = SOURCE_ROOT;
+		};
+		18EB40351D9068390066DDC5 /* EvyBook */ = {
+			isa = PBXGroup;
+			children = (
+				18EB40361D9069D10066DDC5 /* PMainViewController.h */,
+				18EB40371D9069D10066DDC5 /* PMainViewController.m */,
+				18EB40311D9068320066DDC5 /* DetailBookViewController.h */,
+				18EB40321D9068320066DDC5 /* DetailBookViewController.m */,
+				18EB40391D9069FC0066DDC5 /* StyleVerticalCollectionTableViewCell.h */,
+				18EB403A1D9069FC0066DDC5 /* StyleVerticalCollectionTableViewCell.m */,
+				18EB403B1D9069FC0066DDC5 /* StyleVerticalCollectionTableViewCell.xib */,
+				18EB403C1D9069FC0066DDC5 /* StyleVerticalCollectionViewCell.h */,
+				18EB403D1D9069FC0066DDC5 /* StyleVerticalCollectionViewCell.m */,
+				18EB403E1D9069FC0066DDC5 /* StyleVerticalCollectionViewCell.xib */,
+			);
+			name = EvyBook;
+			sourceTree = "<group>";
 		};
 		18FB1CF21D30DC7B00EE3D0C /* LeftMenu */ = {
 			isa = PBXGroup;
@@ -656,20 +744,25 @@
 			files = (
 				18EDA95C1D4BADDF008262F3 /* LP2.png in Resources */,
 				18EDA9BB1D58287D008262F3 /* icLabel.png in Resources */,
+				18EB402C1D8A6B840066DDC5 /* logoScreen.png in Resources */,
 				18CB21A11D30C16900019C3F /* TabNewsicon.png in Resources */,
 				18CB219F1D30C16900019C3F /* TabFavicon.png in Resources */,
 				18CB21A21D30C16900019C3F /* TabPromoicon.png in Resources */,
 				18EDA9751D508A6D008262F3 /* camera.png in Resources */,
+				18EB40191D7E87330066DDC5 /* P5EditInformationTableViewCell.xib in Resources */,
 				18CB21AB1D30CB8A00019C3F /* LeftMenuevylogo.png in Resources */,
 				18EDA9611D4BB10E008262F3 /* TabTimeline.png in Resources */,
 				18035A8A1D476CDD0072B7FF /* P1D3TableViewCell.xib in Resources */,
 				18EDA95F1D4BADDF008262F3 /* LP5.png in Resources */,
+				18EB402A1D8938BF0066DDC5 /* P5EditInformationAnotherTableViewCell.xib in Resources */,
 				181FDE791CEDB23500C47C37 /* logo.png in Resources */,
 				1803D5581D5E009700E49D61 /* icMyLocation.png in Resources */,
 				18EDA9C21D585725008262F3 /* TabProfile.png in Resources */,
 				18EDA95E1D4BADDF008262F3 /* LP4.png in Resources */,
+				18EB3E261D6AF82A0066DDC5 /* GoogleService-Info.plist in Resources */,
 				18035A821D476ADC0072B7FF /* P1D1TableViewCell.xib in Resources */,
 				18EDA9BC1D58287D008262F3 /* icCalendar.png in Resources */,
+				18EB40491D9070DE0066DDC5 /* PromoteNewsTableViewCell.xib in Resources */,
 				181FDE311CED768600C47C37 /* LaunchScreen.storyboard in Resources */,
 				181FDE2E1CED768600C47C37 /* Assets.xcassets in Resources */,
 				18EDA9691D4BB2D7008262F3 /* iconshare.png in Resources */,
@@ -677,6 +770,7 @@
 				18EDA9BD1D58287D008262F3 /* icInformation.png in Resources */,
 				18EC769E1CF2BE1A005C2649 /* CustomCell2.xib in Resources */,
 				18EDA95D1D4BADDF008262F3 /* LP3.png in Resources */,
+				18EB40401D9069FC0066DDC5 /* StyleVerticalCollectionTableViewCell.xib in Resources */,
 				18EDA9BA1D58287D008262F3 /* icCamera.png in Resources */,
 				18035A8F1D476D090072B7FF /* P1D2TableViewCell.xib in Resources */,
 				180359E51D3FCFBC0072B7FF /* DefaultTableViewCell.xib in Resources */,
@@ -686,11 +780,15 @@
 				18CB219E1D30C16900019C3F /* TabEventicon.png in Resources */,
 				18EDA9681D4BB2D7008262F3 /* iconcomment.png in Resources */,
 				18EC76991CF2B425005C2649 /* CustomCell1.xib in Resources */,
+				18EB401E1D814A1F0066DDC5 /* PromoteTableViewCell.xib in Resources */,
+				18EB40421D9069FC0066DDC5 /* StyleVerticalCollectionViewCell.xib in Resources */,
 				18CB20871D190AAE00019C3F /* iconFav.png in Resources */,
 				18EDA9731D5081C6008262F3 /* threebuttonIcon.png in Resources */,
 				18EC77621CF3F785005C2649 /* CustomCell3.xib in Resources */,
 				18CB20861D190AAE00019C3F /* iconFavClick.png in Resources */,
 				18EDA9BE1D58287D008262F3 /* icPin.png in Resources */,
+				18EB40441D906BA10066DDC5 /* shelf.png in Resources */,
+				18EB402E1D8A6C140066DDC5 /* icRibbon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -839,6 +937,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18EC76A11CF2BEE2005C2649 /* P1CellCustom2.m in Sources */,
+				18EB403F1D9069FC0066DDC5 /* StyleVerticalCollectionTableViewCell.m in Sources */,
 				181FDE711CED812500C47C37 /* LoginFacebook.m in Sources */,
 				18FB1CFE1D30ECDF00EE3D0C /* LMP4FAQViewController.m in Sources */,
 				18EC769C1CF2B506005C2649 /* P1CellCustom1.m in Sources */,
@@ -848,18 +947,24 @@
 				18EC799B1CF6A7B2005C2649 /* ViewWeb.m in Sources */,
 				1803D5541D5DFB8600E49D61 /* PGetLocationViewController.m in Sources */,
 				18FB1D011D30ECEC00EE3D0C /* LMP5AboutUsViewController.m in Sources */,
+				18EB40341D9068320066DDC5 /* DetailBookViewController.m in Sources */,
+				18EB40141D7D8F160066DDC5 /* PeditPersonalProfileViewController.m in Sources */,
 				18EC79A31CF6E006005C2649 /* TestCell.m in Sources */,
 				1803D5451D59E95800E49D61 /* AnotherProfileViewController.m in Sources */,
 				181FDE261CED768600C47C37 /* AppDelegate.m in Sources */,
 				18CB20F11D1A994300019C3F /* CommentTableViewCell.m in Sources */,
 				18EDA9711D507860008262F3 /* LMP2NotiTableViewCell.m in Sources */,
 				18FB1DC71D365F7100EE3D0C /* Geofence.m in Sources */,
+				18EB40291D8938BF0066DDC5 /* P5EditInformationAnotherTableViewCell.m in Sources */,
 				18035AA01D4B436F0072B7FF /* PostToEventSelectDateTimeViewController.m in Sources */,
 				183648891CEEFCB200C0DA03 /* P1News.m in Sources */,
+				18EB40411D9069FC0066DDC5 /* StyleVerticalCollectionViewCell.m in Sources */,
 				180359E41D3FCFBC0072B7FF /* DefaultTableViewCell.m in Sources */,
 				18035A981D49B88B0072B7FF /* P4TimelineViewController.m in Sources */,
 				180359EB1D4090F20072B7FF /* CommentPostViewController.m in Sources */,
+				18EB40181D7E87330066DDC5 /* P5EditInformationTableViewCell.m in Sources */,
 				18CB20EE1D1A76A300019C3F /* CommentViewController.m in Sources */,
+				18EB401D1D814A1F0066DDC5 /* PromoteTableViewCell.m in Sources */,
 				18FB1CF11D30DA0100EE3D0C /* LeftMenuTableViewController.m in Sources */,
 				18035A811D476ADC0072B7FF /* P1D1TableViewCell.m in Sources */,
 				18FB1D511D338CFE00EE3D0C /* Coredata.xcdatamodeld in Sources */,
@@ -871,7 +976,10 @@
 				181FDE231CED768600C47C37 /* main.m in Sources */,
 				18FB1CF51D30DCB700EE3D0C /* LMP2NotificationViewController.m in Sources */,
 				18FB1CFB1D30ECC900EE3D0C /* LMP3SettingViewController.m in Sources */,
+				18EB40111D76DC820066DDC5 /* PGetlocationTabbarViewController.m in Sources */,
 				18EC79A01CF6C6B4005C2649 /* testTableView.m in Sources */,
+				18EB40381D9069D10066DDC5 /* PMainViewController.m in Sources */,
+				18EB40481D9070DE0066DDC5 /* PromoteNewsTableViewCell.m in Sources */,
 				18CB207F1D13A8E400019C3F /* TestMapViewController.m in Sources */,
 				18EC77711CF40D2B005C2649 /* P3Promotion.m in Sources */,
 				18EC776E1CF40755005C2649 /* P2Event.m in Sources */,
@@ -1028,7 +1136,7 @@
 				INFOPLIST_FILE = EVYtink/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.roomlinksaas.EVYtink;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appspace.evytink;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1049,7 +1157,7 @@
 				INFOPLIST_FILE = EVYtink/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.roomlinksaas.EVYtink;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appspace.evytink;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;

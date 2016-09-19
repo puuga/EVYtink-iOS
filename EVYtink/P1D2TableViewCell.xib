@@ -98,6 +98,7 @@
                     </mask>
                 </variation>
             </tableViewCellContentView>
+            <inset key="separatorInset" minX="0.0" minY="0.0" maxX="8" maxY="0.0"/>
             <connections>
                 <outlet property="img" destination="Nyf-dl-dYm" id="OrH-ZQ-Km9"/>
                 <outlet property="imgPic1" destination="pzn-Z4-Uvu" id="fzq-4h-TN3"/>

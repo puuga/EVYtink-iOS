@@ -47,9 +47,11 @@
     id jsonObjects = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
     */
     
-    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://evbt.azurewebsites.net/docs/page/theme/betajsonnewscomment.aspx?evarnid=%@&chlogin=false&evcommand=save&evyid=%@&enewscomment=%@",newsId,userId,[[NSString stringWithFormat:@"%@",txtPost.text] stringByReplacingOccurrencesOfString:@" " withString:@"%20"]]]];
+    NSString *urlString = [NSString stringWithFormat:@"http://evbt.azurewebsites.net/docs/page/theme/betajsonnewscomment.aspx?evarnid=%@&chlogin=false&evcommand=save&evyid=%@&enewscomment=%@",newsId,userId,[[NSString stringWithFormat:@"%@",txtPost.text] stringByReplacingOccurrencesOfString:@" " withString:@"%20"]];
+    NSString *urlFormatString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:urlFormatString]];
     
-    NSLog(@"show str - %@",[NSString stringWithFormat:@"http://evbt.azurewebsites.net/docs/page/theme/betajsonnewscomment.aspx?evarnid=%@&chlogin=false&evcommand=save&evyid=%@&enewscomment=%@",newsId,userId,[[NSString stringWithFormat:@"%@",txtPost.text] stringByReplacingOccurrencesOfString:@" " withString:@"%20"]]);
+    //NSLog(@"show str - %@",[NSString stringWithFormat:@"http://evbt.azurewebsites.net/docs/page/theme/betajsonnewscomment.aspx?evarnid=%@&chlogin=false&evcommand=save&evyid=%@&enewscomment=%@",newsId,userId,[[NSString stringWithFormat:@"%@",txtPost.text] stringByReplacingOccurrencesOfString:@" " withString:@"%20"]]);
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:urlRequest];
     operation.responseSerializer = [AFJSONResponseSerializer serializer];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {

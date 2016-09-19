@@ -9,6 +9,7 @@
 #import "LoginFacebook.h"
 #import "FBSDKCoreKit.framework/Headers/FBSDKCoreKit.h"
 #import "FBSDKLoginKit.framework/Headers/FBSDKLoginKit.h"
+@import Firebase;
 
 @implementation LoginFacebook{
     NSString *valFirst;
@@ -51,14 +52,23 @@
      startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
                                   id result, NSError *error) {
          if (!error) {
-             NSLog(@"results All - %@",result);
-             NSData *jsonData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://evbt.azurewebsites.net/docs/page/theme/evycheckfbloginjson.aspx?evarfid=%@&fname=%@%@%@",[result objectForKey:@"id"],[result objectForKey:@"first_name"],@"%20",[result objectForKey:@"last_name"]]]];
-             id jsonObjects = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
-             NSLog(@"json add - %@",jsonObjects);
-             UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"เข้าสู่ระบบ" message:@"เข้าสู่ระบบเรียบร้อย ท่านสามารถใช้งานแอพพลิเคชันในส่วนอื่นได้" delegate:nil cancelButtonTitle:@"ตกลง" otherButtonTitles:nil, nil];
-             [alertV show];
-             [self dismissViewControllerAnimated:YES completion:nil];
-             [self removeFromParentViewController];
+             
+             FIRAuthCredential *credential = [FIRFacebookAuthProvider
+                                              credentialWithAccessToken:[FBSDKAccessToken currentAccessToken]
+                                              .tokenString];
+             [[FIRAuth auth] signInWithCredential:credential
+                                       completion:^(FIRUser *user, NSError *error) {
+                                           NSLog(@"user log !!!!! %@",user.uid);
+                                           NSLog(@"results All - %@",result);
+                                           NSData *jsonData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://evbt.azurewebsites.net/docs/page/theme/evycheckfbloginjson.aspx?evarfid=%@&fname=%@%@%@&firebase_uid=%@",[result objectForKey:@"id"],[result objectForKey:@"first_name"],@"%20",[result objectForKey:@"last_name"],user.uid]]];
+                                           id jsonObjects = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
+                                           NSLog(@"json add - %@",jsonObjects);
+                                           UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"เข้าสู่ระบบ" message:@"เข้าสู่ระบบเรียบร้อย ท่านสามารถใช้งานแอพพลิเคชันในส่วนอื่นได้" delegate:nil cancelButtonTitle:@"ตกลง" otherButtonTitles:nil, nil];
+                                           [alertV show];
+                                           [self dismissViewControllerAnimated:YES completion:nil];
+                                           [self removeFromParentViewController];
+                                       }];
+             
          }
      }];
     

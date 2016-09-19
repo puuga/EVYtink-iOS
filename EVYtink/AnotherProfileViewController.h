@@ -10,6 +10,7 @@
 #import "P1CellCustom1.h"
 #import "P1CellCustom2.h"
 #import "P1CellCustom3.h"
+#import "P5EditInformationAnotherTableViewCell.h"
 
 @interface AnotherProfileViewController : UIViewController <UITableViewDelegate,UITableViewDataSource>
 
@@ -18,7 +19,7 @@
 
 
 @property (nonatomic, strong) NSString *urlProfileshow;
-@property (nonatomic,strong) NSString *evyUId;
+@property (nonatomic, strong) NSString *evyUId;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgUser;
 @property (weak, nonatomic) IBOutlet UIImageView *imgUserBg;

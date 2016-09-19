@@ -13,13 +13,14 @@
 #import "FBSDKShareKit.framework/Headers/FBSDKShareKit.h"
 #import "LoginFacebook.h"
 #import "CommentViewController.h"
-
 #import "SWRevealViewController.h"
 #import <UIImageView+AFNetworking.h>
 #import <AFNetworking.h>
 #import "P5ProfilePostViewController.h"
 #import <AFHTTPRequestOperationManager.h>
 #import "AnotherProfileViewController.h"
+#import "PromoteNewsTableViewCell.h"
+#import "PMainViewController.h"
 
 @interface P1News (){
     BOOL chkLogin;
@@ -62,6 +63,8 @@
     static NSString *CellIdentifier1 = @"idenCell1";
     static NSString *CellIdentifier2 = @"idenCell2";
     static NSString *CellIdentifier3 = @"idenCell3";
+    static NSString *CellIdentifierPromote = @"idenNewsPromote";
+    
 
     UINib *nib1 = [UINib nibWithNibName:@"CustomCell1" bundle:nil];
     [self.tableView registerNib:nib1 forCellReuseIdentifier:CellIdentifier1];
@@ -71,12 +74,16 @@
 
     UINib *nib3 = [UINib nibWithNibName:@"CustomCell3" bundle:nil];
     [self.tableView registerNib:nib3 forCellReuseIdentifier:CellIdentifier3];
+    
+    UINib *nib4 = [UINib nibWithNibName:@"PromoteNewsTableViewCell" bundle:nil];
+    [self.tableView registerNib:nib4 forCellReuseIdentifier:CellIdentifierPromote];
 
     [self.tableView reloadData];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     [self reloadData];
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:225.0f/255.0f green:27.0f/255.0f blue:40.0f/255.0f alpha:1.0f];
 }
 
 -(void)reloadData{
@@ -124,13 +131,11 @@
 }
 
 -(void)setArrNews:(NSMutableArray *)arrNews{
-
-
-    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://evbt.azurewebsites.net/docs/page/theme/betajsonnews.aspx"]]];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://evbt.azurewebsites.net/docs/page/theme/betajsonnews.aspx?evarid=%@",evyUId]]];
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:urlRequest];
     operation.responseSerializer = [AFJSONResponseSerializer serializer];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"Success afnetworking.");
+        NSLog(@"Success afnetworking.!!!! - %@",responseObject);
         for (int i = 0; i<[responseObject count]; i++) {
             [arrNews addObject:[responseObject objectAtIndex:i]];
             NSLog(@"Arr - %d, %@",i,[arrNews objectAtIndex:i]);
@@ -170,6 +175,7 @@
     static NSString *CellIdentifier1 = @"idenCell1";
     static NSString *CellIdentifier2 = @"idenCell2";
     static NSString *CellIdentifier3 = @"idenCell3";
+    static NSString *CellIdentifierPromote = @"idenNewsPromote";
 
     if ((indexPath.row == ([arrShowNews count])-1)&&([arrNews count]!=[arrShowNews count])) {
         if (([arrShowNews count] + 5) <= [arrNews count]) {
@@ -181,7 +187,16 @@
         }
     }
 
-    if ([[[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"imageurl"]isEqualToString:@"no"]) {
+    if (indexPath.row == 0) {
+        PromoteNewsTableViewCell *cell = (PromoteNewsTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifierPromote];
+        NSString *string = [NSString stringWithFormat:@"%@",[[[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"user"] objectForKey:@"imgprofile"]];
+        NSArray *subString = [string componentsSeparatedByString:@"?"];
+        NSString *urlimg = subString[0];
+        [cell.imgPic1 setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"imageurl"]]]];
+        cell.txtName.text = [[[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"user"] objectForKey:@"publishtitle"];
+
+        return cell;
+    }else if ([[[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"imageurl"]isEqualToString:@"no"]) {
         P1CellCustom1 *cell = (P1CellCustom1 *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier1];
         cell.delegate = self;
         if (![cell.txtDetail.text isEqualToString:[[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"title"]]) {
@@ -255,7 +270,9 @@
 
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if ([[[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"imageurl"]isEqualToString:@"no"]) {
+    if (indexPath.row == 0) {
+        return 165;
+    }else if ([[[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"imageurl"]isEqualToString:@"no"]) {
         return 168;
     }else if ([[[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"imageurl2"]isEqualToString:@"no"]){
         return 400;
@@ -288,8 +305,16 @@
     NSLog(@"count - %d",[str length]);
     if ([str length] != 4000) {
         ViewWeb *sendWebView = [self.storyboard instantiateViewControllerWithIdentifier:@"openWebView"];
-        sendWebView.url = [NSURL URLWithString:[[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"url"]];
-        [self presentViewController:sendWebView animated:YES completion:NULL];
+        if (indexPath.row==0) {
+            //sendWebView.StatusBarColourStat = @"ebook";
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+            PMainViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"PMainEvyBook"];
+            [self.navigationController pushViewController:viewController animated:YES];
+        }else{
+            sendWebView.url = [NSURL URLWithString:[[arrShowNews objectAtIndex:indexPath.row] objectForKey:@"url"]];
+            [self presentViewController:sendWebView animated:YES completion:NULL];
+        }
+        
     }else{
         NSLog(@"======= not have url");
     }
@@ -401,14 +426,23 @@
 }
 
 -(void)userPost:(NSString *)idUserPost{
-    
-    AnotherProfileViewController *profile = [self.storyboard instantiateViewControllerWithIdentifier:@"openProfileView"];
-    profile.urlProfileshow = [NSString stringWithFormat:@"http://evbt.azurewebsites.net/docs/page/theme/betajsonnewsbyid.aspx?evarid=%@",idUserPost];
-    profile.evyUId = evyUId;
-    UINavigationController *navigationcontroller = [[UINavigationController alloc] initWithRootViewController:profile];
-    
-    [self presentViewController:navigationcontroller animated:YES completion:nil];
-    
+    NSString *urlString = [NSString stringWithFormat:@"http://evbt.azurewebsites.net/docs/page/theme/betajsonencode.aspx?evarid=%@&evarpass=evy21m",idUserPost];
+    NSString *urlStringEncode = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:urlStringEncode]];
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:urlRequest];
+    operation.responseSerializer = [AFJSONResponseSerializer serializer];//Hide this not error but return object.
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"obj success - %@",responseObject);
+        AnotherProfileViewController *profile = [self.storyboard instantiateViewControllerWithIdentifier:@"openProfileView"];
+        profile.urlProfileshow = [NSString stringWithFormat:@"http://evbt.azurewebsites.net/docs/page/theme/betajsonnewsbyid.aspx?evarid=%@",[[responseObject objectAtIndex:0] objectForKey:@"promotionid"]];
+        profile.evyUId = [[responseObject objectAtIndex:0] objectForKey:@"promotionid"];
+        UINavigationController *navigationcontroller = [[UINavigationController alloc] initWithRootViewController:profile];
+        
+        [self presentViewController:navigationcontroller animated:YES completion:nil];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Not Success afnetworking. - %@",error);
+    }];
+    [operation start];
 }
 
 -(void)editPost:(NSString *)idUserPost indexpath:(NSIndexPath *)indexPath{

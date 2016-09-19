@@ -40,7 +40,6 @@
                         <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="null" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tJg-xc-ez5">
                         <rect key="frame" x="8" y="61" width="304" height="64"/>
                         <constraints>
@@ -181,7 +180,7 @@
                     </mask>
                 </variation>
             </tableViewCellContentView>
-            <inset key="separatorInset" minX="0.0" minY="0.0" maxX="9" maxY="0.0"/>
+            <inset key="separatorInset" minX="0.0" minY="0.0" maxX="8" maxY="0.0"/>
             <connections>
                 <outlet property="btLikeOutlet" destination="2ho-hc-GMV" id="E0A-RP-EX2"/>
                 <outlet property="img" destination="hct-n0-hd2" id="Pl1-bF-5it"/>

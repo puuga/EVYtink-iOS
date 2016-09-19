@@ -90,6 +90,7 @@
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="suU-E2-ZV3" secondAttribute="bottom" constant="10" id="NJ2-WA-mZh"/>
             </constraints>
+            <inset key="separatorInset" minX="0.0" minY="0.0" maxX="8" maxY="0.0"/>
             <connections>
                 <outlet property="img" destination="7UW-Xr-Mx8" id="RwL-zM-qtD"/>
                 <outlet property="txtDate" destination="s8i-1e-xCH" id="zss-ES-kMj"/>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="identifierStyleCollectionVerticalCell" id="gTV-IL-0wX" customClass="StyleVerticalCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="110" height="140"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="110" height="140"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgappevybook.png" translatesAutoresizingMaskIntoConstraints="NO" id="3jw-UH-KV7">
+                        <rect key="frame" x="0.0" y="0.0" width="110" height="140"/>
+                    </imageView>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstItem="3jw-UH-KV7" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="06u-T2-kro"/>
+                <constraint firstAttribute="bottom" secondItem="3jw-UH-KV7" secondAttribute="bottom" id="1Os-5H-ds9"/>
+                <constraint firstItem="3jw-UH-KV7" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Bel-6S-ySD"/>
+                <constraint firstAttribute="trailing" secondItem="3jw-UH-KV7" secondAttribute="trailing" id="bIm-Dx-8Z3"/>
+            </constraints>
+            <size key="customSize" width="110" height="140"/>
+            <connections>
+                <outlet property="imgCover" destination="3jw-UH-KV7" id="XS9-fs-uab"/>
+            </connections>
+            <point key="canvasLocation" x="545" y="281"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="bgappevybook.png" width="1440" height="2560"/>
+    </resources>
+</document>

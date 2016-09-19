@@ -13,12 +13,19 @@
 @end
 
 @implementation ViewWeb
-@synthesize webV,url;
+@synthesize webV,url,StatusBarColourStat;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     [webV loadRequest:requestObj];
+    if ([StatusBarColourStat isEqualToString:@"ebook"]) {
+        [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:117.0f/255.0f green:60.0f/255.0f blue:17.0f/255.0f alpha:1.0f]];
+        self.navigationController.navigationBar.translucent = NO;
+        self.view.backgroundColor = [UIColor colorWithRed:117.0f/255.0f green:60.0f/255.0f blue:17.0f/255.0f alpha:1.0f];
+    }else{
+        self.view.backgroundColor = [UIColor colorWithRed:225.0f/255.0f green:27.0f/255.0f blue:40.0f/255.0f alpha:1.0f];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -27,6 +34,7 @@
 }
 
 - (IBAction)btClose:(id)sender {
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:225.0f/255.0f green:27.0f/255.0f blue:40.0f/255.0f alpha:1.0f]];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end

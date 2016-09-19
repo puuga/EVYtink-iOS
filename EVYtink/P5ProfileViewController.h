@@ -14,9 +14,13 @@
 #import "DefaultTableViewCell.h"
 #import <AFNetworking.h>
 
-@interface P5ProfileViewController : UIViewController<CLLocationManagerDelegate,UITableViewDelegate,UITableViewDataSource,FBSDKLoginButtonDelegate>
+@interface P5ProfileViewController : UIViewController<CLLocationManagerDelegate,UITableViewDelegate,UITableViewDataSource,FBSDKLoginButtonDelegate,UIImagePickerControllerDelegate>{
+    UIImagePickerController *pickerCamera;
+    UIImagePickerController *pickerCameraRoll;
+}
 
 
+@property (nonatomic,strong) UIImage *imgAddToserver;
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (strong, nonatomic) NSMutableArray *notificationGeofence;
 @property (weak, nonatomic) IBOutlet UIImageView *imgBGUser;
@@ -31,6 +35,7 @@
 - (IBAction)postBTAction:(id)sender;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *postBtProperties;
 @property (weak, nonatomic) IBOutlet UILabel *lbUserName;
+
 
 
 

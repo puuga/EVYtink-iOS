@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>1005231655243-k63i9i1fso6v97dope5h41s8dfld31f8.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1005231655243-k63i9i1fso6v97dope5h41s8dfld31f8</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDYqTbjfjTyEOPkohQlLUuQ_EWebh7AHUk</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1005231655243</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.appspace.evytink</string>
+	<key>PROJECT_ID</key>
+	<string>evytink-69761</string>
+	<key>STORAGE_BUCKET</key>
+	<string>evytink-69761.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1005231655243:ios:86d6902a5868c6ec</string>
+	<key>DATABASE_URL</key>
+	<string>https://evytink-69761.firebaseio.com</string>
+</dict>
+</plist>

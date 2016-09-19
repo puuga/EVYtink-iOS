@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UIWebView *webV;
 @property (nonatomic,strong) NSURL *url;
+@property (nonatomic,strong) NSString *StatusBarColourStat;
 - (IBAction)btClose:(id)sender;
 
 @end

@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "FBSDKCoreKit.framework/Headers/FBSDKCoreKit.h"
+#import <Firebase.h>
 
 @interface AppDelegate ()
 
@@ -18,6 +19,8 @@
 
 -(void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings{
 }
+
+
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -47,6 +50,14 @@
     if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
         [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
     }
+    //Firebase API.
+    [FIRApp configure];
+    
+    //Hide statusbar
+    //[application setStatusBarHidden:YES];
+    
+    //Change Status bar colour
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     return YES;
 }
 

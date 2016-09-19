@@ -156,7 +156,7 @@
                     </mask>
                 </variation>
             </tableViewCellContentView>
-            <inset key="separatorInset" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+            <inset key="separatorInset" minX="0.0" minY="0.0" maxX="8" maxY="0.0"/>
             <connections>
                 <outlet property="btLikeOutlet" destination="CvR-Eh-o6u" id="AkK-wV-kIm"/>
                 <outlet property="img" destination="hct-n0-hd2" id="ytN-Uh-xR1"/>

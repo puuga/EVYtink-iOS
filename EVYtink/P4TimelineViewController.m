@@ -298,7 +298,7 @@
 -(void)userPost:(NSString *)idUserPost{
     AnotherProfileViewController *profile = [self.storyboard instantiateViewControllerWithIdentifier:@"openProfileView"];
     profile.urlProfileshow = [NSString stringWithFormat:@"http://evbt.azurewebsites.net/docs/page/theme/betajsonnewsbyid.aspx?evarid=%@",idUserPost];
-    
+    profile.evyUId = idUserPost;
     UINavigationController *navigationcontroller = [[UINavigationController alloc] initWithRootViewController:profile];
     
     [self presentViewController:navigationcontroller animated:YES completion:nil];

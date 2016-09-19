@@ -19,12 +19,15 @@
 #import "ViewWeb.h"
 #import <AFNetworking.h>
 #import <AFHTTPRequestOperationManager.h>
+#import "PeditPersonalProfileViewController.h"
+#import "P5EditInformationTableViewCell.h"
 
 @interface P5ProfileViewController (){
     BOOL _didStartMonitoringRegion;
     NSMutableArray *arrProfileContent;
     BOOL chkEffect;
     NSString *evyUId;
+    NSString *aboutUs;
 }
 
 @property (nonatomic,strong) NSManagedObjectContext *managedObjectContext;
@@ -33,7 +36,7 @@
 @end
 
 @implementation P5ProfileViewController
-@synthesize locationManager,notificationGeofence,imgUser,imgBGUser,tableView,imgVNotlogin,loginBtProperties,postBtProperties,lbUserName;
+@synthesize locationManager,notificationGeofence,imgUser,imgBGUser,tableView,imgVNotlogin,loginBtProperties,postBtProperties,lbUserName,imgAddToserver;
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
     NSLog(@"Did Update locations.");
@@ -215,16 +218,25 @@
 //    [postBtProperties setTintColor:nil];
     postBtProperties.enabled = NO;
     [postBtProperties setTintColor:[UIColor clearColor]];
-    NSMutableDictionary* parameters = [NSMutableDictionary dictionary];
-    [parameters setValue:@"id,name,email,picture.width(200).height(200)" forKey:@"fields"];
     
-    [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:parameters] startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-         if (!error) {
-             lbUserName.text = [result objectForKey:@"name"];
-             [imgUser setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[[[result objectForKey:@"picture"] objectForKey:@"data"] objectForKey:@"url"]]]];
-             [imgBGUser setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[[[result objectForKey:@"picture"] objectForKey:@"data"] objectForKey:@"url"]]]];
-         }
-     }];
+    
+    NSURLRequest *urlRequestAc = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://evbt.azurewebsites.net/docs/page/theme/betajsonloadaccountprofile.aspx?evarid=%@",evyUId]]];
+    AFHTTPRequestOperation *operationAc = [[AFHTTPRequestOperation alloc] initWithRequest:urlRequestAc];
+    operationAc.responseSerializer = [AFJSONResponseSerializer serializer];
+    [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingAllowFragments];
+    
+    
+    [operationAc setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        lbUserName.text = [NSString stringWithFormat:@"%@",[[responseObject objectAtIndex:0] objectForKey:@"fname"]];
+        [imgUser setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[[responseObject objectAtIndex:0] objectForKey:@"imgprofile"]]]];
+        [imgBGUser setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[[responseObject objectAtIndex:0] objectForKey:@"imgprofile"]]]];
+        aboutUs = [[responseObject objectAtIndex:0] objectForKey:@"description"];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Not Success afnetworking.,%@",error);
+    }];
+    [operationAc start];
+    
     
     arrProfileContent = [[NSMutableArray alloc] init];
     self.tableView.userInteractionEnabled = NO;
@@ -243,6 +255,7 @@
             [arrProfileContent addObject:[responseObject objectAtIndex:i]];
             [self.tableView reloadData];
             if (i==([responseObject count]-1)) {
+                
                 self.tableView.userInteractionEnabled = YES;
             }
         }
@@ -288,7 +301,7 @@
                             [context deleteObject:managedObject];
                         }
                     }
-                    [self removeGeoFence:objects];
+                    //[self removeGeoFence:objects];
                 }
                 //Insert new Geofence.
                 NSLog(@"Count - %d",[[responseObject objectForKey:@"location"] count]);
@@ -349,7 +362,7 @@
     NSManagedObjectContext *context = [appDelegate managedObjectContext];
     NSLog(@"context show : %@",context);
     
-    //[context deleteObject:objDel];
+    [context deleteObject:objDel];
 }
 
 -(NSString *)getCurrentDatetimeToString{
@@ -387,9 +400,76 @@
     [self.tabBarController.tabBar.items objectAtIndex:4].imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
 }
 
+#pragma setting Camera
+
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    imgAddToserver = info[UIImagePickerControllerEditedImage];
+    picker.allowsEditing = YES;
+    [imgUser setImage:imgAddToserver];
+    
+    
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
+    NSData *imageData = UIImageJPEGRepresentation(imgAddToserver, 1);
+    
+    NSDictionary *jsonParameter = @{@"evyaccountid":evyUId,@"chkOverride":@"1"};
+    [manager POST:@"http://evbt.azurewebsites.net/docs/page/theme/evytinkstorage.aspx" parameters:jsonParameter constructingBodyWithBlock:^(id<AFMultipartFormData>  formData) {
+        [formData appendPartWithFileData:imageData name:@"attrachment" fileName:@"myImage.jpg" mimeType:@"image/jpeg"];
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Success Change Picture");
+        [self dismissViewControllerAnimated:YES completion:NULL];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Not success Change Picture - %@",error);
+    }];
+    
+}
+
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+-(void)chooseImageFromCameraRoll{
+    pickerCameraRoll = [[UIImagePickerController alloc]init];
+    pickerCameraRoll.delegate = self;
+    [pickerCameraRoll setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    pickerCameraRoll.allowsEditing = YES;
+    [self presentViewController:pickerCameraRoll animated:YES completion:NULL];
+}
+
+-(void)chooseImageFromCamera{
+    pickerCamera = [[UIImagePickerController alloc]init];
+    pickerCamera.delegate = self;
+    [pickerCamera setSourceType:UIImagePickerControllerSourceTypeCamera];
+    pickerCamera.allowsEditing = YES;
+    [self presentViewController:pickerCamera animated:YES completion:NULL];
+}
+
+-(void)changeProfilePicture{
+    UIAlertController *myAlertController = [UIAlertController alertControllerWithTitle:@"แก้ไขรูปประจำตัว" message:nil preferredStyle: UIAlertControllerStyleAlert];
+    UIAlertAction *fromAlbum = [UIAlertAction actionWithTitle:@"จากกล้องถ่ายรูป" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                           {
+                               NSLog(@"เลือกจากกล้องถ่ายรูป");
+                               [self chooseImageFromCamera];
+                           }];
+    [myAlertController addAction: fromAlbum];
+    UIAlertAction *fromCamera = [UIAlertAction actionWithTitle:@"จากอัลบั้ม" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                                {
+                                    NSLog(@"เลือกจากอัลบั้ม");
+                                    [self chooseImageFromCameraRoll];
+                                }];
+    [myAlertController addAction: fromCamera];
+    UIAlertAction *cancle = [UIAlertAction actionWithTitle:@"ยกเลิก" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                           {
+                               NSLog(@"เลือก 2");
+                           }];
+    [myAlertController addAction: cancle];
+    dispatch_async(dispatch_get_main_queue(), ^ {
+        [self presentViewController:myAlertController animated:YES completion:nil];
+    });
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     locationManager = [[CLLocationManager alloc] init];
     CLAuthorizationStatus authorizationStatus= [CLLocationManager authorizationStatus];
     if (authorizationStatus != kCLAuthorizationStatusAuthorizedAlways) {
@@ -407,9 +487,17 @@
     imgUser.layer.borderWidth = 3.0f;
     imgUser.layer.borderColor = [UIColor whiteColor].CGColor;
     
+    [imgUser setUserInteractionEnabled:YES];
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(changeProfilePicture)];
+    [singleTap setNumberOfTapsRequired:1];
+    [imgUser addGestureRecognizer:singleTap];
+    
+    
     static NSString *CellIdentifier1 = @"idenCell1";
     static NSString *CellIdentifier2 = @"idenCell2";
     static NSString *CellIdentifier3 = @"idenCell3";
+    static NSString *CellIdentifierEditInformation = @"idenEditInformation";
+    
     UINib *nib1 = [UINib nibWithNibName:@"CustomCell1" bundle:nil];
     [self.tableView registerNib:nib1 forCellReuseIdentifier:CellIdentifier1];
     
@@ -418,6 +506,9 @@
     
     UINib *nib3 = [UINib nibWithNibName:@"CustomCell3" bundle:nil];
     [self.tableView registerNib:nib3 forCellReuseIdentifier:CellIdentifier3];
+    
+    UINib *nib4 = [UINib nibWithNibName:@"P5EditInformationTableViewCell" bundle:nil];
+    [self.tableView registerNib:nib4 forCellReuseIdentifier:CellIdentifierEditInformation];
     
     [self.tableView reloadData];
 }
@@ -438,73 +529,81 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [arrProfileContent count];
+    return ([arrProfileContent count] + 1);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier1 = @"idenCell1";
     static NSString *CellIdentifier2 = @"idenCell2";
     static NSString *CellIdentifier3 = @"idenCell3";
-    if ([[[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"imageurl"]isEqualToString:@"no"]) {
+    static NSString *CellIdentifierEditInformation = @"idenEditInformation";
+    
+    if (indexPath.row == 0) {
+        P5EditInformationTableViewCell *cell = (P5EditInformationTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifierEditInformation];
+        cell.EvyId = evyUId;
+        cell.lbAboutUs.text = aboutUs;
+        cell.delegate = self;
+        return cell;
+    }else if ([[[arrProfileContent objectAtIndex:(indexPath.row - 1)] objectForKey:@"imageurl"]isEqualToString:@"no"]) {
         P1CellCustom1 *cell = (P1CellCustom1 *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier1];
         cell.delegate = self;
-        if (![cell.txtDetail.text isEqualToString:[[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"title"]]) {
-            NSString *string = [NSString stringWithFormat:@"%@",[[[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"user"] objectForKey:@"imgprofile"]];
+        if (![cell.txtDetail.text isEqualToString:[[arrProfileContent objectAtIndex:(indexPath.row - 1)] objectForKey:@"title"]]) {
+            NSString *string = [NSString stringWithFormat:@"%@",[[[arrProfileContent objectAtIndex:(indexPath.row - 1)] objectForKey:@"user"] objectForKey:@"imgprofile"]];
             NSArray *subString = [string componentsSeparatedByString:@"?"];
             NSString *urlimg = subString[0];
             
             cell.indexAction = indexPath;
             cell.EvyUserId = evyUId;
-            cell.strObjId = [[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"newsevyid"];
-            cell.txtName.text = [[[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"user"] objectForKey:@"publishtitle"];
-            cell.userPostId = [[[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"user"] objectForKey:@"evyaccountid"];
-            cell.txtDate.text = [[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"evydatetime"];
-            cell.txtDetail.text = [[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"title"];
-            cell.urlToShow = [NSString stringWithFormat:@"%@",[[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"url"]];
+            cell.strObjId = [[arrProfileContent objectAtIndex:(indexPath.row - 1)] objectForKey:@"newsevyid"];
+            cell.txtName.text = [[[arrProfileContent objectAtIndex:(indexPath.row - 1)] objectForKey:@"user"] objectForKey:@"publishtitle"];
+            cell.userPostId = [[[arrProfileContent objectAtIndex:(indexPath.row - 1)] objectForKey:@"user"] objectForKey:@"evyaccountid"];
+            cell.txtDate.text = [[arrProfileContent objectAtIndex:(indexPath.row - 1)] objectForKey:@"evydatetime"];
+            cell.txtDetail.text = [[arrProfileContent objectAtIndex:(indexPath.row - 1)] objectForKey:@"title"];
+            cell.urlToShow = [NSString stringWithFormat:@"%@",[[arrProfileContent objectAtIndex:(indexPath.row - 1)] objectForKey:@"url"]];
             [cell.img setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@?",urlimg]]];
         }
         return cell;
-    }else if ([[[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"imageurl2"]isEqualToString:@"no"]){
+    }else if ([[[arrProfileContent objectAtIndex:(indexPath.row - 1)] objectForKey:@"imageurl2"]isEqualToString:@"no"]){
         P1CellCustom2 *cell = (P1CellCustom2 *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier2];
         cell.delegate = self;
-        if (![cell.txtDetail.text isEqualToString:[[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"title"]]) {
-            NSString *string = [NSString stringWithFormat:@"%@",[[[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"user"] objectForKey:@"imgprofile"]];
+        if (![cell.txtDetail.text isEqualToString:[[arrProfileContent objectAtIndex:(indexPath.row - 1)] objectForKey:@"title"]]) {
+            NSString *string = [NSString stringWithFormat:@"%@",[[[arrProfileContent objectAtIndex:(indexPath.row - 1)] objectForKey:@"user"] objectForKey:@"imgprofile"]];
             NSArray *subString = [string componentsSeparatedByString:@"?"];
             NSString *urlimg = subString[0];
             
             cell.indexAction = indexPath;
             cell.EvyUserId = evyUId;
-            cell.strObjId = [[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"newsevyid"];
-            cell.txtName.text = [[[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"user"] objectForKey:@"publishtitle"];
-            cell.userPostId = [[[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"user"] objectForKey:@"evyaccountid"];
-            cell.txtDate.text = [[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"evydatetime"];
-            cell.txtDetail.text = [[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"title"];
-            cell.urlToShow = [NSString stringWithFormat:@"%@",[[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"url"]];
+            cell.strObjId = [[arrProfileContent objectAtIndex:(indexPath.row - 1)] objectForKey:@"newsevyid"];
+            cell.txtName.text = [[[arrProfileContent objectAtIndex:(indexPath.row - 1)] objectForKey:@"user"] objectForKey:@"publishtitle"];
+            cell.userPostId = [[[arrProfileContent objectAtIndex:(indexPath.row - 1)] objectForKey:@"user"] objectForKey:@"evyaccountid"];
+            cell.txtDate.text = [[arrProfileContent objectAtIndex:(indexPath.row - 1)] objectForKey:@"evydatetime"];
+            cell.txtDetail.text = [[arrProfileContent objectAtIndex:(indexPath.row - 1)] objectForKey:@"title"];
+            cell.urlToShow = [NSString stringWithFormat:@"%@",[[arrProfileContent objectAtIndex:(indexPath.row - 1)] objectForKey:@"url"]];
             [cell.img setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@?",urlimg]]];
-            [cell.imgPic1 setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"imageurl"]]]];
+            [cell.imgPic1 setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[[arrProfileContent objectAtIndex:(indexPath.row - 1)] objectForKey:@"imageurl"]]]];
         }
         return cell;
     }else{
         P1CellCustom3 *cell = (P1CellCustom3 *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier3];
         cell.delegate = self;
-        if (![cell.txtDetail.text isEqualToString:[[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"title"]]) {
-            NSString *string = [NSString stringWithFormat:@"%@",[[[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"user"] objectForKey:@"imgprofile"]];
+        if (![cell.txtDetail.text isEqualToString:[[arrProfileContent objectAtIndex:(indexPath.row - 1)] objectForKey:@"title"]]) {
+            NSString *string = [NSString stringWithFormat:@"%@",[[[arrProfileContent objectAtIndex:(indexPath.row - 1)] objectForKey:@"user"] objectForKey:@"imgprofile"]];
             NSArray *subString = [string componentsSeparatedByString:@"?"];
             NSString *urlimg = subString[0];
             NSURL *urlUser = [NSURL URLWithString:[NSString stringWithFormat:@"%@?",urlimg]];
             
             cell.indexAction = indexPath;
             cell.EvyUserId = evyUId;
-            cell.strObjId = [[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"newsevyid"];
-            cell.txtName.text = [[[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"user"] objectForKey:@"publishtitle"];
-            cell.userPostId = [[[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"user"] objectForKey:@"evyaccountid"];
-            cell.txtDate.text = [[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"evydatetime"];
-            cell.txtDetail.text = [[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"title"];
-            cell.urlToShow = [NSString stringWithFormat:@"%@",[[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"url"]];
+            cell.strObjId = [[arrProfileContent objectAtIndex:(indexPath.row - 1)] objectForKey:@"newsevyid"];
+            cell.txtName.text = [[[arrProfileContent objectAtIndex:(indexPath.row - 1)] objectForKey:@"user"] objectForKey:@"publishtitle"];
+            cell.userPostId = [[[arrProfileContent objectAtIndex:(indexPath.row - 1)] objectForKey:@"user"] objectForKey:@"evyaccountid"];
+            cell.txtDate.text = [[arrProfileContent objectAtIndex:(indexPath.row - 1)] objectForKey:@"evydatetime"];
+            cell.txtDetail.text = [[arrProfileContent objectAtIndex:(indexPath.row - 1)] objectForKey:@"title"];
+            cell.urlToShow = [NSString stringWithFormat:@"%@",[[arrProfileContent objectAtIndex:(indexPath.row - 1)] objectForKey:@"url"]];
             
             [cell.img setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@?",urlimg]]];
-            [cell.imgPic1 setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"imageurl"]]]];
-            [cell.imgPic2 setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"imageurl2"]]]];
+            [cell.imgPic1 setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[[arrProfileContent objectAtIndex:(indexPath.row - 1)] objectForKey:@"imageurl"]]]];
+            [cell.imgPic2 setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[[arrProfileContent objectAtIndex:(indexPath.row - 1)] objectForKey:@"imageurl2"]]]];
         }
         return cell;
     }
@@ -512,12 +611,11 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if ([arrProfileContent count]==0) {
-        return 100;
-    }
-    if ([[[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"imageurl"]isEqualToString:@"no"]) {
+    if (indexPath.row == 0) {
+        return 140;
+    }else if ([[[arrProfileContent objectAtIndex:(indexPath.row - 1)] objectForKey:@"imageurl"]isEqualToString:@"no"]) {
         return 168;
-    }else if ([[[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"imageurl2"]isEqualToString:@"no"]){
+    }else if ([[[arrProfileContent objectAtIndex:(indexPath.row - 1)] objectForKey:@"imageurl2"]isEqualToString:@"no"]){
         return 400;
     }else{
         return 291;
@@ -538,6 +636,7 @@
     NSData *jsonData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://evbt.azurewebsites.net/docs/page/theme/evycheckfbloginjson.aspx?evarfid=%@",[[FBSDKAccessToken currentAccessToken] userID]]]];
     NSLog(@"U ID - %@",[[FBSDKAccessToken currentAccessToken] userID]);
     id jsonObjects = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
+    NSLog(@"Success show");
     NSLog(@"show event form facebook : %@",[[jsonObjects objectAtIndex:0] objectForKey:@"evyaccountid"]);
     
     return [NSString stringWithFormat:@"%@",[[jsonObjects objectAtIndex:0] objectForKey:@"evyaccountid"]];
@@ -630,7 +729,7 @@
                                   UIAlertController *alertDelete = [UIAlertController alertControllerWithTitle:@"ลบโพสต์" message:@"ยืนยันการลบโพสต์ ?" preferredStyle:UIAlertControllerStyleAlert];
                                   UIAlertAction *confirm = [UIAlertAction actionWithTitle:@"ลบ" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
                                                          {
-                                                             [self deletePost:idUserPost objId:[[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"newsevyid"]];
+                                                             [self deletePost:idUserPost objId:[[arrProfileContent objectAtIndex:(indexPath.row - 1)] objectForKey:@"newsevyid"]];
                                                          }];
                                   UIAlertAction *cancle = [UIAlertAction actionWithTitle:@"ยกเลิก" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
                                                             {
@@ -689,7 +788,7 @@
                                  
                                  
                                  AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
-                                 NSLog(@"user ID - %@, objectId - %@",userId,objectId);
+                                 NSLog(@"Success POST Delete user ID - %@, objectId - %@",userId,objectId);
                                  NSDictionary *jsonParameter = @{@"evarid":userId,@"evarnewsid":objectId,@"evarcommand":@"deletenews",@"evarnewscontent":@""};
                                  
                                  [manager POST:@"http://evbt.azurewebsites.net/docs/page/theme/betajsonnewsedit.aspx" parameters:jsonParameter constructingBodyWithBlock:^(id<AFMultipartFormData>  formData) {
@@ -721,8 +820,8 @@
     viewController.evyId = userId;
     viewController.statusToServer = @"updatenews";
     viewController.statusShared = @"private";
-    viewController.objId = [NSString stringWithFormat:@"%@",[[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"newsevyid"]];
-    viewController.strUpdate = [NSString stringWithFormat:@"%@",[[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"title"]];
+    viewController.objId = [NSString stringWithFormat:@"%@",[[arrProfileContent objectAtIndex:(indexPath.row - 1)] objectForKey:@"newsevyid"]];
+    viewController.strUpdate = [NSString stringWithFormat:@"%@",[[arrProfileContent objectAtIndex:(indexPath.row - 1)] objectForKey:@"title"]];
     [self.navigationController pushViewController:viewController animated:YES];
 }
 
@@ -798,4 +897,37 @@
     
 }
 
+-(void)editPersonalInformation:(NSString *)EvyUserId{
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://evbt.azurewebsites.net/docs/page/theme/betajsonloadaccountprofile.aspx?evarid=%@",EvyUserId]]];
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:urlRequest];
+    operation.responseSerializer = [AFJSONResponseSerializer serializer];
+    [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingAllowFragments];
+    
+    
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+        PeditPersonalProfileViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"storyEditPersonal"];
+        viewController.EName = [NSString stringWithFormat:@"%@",[[responseObject objectAtIndex:0] objectForKey:@"fname"]];
+        viewController.EDescription = [[responseObject objectAtIndex:0] objectForKey:@"description"];
+        viewController.EWebsite = [[responseObject objectAtIndex:0] objectForKey:@"website"];
+        viewController.EvyId = evyUId;
+        viewController.EAddress = [[responseObject objectAtIndex:0] objectForKey:@"location"];
+        [self.navigationController pushViewController:viewController animated:YES];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Not Success afnetworking.,%@",error);
+    }];
+    [operation start];
+}
 @end
+
+
+
+
+
+
+
+
+
+
+

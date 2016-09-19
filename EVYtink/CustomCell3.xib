@@ -41,17 +41,13 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="I5z-dE-ODv">
-
                         <rect key="frame" x="8" y="128" width="148" height="148"/>
-
                         <constraints>
                             <constraint firstAttribute="height" constant="148" id="O6I-vV-Fhj"/>
                         </constraints>
                     </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kxF-Kx-7rf">
-
                         <rect key="frame" x="164" y="128" width="148" height="148"/>
-
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F7h-bs-2NI">
                         <rect key="frame" x="0.0" y="284" width="320" height="40"/>
@@ -195,7 +191,7 @@
                     </mask>
                 </variation>
             </tableViewCellContentView>
-            <inset key="separatorInset" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+            <inset key="separatorInset" minX="0.0" minY="0.0" maxX="8" maxY="0.0"/>
             <connections>
                 <outlet property="btLikeOutlet" destination="gbR-i5-PF0" id="zL3-FG-rfY"/>
                 <outlet property="img" destination="hct-n0-hd2" id="Pl1-bF-5it"/>

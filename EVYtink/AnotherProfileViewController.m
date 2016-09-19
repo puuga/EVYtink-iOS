@@ -15,6 +15,7 @@
 #import "FBSDKShareKit.framework/Headers/FBSDKShareKit.h"
 #import "CommentViewController.h"
 
+
 @interface AnotherProfileViewController (){
     NSMutableArray *arrProfileContent;
 }
@@ -41,6 +42,8 @@
     static NSString *CellIdentifier1 = @"idenCell1";
     static NSString *CellIdentifier2 = @"idenCell2";
     static NSString *CellIdentifier3 = @"idenCell3";
+    static NSString *CellIdentifier4 = @"idenEditAnotherInformation";
+    
     UINib *nib1 = [UINib nibWithNibName:@"CustomCell1" bundle:nil];
     [self.tableView registerNib:nib1 forCellReuseIdentifier:CellIdentifier1];
     
@@ -50,12 +53,39 @@
     UINib *nib3 = [UINib nibWithNibName:@"CustomCell3" bundle:nil];
     [self.tableView registerNib:nib3 forCellReuseIdentifier:CellIdentifier3];
     
+    UINib *nib4 = [UINib nibWithNibName:@"P5EditInformationAnotherTableViewCell" bundle:nil];
+    [self.tableView registerNib:nib4 forCellReuseIdentifier:CellIdentifier4];
+    
     [self.tableView reloadData];
+    
+    
+    NSURLRequest *urlRequestAc = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://evbt.azurewebsites.net/docs/page/theme/betajsonloadaccountprofile.aspx?evarid=%@",evyUId]]];
+    AFHTTPRequestOperation *operationAc = [[AFHTTPRequestOperation alloc] initWithRequest:urlRequestAc];
+    operationAc.responseSerializer = [AFJSONResponseSerializer serializer];
+    [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingAllowFragments];
+    
+    [operationAc setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Loading.. Success - %@",evyUId);
+        labelUserName.text = [NSString stringWithFormat:@"%@",[[responseObject objectAtIndex:0] objectForKey:@"fname"]];
+        [imgUser setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[[responseObject objectAtIndex:0] objectForKey:@"imgprofile"]]]];
+        [imgUserBg setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[[responseObject objectAtIndex:0] objectForKey:@"imgprofile"]]]];
+        UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+        UIVisualEffectView *effectView = [[UIVisualEffectView alloc]initWithEffect:blur];
+        effectView.frame = imgUserBg.frame;
+        effectView.alpha = 0.95f;
+        [imgUserBg addSubview:effectView];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Not Success afnetworking.,%@",error);
+    }];
+    [operationAc start];
+    
     
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:urlProfileshow]];
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:urlRequest];
     operation.responseSerializer = [AFJSONResponseSerializer serializer];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        /*
         [imgUser setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[[[responseObject objectAtIndex:0] objectForKey:@"user"] objectForKey:@"imgprofile"]]]];
         [imgUserBg setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[[[responseObject objectAtIndex:0] objectForKey:@"user"] objectForKey:@"imgprofile"]]]];
         UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
@@ -66,7 +96,7 @@
         
         
         labelUserName.text = [[[responseObject objectAtIndex:0] objectForKey:@"user"] objectForKey:@"publishtitle"];
-        
+        */
         /*for (int i = 0; i<[responseObject count]; i++) {
             NSLog(@"arrprofile No.%d - %@",i,[responseObject objectAtIndex:i]);
         }
@@ -122,6 +152,14 @@
     static NSString *CellIdentifier1 = @"idenCell1";
     static NSString *CellIdentifier2 = @"idenCell2";
     static NSString *CellIdentifier3 = @"idenCell3";
+    static NSString *CellIdentifier4 = @"idenEditAnotherInformation";
+    
+    if (indexPath.row==0) {
+        P5EditInformationAnotherTableViewCell *cell = (P1CellCustom1 *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier4];
+        
+        return cell;
+    }
+    
     if ([[[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"imageurl"]isEqualToString:@"no"]) {
         P1CellCustom1 *cell = (P1CellCustom1 *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier1];
         cell.delegate = self;
@@ -199,10 +237,10 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if ([arrProfileContent count]==0) {
+    if (indexPath.row==0) {
+        NSLog(@"rows height 100");
         return 100;
-    }
-    if ([[[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"imageurl"]isEqualToString:@"no"]) {
+    }else if ([[[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"imageurl"]isEqualToString:@"no"]) {
         return 168;
     }else if ([[[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"imageurl2"]isEqualToString:@"no"]){
         return 400;
@@ -237,6 +275,10 @@
     viewController.urlImg1 = [NSString stringWithFormat:@"%@",[[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"imageurl"]];
     viewController.urlImg2 = [NSString stringWithFormat:@"%@",[[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"imageurl2"]];
     [self.navigationController pushViewController:viewController animated:YES];
+}
+
+-(void)userPost:(NSString *)idUserPost{
+
 }
 
 
