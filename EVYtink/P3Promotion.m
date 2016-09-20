@@ -111,6 +111,8 @@
     static NSString *CellIdentifier1 = @"idenDefCell1";
     static NSString *CellIdentifier2 = @"idenDefCell2";
     static NSString *CellIdentifier3 = @"idenDefCell3";
+    static NSString *CellIdentifierPromote = @"idenPromote";
+    
     UINib *nib = [UINib nibWithNibName:@"P1D1TableViewCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:CellIdentifier1];
     
@@ -119,6 +121,9 @@
     
     nib = [UINib nibWithNibName:@"P1D3TableViewCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:CellIdentifier3];
+    
+    UINib *nib4 = [UINib nibWithNibName:@"PromoteTableViewCell" bundle:nil];
+    [self.tableView registerNib:nib4 forCellReuseIdentifier:CellIdentifierPromote];
     
     [self.tableView reloadData];
 }
@@ -170,7 +175,7 @@
     static NSString *CellIdentifier1 = @"idenDefCell1";
     static NSString *CellIdentifier2 = @"idenDefCell2";
     static NSString *CellIdentifier3 = @"idenDefCell3";
-    
+    static NSString *CellIdentifierPromote = @"idenPromote";
     if ((indexPath.row == ([arrShowPromotion count])-1)&&([arrPromotion count]!=[arrShowPromotion count])) {
         if (([arrShowPromotion count] + 5) <= [arrPromotion count]) {
             [self startArrShowPromotion:arrPromotion startAt:(indexPath.row + 1) endAt:(indexPath.row + 5)];
@@ -182,7 +187,16 @@
     }
     
     NSLog(@"Cell - %@",[arrShowPromotion objectAtIndex:indexPath.row]);
-    if ([[[arrShowPromotion objectAtIndex:indexPath.row] objectForKey:@"imageurl"]isEqualToString:@"no"]) {
+    if (indexPath.row == 0) {
+        PromoteTableViewCell *cell = (PromoteTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifierPromote];
+        NSString *string = [NSString stringWithFormat:@"%@",[[[arrShowPromotion objectAtIndex:indexPath.row] objectForKey:@"user"] objectForKey:@"imgprofile"]];
+        NSArray *subString = [string componentsSeparatedByString:@"?"];
+        NSString *urlimg = subString[0];
+        [cell.imgPic1 setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[[arrShowPromotion objectAtIndex:indexPath.row] objectForKey:@"imageurl"]]]];
+        cell.txtName.text = @"Promotion Today";
+        
+        return cell;
+    }else if ([[[arrShowPromotion objectAtIndex:indexPath.row] objectForKey:@"imageurl"]isEqualToString:@"no"]) {
         P1D1TableViewCell *cell = (P1D1TableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier1];
         cell.delegate = self;
         if (![cell.txtDetail.text isEqualToString:[[arrShowPromotion objectAtIndex:indexPath.row] objectForKey:@"title"]]) {
@@ -244,7 +258,9 @@
     }
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if ([[[arrShowPromotion objectAtIndex:indexPath.row] objectForKey:@"imageurl"]isEqualToString:@"no"]) {
+    if (indexPath.row==0) {
+        return 210;
+    }else if ([[[arrShowPromotion objectAtIndex:indexPath.row] objectForKey:@"imageurl"]isEqualToString:@"no"]) {
         return 148;
     }else if ([[[arrShowPromotion objectAtIndex:indexPath.row] objectForKey:@"imageurl2"]isEqualToString:@"no"]){
         return 360;

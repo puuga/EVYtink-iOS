@@ -10,6 +10,7 @@
 #import "P1D1TableViewCell.h"
 #import "P1D2TableViewCell.h"
 #import "P1D3TableViewCell.h"
+#import "PromoteTableViewCell.h"
 
 @interface P2Event : UITableViewController
 

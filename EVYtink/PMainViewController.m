@@ -34,6 +34,7 @@
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:117.0f/255.0f green:60.0f/255.0f blue:17.0f/255.0f alpha:1.0f];
     
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     
     UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0., 0., 320., 44.)];
     searchBar.barTintColor = [UIColor colorWithRed:117.0f/255.0f green:60.0f/255.0f blue:17.0f/255.0f alpha:1.0f];

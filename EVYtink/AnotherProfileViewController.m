@@ -23,7 +23,7 @@
 @end
 
 @implementation AnotherProfileViewController
-@synthesize urlProfileshow,imgUser,imgUserBg,labelUserName,tableView,evyUId;
+@synthesize urlProfileshow,imgUser,imgUserBg,labelUserName,tableView,evyUId,idForPost;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -124,6 +124,12 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    if (idForPost==nil) {
+        idForPost = [self getEvyId];
+    }
 }
 
 /*
@@ -264,7 +270,7 @@
     NSArray *subString = [string componentsSeparatedByString:@"?"];
     NSString *urlimg = subString[0];
     viewController.statusShared = @"private";
-    viewController.userId = evyUId;
+    viewController.userId = idForPost;
     viewController.newsId = [[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"newsevyid"];
     viewController.txtname = [[[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"user"] objectForKey:@"publishtitle"];
     viewController.userPostId = [[[arrProfileContent objectAtIndex:indexPath.row] objectForKey:@"user"] objectForKey:@"evyaccountid"];
@@ -279,6 +285,15 @@
 
 -(void)userPost:(NSString *)idUserPost{
 
+}
+
+-(NSString *)getEvyId{
+    NSData *jsonData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://evbt.azurewebsites.net/docs/page/theme/evycheckfbloginjson.aspx?evarfid=%@",[[FBSDKAccessToken currentAccessToken] userID]]]];
+    NSLog(@"U ID - %@",[[FBSDKAccessToken currentAccessToken] userID]);
+    id jsonObjects = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
+    NSLog(@"show event form facebook : %@",[[jsonObjects objectAtIndex:0] objectForKey:@"evyaccountid"]);
+    
+    return [NSString stringWithFormat:@"%@",[[jsonObjects objectAtIndex:0] objectForKey:@"evyaccountid"]];
 }
 
 

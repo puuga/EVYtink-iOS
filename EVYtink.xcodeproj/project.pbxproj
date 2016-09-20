@@ -71,6 +71,7 @@
 		18EB40441D906BA10066DDC5 /* shelf.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EB40431D906BA10066DDC5 /* shelf.png */; };
 		18EB40481D9070DE0066DDC5 /* PromoteNewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EB40461D9070DE0066DDC5 /* PromoteNewsTableViewCell.m */; };
 		18EB40491D9070DE0066DDC5 /* PromoteNewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EB40471D9070DE0066DDC5 /* PromoteNewsTableViewCell.xib */; };
+		18EB404C1D919E6F0066DDC5 /* MapNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EB404B1D919E6F0066DDC5 /* MapNewsViewController.m */; };
 		18EC76991CF2B425005C2649 /* CustomCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EC76981CF2B425005C2649 /* CustomCell1.xib */; };
 		18EC769C1CF2B506005C2649 /* P1CellCustom1.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EC769B1CF2B506005C2649 /* P1CellCustom1.m */; };
 		18EC769E1CF2BE1A005C2649 /* CustomCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EC769D1CF2BE1A005C2649 /* CustomCell2.xib */; };
@@ -235,6 +236,8 @@
 		18EB40451D9070DE0066DDC5 /* PromoteNewsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PromoteNewsTableViewCell.h; sourceTree = "<group>"; };
 		18EB40461D9070DE0066DDC5 /* PromoteNewsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PromoteNewsTableViewCell.m; sourceTree = "<group>"; };
 		18EB40471D9070DE0066DDC5 /* PromoteNewsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PromoteNewsTableViewCell.xib; sourceTree = "<group>"; };
+		18EB404A1D919E6F0066DDC5 /* MapNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapNewsViewController.h; sourceTree = "<group>"; };
+		18EB404B1D919E6F0066DDC5 /* MapNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapNewsViewController.m; sourceTree = "<group>"; };
 		18EC76981CF2B425005C2649 /* CustomCell1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCell1.xib; sourceTree = "<group>"; };
 		18EC769A1CF2B506005C2649 /* P1CellCustom1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = P1CellCustom1.h; sourceTree = "<group>"; };
 		18EC769B1CF2B506005C2649 /* P1CellCustom1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = P1CellCustom1.m; sourceTree = "<group>"; };
@@ -421,6 +424,8 @@
 				18EB40101D76DC820066DDC5 /* PGetlocationTabbarViewController.m */,
 				18EB40121D7D8F160066DDC5 /* PeditPersonalProfileViewController.h */,
 				18EB40131D7D8F160066DDC5 /* PeditPersonalProfileViewController.m */,
+				18EB404A1D919E6F0066DDC5 /* MapNewsViewController.h */,
+				18EB404B1D919E6F0066DDC5 /* MapNewsViewController.m */,
 				181FDE2D1CED768600C47C37 /* Assets.xcassets */,
 				18FB1D0E1D33686500EE3D0C /* CoreData */,
 				181FDE2F1CED768600C47C37 /* LaunchScreen.storyboard */,
@@ -980,6 +985,7 @@
 				18EC79A01CF6C6B4005C2649 /* testTableView.m in Sources */,
 				18EB40381D9069D10066DDC5 /* PMainViewController.m in Sources */,
 				18EB40481D9070DE0066DDC5 /* PromoteNewsTableViewCell.m in Sources */,
+				18EB404C1D919E6F0066DDC5 /* MapNewsViewController.m in Sources */,
 				18CB207F1D13A8E400019C3F /* TestMapViewController.m in Sources */,
 				18EC77711CF40D2B005C2649 /* P3Promotion.m in Sources */,
 				18EC776E1CF40755005C2649 /* P2Event.m in Sources */,

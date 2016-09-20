@@ -21,6 +21,7 @@
 #import "AnotherProfileViewController.h"
 #import "PromoteNewsTableViewCell.h"
 #import "PMainViewController.h"
+#import "MapNewsViewController.h"
 
 @interface P1News (){
     BOOL chkLogin;
@@ -40,12 +41,20 @@
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     self.navigationItem.leftBarButtonItem = anotherButton;
 
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"    " style:UIBarButtonItemStyleDone target:nil action:nil];
+    UIBarButtonItem *buttonNews = [[UIBarButtonItem alloc] initWithTitle:@"Map" style:UIBarButtonItemStyleDone target:nil action:@selector(showNewsMapView)];
+    buttonNews.target = self;
+    self.navigationItem.rightBarButtonItem = buttonNews;
     UIImage* logoImage = [UIImage imageNamed:@"TopCenterlogoevytink.png"];
     UIImageView *uiimagelogoImage = [[UIImageView alloc] initWithImage:logoImage];
     uiimagelogoImage.frame = CGRectMake(75, 0, 100, 44);
     [uiimagelogoImage setContentMode:UIViewContentModeScaleAspectFit];
     self.navigationItem.titleView = uiimagelogoImage;
+}
+
+-(void)showNewsMapView{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    MapNewsViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"showMapNews"];
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 - (void)viewDidLoad {

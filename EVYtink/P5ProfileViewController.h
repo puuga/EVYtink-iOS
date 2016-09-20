@@ -19,7 +19,6 @@
     UIImagePickerController *pickerCameraRoll;
 }
 
-
 @property (nonatomic,strong) UIImage *imgAddToserver;
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (strong, nonatomic) NSMutableArray *notificationGeofence;

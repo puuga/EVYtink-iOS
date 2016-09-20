@@ -17,7 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 - (IBAction)btClose:(id)sender;
 
-
+@property (nonatomic,strong) NSString *idForPost;
 @property (nonatomic, strong) NSString *urlProfileshow;
 @property (nonatomic, strong) NSString *evyUId;
 
